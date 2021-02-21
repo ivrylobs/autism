@@ -1,12 +1,7 @@
 import React from "react";
+import Header from '../src/components/Header';
 
 import {
-    
-  AppBar,
-  Toolbar,
-  Link,
-  IconButton,
-  Box,
   Typography,
   Container,
   Grid,
@@ -14,8 +9,6 @@ import {
   Button
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import DeleteIcon from '@material-ui/icons/Delete';
 import FacebookIcon from '@material-ui/icons/Facebook';
 
 const useStyle = makeStyles((theme) => ({
@@ -82,6 +75,7 @@ export default function Aboutas() {
 
   return (
     <main>
+         <Header></Header>
    <Container maxWidth='lg'>
     <Paper className={classes.Paper1}>
     image
