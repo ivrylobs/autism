@@ -18,7 +18,7 @@ const useStyle = makeStyles((theme) => ({
   Fontent: {
     padding: "30px",
     backgroundImage: `url(${"bghome2.png"})`,
-    height: "1080px",
+    height: "1081px",
   },
   Dividerlinear: {
     height: "2px",
