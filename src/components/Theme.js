@@ -17,7 +17,7 @@ export default createMuiTheme({
     primary: {
       main: "#F26705",
       light: "#ED9B61",
-      contrastText: "#000"
+      contrastText: "#000",
     },
     // Blue
     secondary: {
@@ -27,19 +27,21 @@ export default createMuiTheme({
     },
     // Red
     warning: {
-        main: "#EF5666",
-        light: "#EAA0A8",
-        contrastText: "#fff",
-      },
-      // Green
-      success: {
-        main: "#B1BE12",
-        light: "#DBE0A5",
-        contrastText: "#fff",
-      },
+      main: "#EF5666",
+      light: "#EAA0A8",
+      contrastText: "#fff",
+    },
+    // Green
+    success: {
+      main: "#B1BE12",
+      light: "#DBE0A5",
+      contrastText: "#fff",
+    },
   },
   typography: {
-    fontFamily: [" 'Trirong', sans-serif ", " 'Raleway', sans-serif "].join(","),
+    fontFamily: [" 'Trirong', sans-serif ", " 'Raleway', sans-serif "].join(
+      ","
+    ),
     h1: {
       fontWeight: 300,
       fontSize: 96,
@@ -93,6 +95,17 @@ export default createMuiTheme({
       fontSize: 12,
       lineHeight: 1.66,
       letterSpacing: "0.03333em",
+    },
+    tab: {
+      fontFamily: "Raleway",
+      textTransform: "none",
+      fontWeight: 700,
+      fontSize: 16,
+    },
+    estimate: {
+      fontFamily: "Raleway",
+      fontSize: 16,
+      textTransform: "none",
     },
   },
 });
