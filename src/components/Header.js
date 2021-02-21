@@ -1,22 +1,21 @@
 import React, { useState } from "react";
+import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import { makeStyles } from "@material-ui/styles";
-import Link from '../Link'
+import Link from "../Link";
 
+import Grid from '@material-ui/core/Grid';
 import Button from "@material-ui/core/Button";
-import Switch from "@material-ui/core/Switch";
 import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
 import MenuItem from "@material-ui/core/MenuItem";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
 import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
 import MenuList from "@material-ui/core/MenuList";
-
+import Switch from '@material-ui/core/Switch';
 
 import FacebookIcon from "@material-ui/icons/Facebook";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
@@ -60,18 +59,27 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#B1BE12",
     },
   },
+  navNews: {
+    ...theme.typography.tab,
+    minWidth: 15,
+    marginLeft: 15,
+    marginRight: 15,
+    "&:hover": {
+      backgroundColor: "#B1BE12",
+    },
+  },
   Aboutmenu: {
     backgroundColor: "#B1BE12",
     color: "white",
     borderRadius: "3px",
-    zIndex: 1302
+    zIndex: 1302,
   },
   AboutmenuItem: {
     ...theme.typography.tab,
     opacity: 0.7,
     "&:hover": {
-      opacity: 1
-    }
+      opacity: 1,
+    },
   },
   button: {
     ...theme.typography.estimate,
@@ -83,6 +91,40 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
 }));
+
+const AntSwitch = withStyles((theme) => ({
+  root: {
+    width: 28,
+    height: 16,
+    padding: 0,
+    display: 'flex',
+  },
+  switchBase: {
+    padding: 2,
+    color: theme.palette.grey[500],
+    '&$checked': {
+      transform: 'translateX(12px)',
+      color: theme.palette.common.white,
+      '& + $track': {
+        opacity: 1,
+        backgroundColor: theme.palette.warning.main,
+        borderColor: theme.palette.warning.main,
+      },
+    },
+  },
+  thumb: {
+    width: 12,
+    height: 12,
+    boxShadow: 'none',
+  },
+  track: {
+    border: `1px solid ${theme.palette.grey[500]}`,
+    borderRadius: 16 / 2,
+    opacity: 1,
+    backgroundColor: theme.palette.common.white,
+  },
+  checked: {},
+}))(Switch);
 
 export default function Header(props) {
   const classes = useStyles();
@@ -127,6 +169,14 @@ export default function Header(props) {
     },
   ];
 
+  const [state, setState] = React.useState({
+    checkedA: true,
+  });
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
   return (
     <React.Fragment>
       <ElevationScroll>
@@ -139,7 +189,7 @@ export default function Header(props) {
               </Button>
               <Button
                 variant="text"
-                className={classes.nav}
+                className={classes.navNews}
                 endIcon={<ExpandMoreIcon />}
                 aria-controls="simple-menu"
                 aria-haspopup="true"
@@ -158,30 +208,30 @@ export default function Header(props) {
                   <Grow
                     {...TransitionProps}
                     style={{
-                      transformOrigin:
-                        placement === "top left",
+                      transformOrigin: placement === "top left",
                     }}
                   >
                     <Paper className={classes.Aboutmenu} elevation={0}>
                       <ClickAwayListener onClickAway={handleClose}>
-                        <MenuList  id="simple-menu"
-                        
-                        disablePadding
-                        autoFocusItem={false}>
+                        <MenuList
+                          id="simple-menu"
+                          disablePadding
+                          autoFocusItem={false}
+                        >
                           {aboutOptions.map((option, i) => (
                             <MenuItem
-                            key={`${option}${i}`}
-                            component={Link}
-                            href={option.link}
+                              key={`${option}${i}`}
+                              component={Link}
+                              href={option.link}
                               className={classes.AboutmenuItem}
                               selected={i === selectedIndex}
-                              onClick={event => {
+                              onClick={(event) => {
                                 handleMenuItemClick(event, i);
                                 props.setValue(1);
                                 handleClose();
                               }}
                             >
-                             {option.name}
+                              {option.name}
                             </MenuItem>
                           ))}
                         </MenuList>
@@ -198,9 +248,32 @@ export default function Header(props) {
               >
                 Our work
               </Button>
-              <Button variant="text" className={classes.nav}>
+              <Button variant="text" className={classes.navNews}>
                 News
               </Button>
+            </div>
+            <FormGroup>
+              <Typography component="div">
+                <Grid
+                  component="label"
+                  container
+                  alignItems="center"
+                  spacing={1}
+                >
+                  <Grid item>TH</Grid>
+                  <Grid item>
+                    <AntSwitch
+                      checked={state.checkedA}
+                      onChange={handleChange}
+                      name="checkedA"
+                    />
+                  </Grid>
+                  <Grid item>EN</Grid>
+                </Grid>
+              </Typography>
+            </FormGroup>
+            <div className={classes.iconfacebook}>
+              <FacebookIcon color="secondary" fontSize="large"></FacebookIcon>
             </div>
             <Button
               variant="contained"
@@ -210,24 +283,6 @@ export default function Header(props) {
             >
               Donate
             </Button>
-
-            <div className={classes.switchbar}>
-              <FormControl component="fieldset">
-                <FormGroup aria-label="position" row>
-                  <Typography>TH</Typography>
-                  <FormControlLabel
-                    value="start"
-                    control={<Switch color="primary" />}
-                    labelPlacement="start"
-                  />
-                  <Typography>EN</Typography>
-                </FormGroup>
-              </FormControl>
-            </div>
-
-            <div className={classes.iconfacebook}>
-              <FacebookIcon color="secondary" fontSize="large"></FacebookIcon>
-            </div>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

@@ -19,10 +19,10 @@ export default createMuiTheme({
       light: "#ED9B61",
       contrastText: "#000",
     },
-    // Blue
+    // Green
     secondary: {
-      main: "#3AC7FD",
-      light: "#ADE8FF",
+      main: "#B1BE12",
+      light: "#DBE0A5",
       contrastText: "#fff",
     },
     // Red
@@ -31,10 +31,10 @@ export default createMuiTheme({
       light: "#EAA0A8",
       contrastText: "#fff",
     },
-    // Green
+    // Blue
     success: {
-      main: "#B1BE12",
-      light: "#DBE0A5",
+      main: "#3AC7FD",
+      light: "#ADE8FF",
       contrastText: "#fff",
     },
   },
