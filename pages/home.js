@@ -258,6 +258,18 @@ const useStyle = makeStyles((theme) => ({
     backgroundSize: "100%",
     position: "relative",
   },
+  footer:{
+    backgroundColor:'red',
+    marginTop:20,
+    padding:30
+  },
+  Dividerlinearfooter: {
+    height: "5px",
+    border: "2",
+    background: "black",
+    width: "40px",
+    marginTop:3,
+  },
 }));
 
 function HideOnScroll(props) {
@@ -727,6 +739,38 @@ export default function HideAppBar(props) {
           <Typography variant="h4" align="center">
             โลโก้หน่วยงานที่เกี่ยวข้อง
           </Typography>
+        </Grid>
+      </Container>
+
+      <Container maxWidth='xl'>
+        <Grid container className={classes.footer}>
+          <Grid xs={5}>
+                  <Typography>
+                  สถาบันวิจัยและบริการด้านออทิซึม
+                  </Typography>
+                 
+                  <Typography>
+                  Research And Service Institute For Autism Khon Kaen University 
+                  </Typography>
+                  <Divider className={classes.Dividerlinearfooter} variant="fullWidth" />
+                  <br></br>
+                  <Typography variant="caption">
+                  สถาบันวิจัยและบริการด้านออทิซึม สำนักงานอธิการบดี มหาวิทยาลัยขอนแก่น ได้รับอนุมัติขึ้นตามข้อสั่งการของนายกรัฐมนตรี พลเอกประยุทธ์ จันทร์โอชา ณ วันที่ 21 มิถุนายน 2560 เป็นหน่วยงานสนับสนุนภารกิจและยุทธศาสตร์ของมหาวิทยาลัยขอนแก่น ในการดูแลบุคคลออทิซึมให้สามารถช่วยเหลือตนเองและอยู่ร่วมกับสังคมอย่างมีความสุข ตามยุทธศาสตร์ชาติ 20 ปี ยุทธศาสตร์ที่ 4 การสร้างโอกาสและความเสมอภาคทางสังคม และแผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 12 พ.ศ.2560-2564
+
+                  </Typography>
+          </Grid>
+
+          <Grid xs={3}>
+          <Typography>
+                    sdfsdf
+                  </Typography>
+            </Grid>
+
+            <Grid xs={4}>
+            <Typography>
+                    sdfsdf
+                  </Typography>
+            </Grid>
         </Grid>
       </Container>
     </React.Fragment>
