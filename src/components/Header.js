@@ -16,6 +16,7 @@ import Paper from "@material-ui/core/Paper";
 import Popper from "@material-ui/core/Popper";
 import MenuList from "@material-ui/core/MenuList";
 import Switch from '@material-ui/core/Switch';
+import IconButton from '@material-ui/core/IconButton';
 
 import FacebookIcon from "@material-ui/icons/Facebook";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
@@ -54,7 +55,15 @@ const useStyles = makeStyles((theme) => ({
   nav: {
     ...theme.typography.tab,
     minWidth: 15,
-    marginLeft: 25,
+    marginLeft: 15,
+    "&:hover": {
+      backgroundColor: "#B1BE12",
+    },
+  },
+  navWork: {
+    ...theme.typography.tab,
+    minWidth: 15,
+    marginLeft: 15,
     "&:hover": {
       backgroundColor: "#B1BE12",
     },
@@ -63,7 +72,6 @@ const useStyles = makeStyles((theme) => ({
     ...theme.typography.tab,
     minWidth: 15,
     marginLeft: 15,
-    marginRight: 15,
     "&:hover": {
       backgroundColor: "#B1BE12",
     },
@@ -84,11 +92,33 @@ const useStyles = makeStyles((theme) => ({
   button: {
     ...theme.typography.estimate,
     borderRadius: 5,
-    marginLeft: 50,
+    marginLeft: 25,
     marginRight: 25,
     fontWeight: 700,
     height: 45,
     color: "white",
+  },
+  switchLanguage: {
+    ...theme.typography.tab,
+    minWidth: 15,
+    marginLeft: 15,
+    marginRight: 15
+  },
+  FbIcon: {
+    color: "#3AC7FD",
+  },
+  Workmenu: {
+    backgroundColor: "#B1BE12",
+    color: "white",
+    borderRadius: "3px",
+    zIndex: 1302,
+  },
+  WorkmenuItem: {
+    ...theme.typography.tab,
+    opacity: 0.7,
+    "&:hover": {
+      opacity: 1,
+    },
   },
 }));
 
@@ -151,7 +181,7 @@ export default function Header(props) {
   const aboutOptions = [
     {
       name: "ความเป็นมาและวัตถุประสงค์",
-      link: "/customsoftware",
+      link: "/",
       activeIndex: 1,
       selectedIndex: 0,
     },
@@ -169,11 +199,52 @@ export default function Header(props) {
     },
   ];
 
+  const [anchorElWork, setAnchorElWork] = useState(null);
+  const [openWork, setOpenWork] = useState(false);
+  const [selectedWorkIndex, setSelectedWorkIndex] = React.useState(0);
+
+  const handleWorkClick = (e) => {
+    setAnchorElWork(e.currentTarget);
+    setOpenWork(true);
+  };
+
+  const handleWorkItemClick = (e, i) => {
+    setAnchorElWork(null);
+    setOpenWork(false);
+    setSelectedWorkIndex(i);
+  };
+
+  const handleWorkClose = (e) => {
+    setAnchorElWork(null);
+    setOpenWork(false);
+  };
+
+  const workOptions = [
+    {
+      name: "งานด้านการวิจัย",
+      link: "/",
+      activeIndex: 1,
+      selectedIndex: 0,
+    },
+    {
+      name: "งานวิจัยที่อยู่ระหว่างการดำเนินการ",
+      link: "/",
+      activeIndex: 1,
+      selectedIndex: 1,
+    },
+    {
+      name: "งานด้านการบริการ",
+      link: "/",
+      activeIndex: 1,
+      selectedIndex: 2,
+    },
+  ];
+
   const [state, setState] = React.useState({
     checkedA: true,
   });
 
-  const handleChange = (event) => {
+  const handleSwitchChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
@@ -189,7 +260,7 @@ export default function Header(props) {
               </Button>
               <Button
                 variant="text"
-                className={classes.navNews}
+                className={classes.nav}
                 endIcon={<ExpandMoreIcon />}
                 aria-controls="simple-menu"
                 aria-haspopup="true"
@@ -243,17 +314,63 @@ export default function Header(props) {
 
               <Button
                 variant="text"
-                className={classes.nav}
+                className={classes.navWork}
                 endIcon={<ExpandMoreIcon />}
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={handleWorkClick}
               >
                 Our work
               </Button>
+              <Popper
+                open={openWork}
+                anchorEl={anchorElWork}
+                role={undefined}
+                transition
+                disablePortal
+              >
+                {({ TransitionProps, placement }) => (
+                  <Grow
+                    {...TransitionProps}
+                    style={{
+                      transformOrigin: placement === "top left",
+                    }}
+                  >
+                    <Paper className={classes.Workmenu} elevation={0}>
+                      <ClickAwayListener onClickAway={handleWorkClose}>
+                        <MenuList
+                          id="simple-menu"
+                          disablePadding
+                          autoFocusItem={false}
+                        >
+                          {workOptions.map((option, i) => (
+                            <MenuItem
+                              key={`${option}${i}`}
+                              component={Link}
+                              href={option.link}
+                              className={classes.WorkmenuItem}
+                              selected={i === selectedWorkIndex}
+                              onClick={(event) => {
+                                handleWorkItemClick(event, i);
+                                props.setValue(1);
+                                handleWorkClose();
+                              }}
+                            >
+                              {option.name}
+                            </MenuItem>
+                          ))}
+                        </MenuList>
+                      </ClickAwayListener>
+                    </Paper>
+                  </Grow>
+                )}
+              </Popper>
               <Button variant="text" className={classes.navNews}>
                 News
               </Button>
             </div>
             <FormGroup>
-              <Typography component="div">
+              <Typography className={classes.switchLanguage}>
                 <Grid
                   component="label"
                   container
@@ -263,8 +380,7 @@ export default function Header(props) {
                   <Grid item>TH</Grid>
                   <Grid item>
                     <AntSwitch
-                      checked={state.checkedA}
-                      onChange={handleChange}
+                      onChange={handleSwitchChange}
                       name="checkedA"
                     />
                   </Grid>
@@ -272,9 +388,9 @@ export default function Header(props) {
                 </Grid>
               </Typography>
             </FormGroup>
-            <div className={classes.iconfacebook}>
-              <FacebookIcon color="secondary" fontSize="large"></FacebookIcon>
-            </div>
+            <IconButton  aria-label="facebook">
+        <FacebookIcon fontSize="large" className={classes.FbIcon} />
+      </IconButton>
             <Button
               variant="contained"
               color="primary"
