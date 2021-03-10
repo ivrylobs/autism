@@ -19,10 +19,10 @@ export default createMuiTheme({
       light: "#ED9B61",
       contrastText: "#000",
     },
-    // Blue
+    // Green
     secondary: {
-      main: "#3AC7FD",
-      light: "#ADE8FF",
+      main: "#B1BE12",
+      light: "#DBE0A5",
       contrastText: "#fff",
     },
     // Red
@@ -31,10 +31,10 @@ export default createMuiTheme({
       light: "#EAA0A8",
       contrastText: "#fff",
     },
-    // Green
+    // Blue
     success: {
-      main: "#B1BE12",
-      light: "#DBE0A5",
+      main: "#3AC7FD",
+      light: "#ADE8FF",
       contrastText: "#fff",
     },
   },
@@ -43,13 +43,13 @@ export default createMuiTheme({
       ","
     ),
     h1: {
-      fontWeight: 300,
-      fontSize: 96,
+      fontWeight: 700,
+      fontSize: 93,
       lineHeight: 1.167,
       letterSpacing: "-0.01562em",
     },
     h2: {
-      fontWeight: 500,
+      fontWeight: 600,
       fontSize: 60,
       lineHeight: 1.2,
       letterSpacing: "-0.00833em",
@@ -97,13 +97,13 @@ export default createMuiTheme({
       letterSpacing: "0.03333em",
     },
     tab: {
-      fontFamily: "Raleway",
+      fontFamily: "Trirong",
       textTransform: "none",
       fontWeight: 700,
       fontSize: 16,
     },
     estimate: {
-      fontFamily: "Raleway",
+      fontFamily: "Trirong",
       fontSize: 16,
       textTransform: "none",
     },
