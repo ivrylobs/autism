@@ -43,13 +43,13 @@ export default createMuiTheme({
       ","
     ),
     h1: {
-      fontWeight: 300,
-      fontSize: 96,
+      fontWeight: 700,
+      fontSize: 93,
       lineHeight: 1.167,
       letterSpacing: "-0.01562em",
     },
     h2: {
-      fontWeight: 500,
+      fontWeight: 600,
       fontSize: 60,
       lineHeight: 1.2,
       letterSpacing: "-0.00833em",
@@ -97,13 +97,13 @@ export default createMuiTheme({
       letterSpacing: "0.03333em",
     },
     tab: {
-      fontFamily: "Raleway",
+      fontFamily: "Trirong",
       textTransform: "none",
       fontWeight: 700,
       fontSize: 16,
     },
     estimate: {
-      fontFamily: "Raleway",
+      fontFamily: "Trirong",
       fontSize: 16,
       textTransform: "none",
     },

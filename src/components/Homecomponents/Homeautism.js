@@ -4,87 +4,89 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 import Container from "@material-ui/core/Container";
-import { Button, Grid, Paper } from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 
-import Divider from "@material-ui/core/Divider";
+
 
 const useStyle = makeStyles((theme) => ({
-  Fontent: {
-    padding: "30px",
-    backgroundImage: `url(${"bghome2.png"})`,
-    height: "600px",
+  HomeContainer: {
+    backgroundImage: `url(${"bg.png"})`,
+    height: 1080,
     backgroundSize: "100%",
-
-    
-  },
-  Dividerlinear: {
-    height: "2px",
-    border: "2",
-    background: "white",
-    marginTop: 40,
-  },
-  Typography3: {
-    marginTop: 40,
-    color: "white",
-  },
-  Typography2: {
-    marginTop: 40,
-    color: "white",
-  },
-  Typography1: {
-    marginTop: 40,
-    color: "white",
-  },
-  Aboutascontainer: {
-    width: "100%",
-    background: "linear-gradient(40deg, #EF5666 40%,#792B33 95%)",
-    padding: theme.spacing(3),
-    height: "auto",
-    justifyContent: "center",
-  },
-  TypographyAbout: {
-    color: "white",
-  },
-  CarditemAbotus: {
-    padding: 40,
-  
-  },
-  itemnew:{
-    padding: 15,
-    textAlign: "center"
-  },
-  switchbar: {
-    marginTop: 20,
-  },
-  iconfacebook: {
-    marginTop: 20,
-    marginLeft: 10,
-  },
-  dropdown: {
-    position: "absolute",
-    top: "100%",
-    left: 120,
-    width: "16rem",
-    backgroundColor: "#B1BE12",
-  },
-  Dropdownlink: {
-    display: "flex",
-    color: "white",
-    padding: "0.5rem , 1rem",
-    fontSize: "1.1rem",
-    alignItems: "center",
-    justifyContent: "space-between",
-    transition: ".3s",
-    "&:hover": {
-      backgroundColor: "white",
-      color: "#B1BE12",
+    paddingTop: 90,
+    [theme.breakpoints.down("lg")]: {
+      height: 840,
+      paddingTop: 48,
+      
+    },
+    [theme.breakpoints.down("md")]: {
+      height: 640,
+      paddingTop: 30,
+    },
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: 0,
+      height: 370,
+     
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: 200,
     },
   },
-  paperhome: {
-    width: "90%",
-    height: "300px",
-    backgroundColor: "grey",
-    marginTop: 100,
+  BlogContainer: {
+    textAlign: "center",
+    [theme.breakpoints.down("xl")]: {
+      maxWidth: 1720,
+    },
+    [theme.breakpoints.down("lg")]: {
+      maxWidth: 1200,
+    },
+    [theme.breakpoints.down("md")]: {
+      maxWidth: 900,
+    },
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: 590,
+    },
+    [theme.breakpoints.down("xs")]: {
+      maxWidth: 599,
+    },
+  },
+  Typography1: {
+   
+    color: "black",
+    [theme.breakpoints.down("lg")]: {
+      fontSize: 60,
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: 47,
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 30,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 18,
+    },
+  },
+  Typography2: {
+    fontFamily: "Raleway",
+    fontSize: 38,
+    marginTop: 10,
+    color: "black",
+    fontWeight: 600,
+    [theme.breakpoints.down("lg")]: {
+      marginTop: 20,
+      fontSize: 27,
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: 19,
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 12,
+      marginTop: 4,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 8,
+      marginTop: 0,
+    },
   },
   paperhome1: {
     width: "90%",
@@ -103,69 +105,21 @@ const useStyle = makeStyles((theme) => ({
     background: "#B1BE12",
     width: "40px",
   },
-  buttonaboutas: {
-    background: "#B1BE12",
-  },
-  buttonaboutas2: {
-    background: "#EAA0A8",
-  },
-  paperhome3: {
-    width: "85%",
-    height: "300px",
-    backgroundColor: "grey",
-    marginLeft: 90,
-  },
-  imagenew1: {
-    width: "60%",
-    height: "200px",
-    textAlign:'center'
-  },
-  imagenew2: {
-    width: "60%",
-    height: "200px",
-   
-  },
-  Griditemnew2: {
-    marginTop: 25,
-  },
-  Griditemnew3: {
-    marginTop: 25,
-  },
-  buttonnew: {
-    background: "#ADE8FF",
-    marginLeft: 620,
-    marginTop: 20,
-    width: "100px",
-  },
-  person1: {
-    marginTop: 20,
-    marginLeft: 110,
-  },
-  person2: {
-    marginTop: 20,
-    marginLeft: 110,
-  },
-  person3: {
-    marginTop: 20,
-    marginLeft: 110,
-  },
-  logocompany: {
-    backgroundImage: `url(${"bglogo.png"})`,
-    backgroundSize: "100%",
-    position: "relative",
-  },
-  footer: {
-    backgroundColor: "red",
-    marginTop: 20,
+  bgBox: {
+    margin: 40,
+    backgroundColor: "#fff",
+    border: 1,
+    opacity: 0.7,
     padding: 30,
-  },
-  Dividerlinearfooter: {
-    height: "5px",
-    border: "2",
-    background: "black",
-    width: "40px",
-    marginTop: 3,
-  },
+    [theme.breakpoints.down("sm")]: {
+      margin: 18,
+      padding: 10,
+    },
+    [theme.breakpoints.down("xs")]: {
+      margin: 10,
+      padding: 5,
+    },
+  }
 }));
 
 export default function Home(props) {
@@ -174,32 +128,22 @@ export default function Home(props) {
   return (
     <React.Fragment>
       <main>
-       
-        <Container maxWidth='fullwidth'>
-          <Grid container className={classes.Fontent}>
-            <Grid item xs={6}>
-              <Paper className={classes.paperhome}>IMAGE</Paper>
+        <Grid container className={classes.HomeContainer}>
+          <Container maxWidth="xl" className={classes.BlogContainer}>
+            <Grid container className={classes.Fontent}>
+              <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                <div className={classes.bgBox}>
+                <Typography variant="h1" className={classes.Typography1}>
+                  สถาบันวิจัยและบริการด้านออทิซึม
+                </Typography>
+                <Typography variant="h4" className={classes.Typography2}>
+                  Research And Service Institute For Autism Khon Kaen University
+                </Typography>
+                </div>
+              </Grid>
             </Grid>
-
-            <Grid item xs={6}>
-              <Typography variant="h2" className={classes.Typography1}>
-                สถาบันวิจัยและบริการด้านออทิซึม
-              </Typography>
-              <Typography variant="h4" className={classes.Typography2}>
-                Research And Service Institute For Autism Khon Kaen University
-              </Typography>
-
-              <Divider className={classes.Dividerlinear} variant="middle" />
-
-              <Typography variant="h6" className={classes.Typography3}>
-                เป็นสถาบันที่จัดตั้งขึ้นเพื่อให้บริการแก่บุคคลออทิซึม
-                เพื่อได้รับบริการอย่างทั่วถึง และครอบคลุมในทุกด้าน
-              </Typography>
-            </Grid>
-          </Grid>
-        </Container>
-
-       
+          </Container>
+        </Grid>
       </main>
     </React.Fragment>
   );
