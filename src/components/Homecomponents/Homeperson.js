@@ -12,19 +12,20 @@ const useStyle = makeStyles((theme) => ({
     height: "auto",
     backgroundSize: "cover",
     paddingTop: 40,
+    paddingBottom: 100,
     [theme.breakpoints.down("lg")]: {
      
       paddingTop: 5,
     },
     [theme.breakpoints.down("md")]: {
-     
+      paddingBottom: 60,
     },
     [theme.breakpoints.down("sm")]: {
-     
+      paddingBottom: 20,
       paddingTop: 0,
     },
     [theme.breakpoints.down("xs")]: {
-     
+      paddingBottom: 10,
     },
   },
   BlogContainer: {
@@ -106,10 +107,7 @@ const useStyle = makeStyles((theme) => ({
   personCenter: {
     textAlign: "center",
   },
-  BgBottom: {
-    width: "100%",
-    height: "100%"
-  }
+ 
 }));
 
 export default function Home(props) {
@@ -222,11 +220,6 @@ export default function Home(props) {
                 </div>
               </Grid>
             </Grid>
-            
-            <Grid item xs={12}>
-              <img src="bglogo.png" alt="bg-bottom" className={classes.BgBottom} />
-            </Grid>
-            
           </Container>
         </Grid>
       </main>
