@@ -18,7 +18,6 @@ import Tooltip from "@material-ui/core/Tooltip";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import LanguageIcon from "@material-ui/icons/Language";
-import FilterListIcon from "@material-ui/icons/FilterList";
 import { Typography } from "@material-ui/core";
 
 function ElevationScroll(props) {
@@ -249,6 +248,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     height: 45,
     color: "white",
+    backgroundColor: "#F26705",
     [theme.breakpoints.down("sm")]: {
       height: 35,
       fontSize: 16,
@@ -437,7 +437,7 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <ElevationScroll>
-        <AppBar position="static" className={classes.NavBar}>
+        <AppBar position="relative" className={classes.NavBar}>
           <Toolbar className={classes.toolbarMargin}>
             <img alt="logo" src="logo.png" className={classes.logo} />
             <div className={classes.navContainer}>
@@ -684,7 +684,6 @@ export default function Header(props) {
             </IconButton>
             <Button
               variant="contained"
-              color="primary"
               className={classes.button}
               endIcon={<ArrowRightIcon />}
             >

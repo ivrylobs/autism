@@ -1,11 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Link from "../Link";
 
 import Typography from "@material-ui/core/Typography";
-
 import Container from "@material-ui/core/Container";
-import { Button, Grid, Paper } from "@material-ui/core";
-
+import { Button, Grid } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 
 const useStyle = makeStyles((theme) => ({
@@ -23,7 +22,9 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       paddingTop: 0,
     },
-    [theme.breakpoints.down("xs")]: {},
+    [theme.breakpoints.down("xs")]: {
+      paddingTop: 25,
+    },
   },
   BlogContainer: {
     [theme.breakpoints.down("xl")]: {
@@ -50,91 +51,94 @@ const useStyle = makeStyles((theme) => ({
     marginTop: 0,
     [theme.breakpoints.down("xl")]: {
       height: 10,
-    width: 60
+      width: 60,
     },
     [theme.breakpoints.down("md")]: {
       height: 8,
-    width: 40
+      width: 40,
     },
     [theme.breakpoints.down("sm")]: {
       height: 6,
-    width: 48
+      width: 48,
     },
     [theme.breakpoints.down("xs")]: {
       height: 5,
-    marginTop: 5,
-    width: 30
+      marginTop: 5,
+      width: 30,
     },
   },
 
   CarditemAbotus: {
     paddingTop: 34,
     [theme.breakpoints.down("xs")]: {
-      paddingTop: 0
+      paddingTop: 0,
     },
   },
-  paperabout1: {
+  imagabout: {
     width: "100%",
-    height: "100%",
-    backgroundColor: "#F5F5F5",
-    [theme.breakpoints.down("xs")]: {
-      width: "100%",
-      height: 250,
-    },
-  },
-  paperabout2: {
-    width: "100%",
-    height: 150,
-    backgroundColor: "#F5F5F5",
+    height: "auto",
+    borderRadius: 5,
     [theme.breakpoints.down("lg")]: {
-      
+      height: 456,
     },
     [theme.breakpoints.down("md")]: {
-      height: 120,
+      height: "75%",
     },
     [theme.breakpoints.down("sm")]: {
-      
+      height: "auto",
     },
     [theme.breakpoints.down("xs")]: {
-      height: 220,
+      height: "auto",
     },
   },
   paperabout3: {
     padding: 5,
-    [theme.breakpoints.down("lg")]: {
-      
-    },
-    [theme.breakpoints.down("md")]: {
-      
-    },
     [theme.breakpoints.down("sm")]: {
-     padding: 20
+      padding: 20,
     },
     [theme.breakpoints.down("xs")]: {
-     
-      padding: 20
+      paddingTop: 0,
+      padding: 20,
+    },
+  },
+  paperabout4: {
+    padding: 5,
+    [theme.breakpoints.down("sm")]: {
+      padding: 20,
+    },
+    [theme.breakpoints.down("xs")]: {
+      padding: 20,
+      paddingTop: 0,
+    },
+  },
+  paperabout5: {
+    padding: 5,
+    [theme.breakpoints.down("sm")]: {
+      padding: 20,
+      textAlign: "center",
+      paddingTop: 0,
+    },
+    [theme.breakpoints.down("xs")]: {
+      paddingTop: 0,
+      padding: 20,
     },
   },
   GridPaper: {
     padding: 5,
-    [theme.breakpoints.down("sm")]: {
-      padding: 20
-     },
-    [theme.breakpoints.down("xs")]: {
-      padding: 40,
-      paddingBottom: 10,
-      paddingTop: 15
-    },
   },
   buttonMore: {
     background: "#DBE0A5",
     color: "#fff",
     width: 190,
     fontSize: 24,
-    marginTop: "auto",
+    marginTop: 10,
+    [theme.breakpoints.down("lg")]: {
+      marginTop: 10,
+    },
     [theme.breakpoints.down("md")]: {
       width: 150,
       fontSize: 20,
+      marginTop: 0,
     },
     [theme.breakpoints.down("sm")]: {
       width: 96,
@@ -157,7 +161,7 @@ const useStyle = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: 18,
-      textAlign: "center"
+      textAlign: "center",
     },
   },
   info: {
@@ -188,17 +192,17 @@ const useStyle = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: 6,
-      textAlign: "center"
+      textAlign: "center",
     },
   },
   TypoSpace: {
     textIndent: 20,
     paddingTop: 11,
     paddingBottom: 15,
-      fontSize: 24,
-      [theme.breakpoints.down("lg")]: {
-        fontSize: 20,
-      },
+    fontSize: 24,
+    [theme.breakpoints.down("lg")]: {
+      fontSize: 20,
+    },
     [theme.breakpoints.down("md")]: {
       fontSize: 12,
     },
@@ -206,9 +210,7 @@ const useStyle = makeStyles((theme) => ({
       paddingTop: 5,
       fontSize: 12,
     },
-    [theme.breakpoints.down("xs")]: {
-      
-    },
+    [theme.breakpoints.down("xs")]: {},
   },
   AboutMid: {
     padding: 5,
@@ -223,9 +225,9 @@ const useStyle = makeStyles((theme) => ({
   },
   alignButton: {
     [theme.breakpoints.down("xs")]: {
-      textAlign: "center"
+      textAlign: "center",
     },
-  }
+  },
 }));
 
 export default function Home(props) {
@@ -237,8 +239,16 @@ export default function Home(props) {
         <Grid container className={classes.AboutContainer}>
           <Container maxWidth="xl" className={classes.BlogContainer}>
             <Grid container className={classes.CarditemAbotus}>
-              <Grid item xs={12} sm={6} md={6} lg={5} xl={6} className={classes.GridPaper}>
-                <Paper className={classes.paperabout1}></Paper>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={6}
+                lg={5}
+                xl={6}
+                className={classes.GridPaper}
+              >
+                <img className={classes.imagabout} src="about1.jpg" />
               </Grid>
 
               <Grid
@@ -272,29 +282,19 @@ export default function Home(props) {
                   เป็นหน่วยงานสนับสนุนภารกิจและยุทธศาสตร์ของมหาวิทยาลัย
                   ขอนแก่นในการดูแลบุคคลออทิซึม
                 </Typography>
-                <div className={classes.alignButton}>
-                <Button
-                  variant="contained"
-                  size="large"
-                  className={classes.buttonMore}
-                >
-                  เพิ่มเติม
-                </Button>
-                </div>
               </Grid>
 
-              <Grid
-                item
-                xs={12}
-                sm={12}
-                md={2}
-                lg={2}
-                xl={2}
-            
-              >
+              <Grid item xs={12} sm={12} md={2} lg={2} xl={2}>
                 <Grid container>
-                  <Grid item xs={12} sm={6} md={12} lg={12} xl={12} className={classes.paperabout3}>
-                    <Paper className={classes.paperabout2}></Paper>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    md={12}
+                    lg={12}
+                    xl={12}
+                    className={classes.paperabout3}
+                  >
                     <Typography variant="h5" className={classes.info}>
                       ทำเนียบบุคลากร
                     </Typography>
@@ -303,9 +303,15 @@ export default function Home(props) {
                       เพื่อให้บริการแก่บุคคลออทิซึมให้ได้รับบริการอย่างทั่วถึงและครอบคลุมในทุกด้าน
                     </Typography>
                   </Grid>
-
-                  <Grid item xs={12} sm={6} md={12} lg={12} xl={12} className={classes.paperabout3}>
-                    <Paper className={classes.paperabout2}></Paper>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={6}
+                    md={12}
+                    lg={12}
+                    xl={12}
+                    className={classes.paperabout4}
+                  >
                     <Typography variant="h5" className={classes.info}>
                       หน่วยงานที่เกียวข้อง
                     </Typography>
@@ -315,6 +321,27 @@ export default function Home(props) {
                       ฝ่ายวิจัยและการถ่ายทอดเทคโนโลยี คณะแพทยศาสตร์
                       มหาวิทยาลัยขอนแก่น
                     </Typography>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    xl={12}
+                    className={classes.paperabout5}
+                  >
+                    <div className={classes.alignButton}>
+                      <Button
+                        component={Link}
+                        href="/aboutus"
+                        variant="contained"
+                        size="large"
+                        className={classes.buttonMore}
+                      >
+                        เพิ่มเติม
+                      </Button>
+                    </div>
                   </Grid>
                 </Grid>
               </Grid>
