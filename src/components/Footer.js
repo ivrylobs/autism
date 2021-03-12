@@ -107,6 +107,7 @@ const useStyle = makeStyles((theme) => ({
     height: 45,
     color: "white",
     marginTop: 60,
+    backgroundColor: "#F26705",
     [theme.breakpoints.down("sm")]: {
       height: 35,
       fontSize: 16,
@@ -128,18 +129,27 @@ const useStyle = makeStyles((theme) => ({
     color: "#B1BE12",
     fontSize: 55,
     textAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 35,
+    },
   },
   iconfooter2: {
     fontSize: 55,
     color: "#EF5666",
     marginTop: "60px",
     textAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 35,
+    },
   },
   iconfooter3: {
     fontSize: 55,
     color: "#3AC7FD",
     marginTop: "60px",
     textAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 35,
+    },
   },
   contentfooter: {
     textAlign: "left",
@@ -156,10 +166,10 @@ const useStyle = makeStyles((theme) => ({
     marginTop: 70,
     display: "grid",
     [theme.breakpoints.down("sm")]: {
-      marginTop: 85,
+      marginTop: 55,
     },
     [theme.breakpoints.down("xs")]: {
-      marginTop: 70,
+     
     },
   },
   
@@ -173,7 +183,7 @@ const useStyle = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: 10,
-      marginTop: 85,
+      marginTop: 55,
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: 8
@@ -187,6 +197,14 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       fontSize: 12
     },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 10
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 8
+    },
+  },
+  footerRight: {
     [theme.breakpoints.down("sm")]: {
       fontSize: 10
     },
@@ -227,7 +245,6 @@ export default function Home(props) {
               </Typography>
               <Button
               variant="contained"
-              color="primary"
               className={classes.button}
               endIcon={<ArrowRightIcon />}
             >
@@ -271,9 +288,9 @@ export default function Home(props) {
                 <Typography className={classes.phoneNumber} variant="subtitle1">043-009-700 เบอร์ภายใน 50491, 50492</Typography>
              
               <div className={classes.Typographyfacebookfooter}>
-                <Typography variant="caption">Privacy Policy</Typography>
-                <Typography variant="caption">Terms and Conditions</Typography>
-                <Typography variant="caption">
+                <Typography className={classes.footerRight} variant="caption">Privacy Policy</Typography>
+                <Typography className={classes.footerRight} variant="caption">Terms and Conditions</Typography>
+                <Typography className={classes.footerRight} variant="caption">
                   © 2021 สถาบันวิจัยและบริการด้านออทิซึม RSIA
                 </Typography>
               </div>

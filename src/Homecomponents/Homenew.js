@@ -18,7 +18,7 @@ const useStyle = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       paddingBottom: 30,
-      paddingTop: 45
+      paddingTop: 45,
     },
     [theme.breakpoints.down("xs")]: {
       paddingBottom: 20,
@@ -49,26 +49,36 @@ const useStyle = makeStyles((theme) => ({
     width: "100%",
     height: "auto",
   },
-  Griditemnew2: {
+  Griditemnew1: {
     marginTop: 25,
-    padding: 35,
+    padding: 15,
     [theme.breakpoints.down("sm")]: {
       marginTop: 10,
-    padding: 25,
+      padding: 10,
     },
-    [theme.breakpoints.down("xs")]: {
-    padding: 10,
+  },
+  Griditemnew2: {
+    marginTop: 25,
+    padding: 15,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 10,
+      padding: 10,
     },
   },
   Griditemnew3: {
     marginTop: 25,
-    padding: 35,
+    padding: 15,
     [theme.breakpoints.down("sm")]: {
       marginTop: 10,
-      padding: 25,
+      padding: 10,
     },
-    [theme.breakpoints.down("xs")]: {
-    padding: 10,
+  },
+  Griditemnew4: {
+    marginTop: 25,
+    padding: 15,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 10,
+      padding: 10,
     },
   },
   buttonnew: {
@@ -104,13 +114,13 @@ const useStyle = makeStyles((theme) => ({
     color: "#000",
     fontWeight: "bold",
     textAlign: "left",
-    paddingRight: 180,
+    paddingRight: 62,
     [theme.breakpoints.down("xl")]: {
       fontSize: 24,
     },
     [theme.breakpoints.down("lg")]: {
       paddingRight: 0,
-      fontSize: 20,
+      fontSize: 18,
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: 12,
@@ -123,6 +133,7 @@ const useStyle = makeStyles((theme) => ({
     color: "#3AC7FD",
     fontWeight: "bold",
     textAlign: "left",
+    fontSize: 16,
     [theme.breakpoints.down("sm")]: {
       fontSize: 9,
     },
@@ -135,7 +146,8 @@ const useStyle = makeStyles((theme) => ({
     color: "#fff",
     width: 190,
     fontSize: 24,
-    marginTop: "auto",
+    marginTop: 40,
+    marginBottom: 30,
     [theme.breakpoints.down("md")]: {
       width: 150,
       fontSize: 20,
@@ -152,8 +164,8 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   alignButton: {
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 }));
 
 export default function Home(props) {
@@ -174,37 +186,65 @@ export default function Home(props) {
                 </Typography>
               </Grid>
 
-              <Grid item xs={6} className={classes.Griditemnew2}>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={6}
+                lg={6}
+                xl={6}
+                className={classes.Griditemnew1}
+              >
                 <Typography variant="h5" className={classes.NewsTypo3}>
-                  เข้าร่วมประชุมหาแนวทางการช่วยเหลือนักเรียน
-                  กลุ่มอาชีวะที่มีภาวะออทิซึมสเปกตรัม
+                  ได้รับเชิญเป็นวิทยากรการอบรมเชิงปฏิบัติการพัฒนาศักยภาพผู้ปกครอง
+                  ผู้ดูแล และเครือข่ายสู่การเป็นต้นแบบ ครั้งที่ 1 เรื่อง
+                  “การพัฒนาสู่สุขภาวะ”
                 </Typography>
 
                 <Typography variant="caption" className={classes.NewsTypo4}>
-                  วัสถาบันวิจัยและบริการด้านออทิซึม - 21/12/2563
+                  สถาบันวิจัยและบริการด้านออทิซึม - 19/02/2564
                 </Typography>
                 <div>
-                  <img className={classes.imagenew1} src="imagenew1.png" />
-                </div>
-
-                <br></br>
-                <Typography variant="h5" className={classes.NewsTypo3}>
-                  โครงการสัมมนาเชิงปฏิบัติการเพื่อจัดทำแผนปฏิบัติการ
-                  ประจำปีงบประมาณ 2564
-                </Typography>
-
-                <Typography variant="caption" className={classes.NewsTypo4}>
-                  สถาบันวิจัยและบริการด้านออทิซึม - 08/12/2563
-                </Typography>
-                <div>
-                  <img className={classes.imagenew1} src="imagenew1.png" />
+                  <img className={classes.imagenew1} src="news1.jpeg" />
                 </div>
               </Grid>
-
-              <Grid item xs={6} className={classes.Griditemnew3}>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={6}
+                lg={6}
+                xl={6}
+                className={classes.Griditemnew2}
+              >
                 <Typography variant="h5" className={classes.NewsTypo3}>
-                  ร่วมเป็นเจ้าภาพโรงทาน งานทอดผ้าป่าสามัคคี
-                  มูลนิธิโรงพยาบาลขอนแก่น และมูลนิธิตึกสงฆ์สมเด็จพระพุฒาจารย์
+                  คณะผู้ตรวจสอบภายใน กองตรวจสอบภายใน สำนักงานอธิการบดี
+                  เข้าตรวจสอบหน่วยงาน เพื่อแจ้งขอบเขตการตรวจสอบ ประจำปีงบประมาณ
+                  2564
+                </Typography>
+
+                <Typography variant="caption" className={classes.NewsTypo4}>
+                  สถาบันวิจัยและบริการด้านออทิซึม - 17/02/2564
+                </Typography>
+                <div>
+                  <img className={classes.imagenew1} src="news2.jpeg" />
+                </div>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={6}
+                lg={6}
+                xl={6}
+                className={classes.Griditemnew3}
+              >
+                <Typography variant="h5" className={classes.NewsTypo3}>
+                  สถาบันวิจัยและบริการด้านออทิซึมจัดกิจกรรมลานเพลิน
+                  ภายใต้โครงการ
+                  โครงการศูนย์การเรียนรู้เพื่อบุคคลออทิสติกตามแนวเศรษฐกิจพอเพียง
+                  ณ ศูนย์การเรียนรู้เกษตรผสมผสาน บ้านโนนกู่ ต.สาวะถี อ.เมือง
+                  จ.ขอนแก่น
                 </Typography>
 
                 <Typography
@@ -212,36 +252,53 @@ export default function Home(props) {
                   variant="caption"
                   className={classes.NewsTypo4}
                 >
-                  สถาบันวิจัยและบริการด้านออทิซึม - 05/12/2563
+                  สถาบันวิจัยและบริการด้านออทิซึม - 28/01/2564
                 </Typography>
                 <div>
-                  <img className={classes.imagenew2} src="imagenew2.png" />
+                  <img className={classes.imagenew2} src="news3.jpg" />
                 </div>
-
-                <br></br>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={6}
+                lg={6}
+                xl={6}
+                className={classes.Griditemnew4}
+              >
                 <Typography variant="h5" className={classes.NewsTypo3}>
-                  สถาบันวิจัยและบริการด้านออทิซึมมีการประชุม
-                  ทีมงานการพัฒนาการวิจัยด้าน AI
+                  สถาบันวิจัยและบริการด้วนออทิซึม ขอแสดงความยินดี ดร.ธิรากร
+                  มณีรัตน์ที่ได้รับการแต่งตั้งให้ดำรงตำแหน่ง
+                  ประธานสภาคนพิการทุกประเภทจังหวัดขอนแก่น
                 </Typography>
 
                 <Typography variant="caption" className={classes.NewsTypo4}>
-                  สถาบันวิจัยและบริการด้านออทิซึม - 03/12/2563
+                  สถาบันวิจัยและบริการด้านออทิซึม - 26/01/2564
                 </Typography>
 
                 <div>
-                  <img className={classes.imagenew2} src="imagenew2.png" />
+                  <img className={classes.imagenew2} src="news4.jpeg" />
                 </div>
               </Grid>
 
-            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.alignButton}>
-            <Button
-                variant="contained"
-                size="large"
-                className={classes.buttonMore}
+              <Grid
+                item
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={12}
+                className={classes.alignButton}
               >
-                เพิ่มเติม
-              </Button>
-            </Grid>
+                <Button
+                  variant="contained"
+                  size="large"
+                  className={classes.buttonMore}
+                >
+                  เพิ่มเติม
+                </Button>
+              </Grid>
             </Grid>
           </Container>
         </Grid>

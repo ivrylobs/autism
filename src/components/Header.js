@@ -248,6 +248,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     height: 45,
     color: "white",
+    backgroundColor: "#F26705",
     [theme.breakpoints.down("sm")]: {
       height: 35,
       fontSize: 16,
@@ -683,7 +684,6 @@ export default function Header(props) {
             </IconButton>
             <Button
               variant="contained"
-              color="primary"
               className={classes.button}
               endIcon={<ArrowRightIcon />}
             >
