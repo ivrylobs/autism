@@ -5,16 +5,12 @@ import Footer from '../src/components/Footer';
 
 
 
-import Homeautism from  "../src/components/Homecomponents/Homeautism";
-import Homeaboutus from  "../src/components/Homecomponents/Homeaboutus";
-import Homeourwork from  "../src/components/Homecomponents/Homeourwork";
-import Homenew from  "../src/components/Homecomponents/Homenew";
-import Homeperson from  "../src/components/Homecomponents/Homeperson";
-
-
-
-
-
+import Homeautism from  "../src/Homecomponents/Homeautism";
+import Homeaboutus from  "../src/Homecomponents/Homeaboutus";
+import Homeourwork from  "../src/Homecomponents/Homeourwork";
+import Homenew from  "../src/Homecomponents/Homenew";
+import Homeperson from  "../src/Homecomponents/Homeperson";
+import Footer from "../src/components/Footer";
 
 
 const useStyle = makeStyles((theme) => ({
