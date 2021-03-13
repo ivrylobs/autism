@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Typography from "@material-ui/core/Typography";
 import Header from "../src/components/Header";
+import Footer from "../src/components/Footer";
 
 import Container from "@material-ui/core/Container";
 import { Button, Grid, Paper } from "@material-ui/core";
