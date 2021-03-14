@@ -37,7 +37,7 @@ const useStyle = makeStyles((theme) => ({
       fontSize: 24
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: 19
+      fontSize: 17
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: 24
@@ -158,6 +158,12 @@ const useStyle = makeStyles((theme) => ({
   },
   CarditemAbotus: {
     marginTop: 50,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 25,
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: 5,
+    },
   },
   iconfooter: {
     textAlign: "center",

@@ -502,7 +502,7 @@ export default function Header(props) {
                 variant="text"
                 className={classes.navWork}
                 endIcon={<ExpandMoreIcon />}
-                aria-controls="simple-menu"
+                aria-controls="ourwork-menu"
                 aria-haspopup="true"
                 onClick={handleWorkClick}
               >
@@ -587,7 +587,7 @@ export default function Header(props) {
                     <Paper className={classes.Navmenu} elevation={0}>
                       <ClickAwayListener onClickAway={handleNavClose}>
                         <MenuList
-                          id="simple-menu"
+                          id="home-menu"
                           disablePadding
                           autoFocusItem={false}
                         >
@@ -619,7 +619,7 @@ export default function Header(props) {
               className={classes.nav2}
               startIcon={<LanguageIcon />}
               endIcon={<ExpandMoreIcon />}
-              aria-controls="simple-menu"
+              aria-controls="langauges-menu"
               aria-haspopup="true"
               onClick={handleClickMenu}
             ><Typography className={classes.CloseLanguage}>English</Typography>
@@ -642,7 +642,7 @@ export default function Header(props) {
                   <Paper className={classes.LanguageMenu} elevation={0}>
                     <ClickAwayListener onClickAway={handleCloseMenu}>
                       <MenuList
-                        id="simple-menu"
+                        id="langauges-menu2"
                         disablePadding
                         autoFocusItem={false}
                       >
@@ -671,7 +671,7 @@ export default function Header(props) {
             <Tooltip title="Languages">
                 <IconButton
                   className={classes.nav3}
-                  aria-controls="simple-menu"
+                  aria-controls="langauges-menu"
                   aria-haspopup="true"
                   onClick={handleClickMenu}
                   aria-label="language"
