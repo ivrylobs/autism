@@ -1,10 +1,11 @@
 import React from "react";
+import ReactPlayer from 'react-player/youtube'
 import { makeStyles } from "@material-ui/core/styles";
 
 import Typography from "@material-ui/core/Typography";
-
 import Container from "@material-ui/core/Container";
 import { Button, Grid, Paper } from "@material-ui/core";
+
 
 const useStyle = makeStyles((theme) => ({
   WorkContainer: {
@@ -137,6 +138,9 @@ const useStyle = makeStyles((theme) => ({
       textAlign: "center",
       marginBottom: 20
     },
+    VideoCard: {
+      width: "100%"
+    }
    
   }
 }));
@@ -191,7 +195,13 @@ export default function Home(props) {
               </Grid>
 
               <Grid item xs={12} sm={6} md={7} lg={7} xl={7}>
-                <Paper className={classes.paperVideo}></Paper>
+                <Paper className={classes.paperVideo}>
+                <ReactPlayer
+          url='https://www.youtube.com/watch?v=7hxRP5skmuw&t=326s'
+          width='100%'
+          height='100%'
+        />
+                </Paper>
                 <Typography variant="h5" className={classes.WorkTypo4}>
                 คิดได้คิดดี-แอปพลิเคชัน คัดกรองภาวะออทิซึมสเปกตรัมในเด็ก
                   </Typography>

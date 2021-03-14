@@ -55,13 +55,13 @@ export default createMuiTheme({
       letterSpacing: "-0.00833em",
     },
     h3: {
-      fontWeight: 400,
+      fontWeight: 700,
       fontSize: 48,
       lineHeight: 1.167,
       letterSpacing: "0em",
     },
     h4: {
-      fontWeight: 400,
+      fontWeight: 700,
       fontSize: 34,
       lineHeight: 1.235,
       letterSpacing: "0.00735em",
