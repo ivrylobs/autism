@@ -52,7 +52,7 @@ const useStyle = makeStyles((theme) => ({
       paddingTop: 239,
     },
     [theme.breakpoints.down("xs")]: {
-      height: 139,
+      height: 138,
       paddingTop: 123,
     },
   },
@@ -70,7 +70,7 @@ const useStyle = makeStyles((theme) => ({
       maxWidth: 590,
     },
     [theme.breakpoints.down("xs")]: {
-      maxWidth: 320,
+      maxWidth: 350,
     },
   },
   aboutTypo1: {
@@ -233,7 +233,7 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: 16,
       textAlign: "center",
-      marginTop: -106,
+      marginTop: -95,
     },
   },
   aboutVision1: {
@@ -276,7 +276,7 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: 16,
       textAlign: "center",
-      marginTop: -206,
+      marginTop: -168,
     },
   },
   aboutVision4: {
@@ -322,16 +322,17 @@ const useStyle = makeStyles((theme) => ({
   },
   Griditem1: {
     marginTop: 25,
+    paddingLeft: 0,
     [theme.breakpoints.down("lg")]: {
-      marginTop: 112,
+      marginTop: 84,
     },
     [theme.breakpoints.down("md")]: {
-      marginTop: 48,
-      paddingLeft: 0,
+      marginTop: 34,
+      
     },
     [theme.breakpoints.down("xs")]: {
-      marginTop: 20,
-      paddingLeft: 0,
+      marginTop: 5,
+   
     },
   },
   Griditem2: {
@@ -380,7 +381,7 @@ const useStyle = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       paddingLeft: 0,
-      marginTop: 17,
+      marginTop: 0,
     },
   },
   Griditem6: {
@@ -516,7 +517,7 @@ const useStyle = makeStyles((theme) => ({
       padding: 16,
     },
     [theme.breakpoints.down("xs")]: {
-      marginTop: 46,
+      marginTop: 15,
     },
   },
   imgabout4: {
@@ -536,7 +537,9 @@ const useStyle = makeStyles((theme) => ({
       marginTop: 30,
       padding: 16,
     },
-    [theme.breakpoints.down("xs")]: {},
+    [theme.breakpoints.down("xs")]: {
+      marginTop: 0,
+    },
   },
   imgVision1: {
     width: "100%",
@@ -566,7 +569,7 @@ const useStyle = makeStyles((theme) => ({
       paddingTop: 0,
     },
     [theme.breakpoints.down("xs")]: {
-      height: 196,
+      height: 175,
     },
   },
   Box2: {
@@ -593,6 +596,7 @@ const useStyle = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("md")]: {
       textIndent: 66,
+      paddingTop: 5,
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: 20,
@@ -600,6 +604,7 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       textIndent: 28,
       fontSize: 14,
+      paddingTop: 0
     },
   },
   aboutBox2: {
@@ -617,7 +622,7 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: 14,
       textIndent: 28,
-      paddingTop: 46
+      paddingTop: 0
     },
   },
   aboutBox3: {
@@ -669,6 +674,9 @@ const useStyle = makeStyles((theme) => ({
       padding: 0,
       paddingTop: 0,
       paddingBottom: 32,
+    },
+    [theme.breakpoints.down("xs")]: {
+      paddingBottom: 12,
     },
   },
   PaddingVision2: {
@@ -729,6 +737,9 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       marginTop: 0,
     },
+  },
+  nav: {
+    paddingLeft: 0,
   }
 }));
 
@@ -758,19 +769,16 @@ export default function Aboutas() {
     {
       name: "ความเป็นมาและวัตถุประสงค์",
       link: "/aboutus",
-      activeIndex: 1,
       selectedIndex: 0,
     },
     {
       name: "ทำเนียบบุคลากร",
       link: "/team",
-      activeIndex: 1,
       selectedIndex: 1,
     },
     {
       name: "หน่วยงานที่เกี่ยวข้อง",
       link: "/related",
-      activeIndex: 1,
       selectedIndex: 2,
     },
   ];
@@ -815,7 +823,6 @@ export default function Aboutas() {
                   onClick={handleClick}
                   size="large"
                 >
-                  {" "}
                   <Typography variant="h3" className={classes.aboutTypo3}>
                   ความเป็นมาและวัตถุประสงค์
                   </Typography>
@@ -851,7 +858,8 @@ export default function Aboutas() {
                                 selected={i === selectedIndex}
                                 onClick={(event) => {
                                   handleAboutItemClick(event, i);
-                                  props.setValue(1);
+                                  
+                                  
                                   handleClose();
                                 }}
                               >

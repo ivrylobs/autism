@@ -125,23 +125,24 @@ const useStyle = makeStyles((theme) => ({
   },
   Griditem1: {
     marginTop: 25,
+    paddingLeft: 0,
     [theme.breakpoints.down("lg")]: {
-      marginTop: 112,
+      marginTop: 84,
     },
     [theme.breakpoints.down("md")]: {
-      marginTop: 48,
-      paddingLeft: 0,
+      marginTop: 34,
+      
     },
     [theme.breakpoints.down("xs")]: {
-      marginTop: 20,
-      paddingLeft: 0,
+      marginTop: 5,
+   
     },
   },
   Griditem2: {
     marginTop: 50,
     textAlign: "center",
     [theme.breakpoints.down("xs")]: {
-      marginTop: 16,
+      marginTop: 0,
      
     },
   },
@@ -251,6 +252,9 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       marginTop: 0,
     },
+  },
+  nav: {
+    paddingLeft: 0,
   }
 }));
 
@@ -278,21 +282,18 @@ export default function Home(props) {
 
   const aboutMenuOptions = [
     {
-      name: "ความเป็นมาและวัตถุประสงค์",
-      link: "/aboutus",
-      activeIndex: 1,
+      name: "ทำเนียบบุคลากร",
+      link: "/team",
       selectedIndex: 0,
     },
     {
-      name: "ทำเนียบบุคลากร",
-      link: "/team",
-      activeIndex: 1,
+      name: "ความเป็นมาและวัตถุประสงค์",
+      link: "/aboutus",
       selectedIndex: 1,
     },
     {
       name: "หน่วยงานที่เกี่ยวข้อง",
       link: "/related",
-      activeIndex: 1,
       selectedIndex: 2,
     },
   ];
@@ -338,7 +339,6 @@ export default function Home(props) {
                   onClick={handleClick}
                   size="large"
                 >
-                  {" "}
                   <Typography variant="h3" className={classes.aboutTypo3}>
                     ทำเนียบบุคลากร
                   </Typography>
@@ -374,7 +374,7 @@ export default function Home(props) {
                                 selected={i === selectedIndex}
                                 onClick={(event) => {
                                   handleAboutItemClick(event, i);
-                                  props.setValue(1);
+                                  
                                   handleClose();
                                 }}
                               >
