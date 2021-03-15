@@ -158,7 +158,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("lg")]: {
       fontSize: 16,
     },
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      paddingTop: 5,
+    },
     [theme.breakpoints.down("sm")]: {
       fontSize: 20,
     },
@@ -168,22 +170,26 @@ const useStyles = makeStyles((theme) => ({
   },
   Griditem1: {
     marginTop: 25,
+    paddingLeft: 0,
     [theme.breakpoints.down("lg")]: {
-      marginTop: 112,
+      marginTop: 84,
     },
     [theme.breakpoints.down("md")]: {
-      marginTop: 48,
-      paddingLeft: 0,
+      marginTop: 34,
+      
     },
     [theme.breakpoints.down("xs")]: {
-      marginTop: 20,
-      paddingLeft: 0,
+      marginTop: 5,
+   
     },
   },
   Griditem2: {
     marginTop: 25,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 5,
+    },
     [theme.breakpoints.down("xs")]: {
-      marginTop: 15,
+      marginTop: 0,
     },
   },
   Griditem3: {
@@ -225,6 +231,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       marginTop: 0,
     },
+  },
+  nav: {
+    paddingLeft: 0,
   }
 }));
 
@@ -252,21 +261,18 @@ export default function Home(props) {
 
   const aboutMenuOptions = [
     {
+      name: "หน่วยงานที่เกี่ยวข้อง",
+      link: "/related",
+      selectedIndex: 0,
+    },
+    {
       name: "ความเป็นมาและวัตถุประสงค์",
       link: "/aboutus",
-      activeIndex: 1,
-      selectedIndex: 0,
+      selectedIndex: 1,
     },
     {
       name: "ทำเนียบบุคลากร",
       link: "/team",
-      activeIndex: 1,
-      selectedIndex: 1,
-    },
-    {
-      name: "หน่วยงานที่เกี่ยวข้อง",
-      link: "/related",
-      activeIndex: 1,
       selectedIndex: 2,
     },
   ];
@@ -312,7 +318,6 @@ export default function Home(props) {
                   onClick={handleClick}
                   size="large"
                 >
-                  {" "}
                   <Typography variant="h3" className={classes.aboutTypo3}>
                     หน่วยงานที่เกี่ยวข้อง
                   </Typography>
@@ -348,7 +353,7 @@ export default function Home(props) {
                                 selected={i === selectedIndex}
                                 onClick={(event) => {
                                   handleAboutItemClick(event, i);
-                                  props.setValue(1);
+                                  
                                   handleClose();
                                 }}
                               >
