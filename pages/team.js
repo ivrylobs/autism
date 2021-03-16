@@ -48,7 +48,7 @@ const useStyle = makeStyles((theme) => ({
       paddingTop: 239,
     },
     [theme.breakpoints.down("xs")]: {
-      height: 139,
+      height: 138,
       paddingTop: 123,
     },
   },
@@ -67,7 +67,7 @@ const useStyle = makeStyles((theme) => ({
       maxWidth: 590,
     },
     [theme.breakpoints.down("xs")]: {
-      maxWidth: 320,
+      maxWidth: 350,
     },
   },
 
