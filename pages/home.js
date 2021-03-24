@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Header from "../src/components/Header";
+import Footer from '../src/components/Footer';
 
 
 
@@ -9,7 +10,6 @@ import Homeaboutus from  "../src/Homecomponents/Homeaboutus";
 import Homeourwork from  "../src/Homecomponents/Homeourwork";
 import Homenew from  "../src/Homecomponents/Homenew";
 import Homeperson from  "../src/Homecomponents/Homeperson";
-import Footer from "../src/components/Footer";
 
 
 const useStyle = makeStyles((theme) => ({
