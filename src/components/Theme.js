@@ -80,7 +80,7 @@ export default createMuiTheme({
     },
     subtitle1: {
       fontWeight: 400,
-      fontSize: 16,
+      fontSize: 18,
       lineHeight: 1.75,
       letterSpacing: "0.00938em",
     },
