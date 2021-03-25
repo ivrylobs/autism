@@ -265,6 +265,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: 9,
     },
+  },
+  buttonlogo: {
+    padding: 0
   }
 }));
 
@@ -293,20 +296,17 @@ export default function Header(props) {
   const aboutOptions = [
     {
       name: "ความเป็นมาและวัตถุประสงค์",
-      link: "/",
-      activeIndex: 1,
+      link: "/aboutus",
       selectedIndex: 0,
     },
     {
       name: "ทำเนียบบุคลากร",
-      link: "/",
-      activeIndex: 1,
+      link: "/team",
       selectedIndex: 1,
     },
     {
       name: "หน่วยงานที่เกี่ยวข้อง",
-      link: "/",
-      activeIndex: 1,
+      link: "/related",
       selectedIndex: 2,
     },
   ];
@@ -410,13 +410,13 @@ export default function Header(props) {
   const navOptions = [
     {
       name: "หน้าแรก",
-      link: "/",
+      link: "/home",
       activeIndex: 1,
       selectedNavIndex: 0,
     },
     {
       name: "เกี่ยวกับเรา",
-      link: "/",
+      link: "/aboutus",
       activeIndex: 1,
       selectedNavIndex: 1,
     },
@@ -439,9 +439,11 @@ export default function Header(props) {
       <ElevationScroll>
         <AppBar position="relative" className={classes.NavBar}>
           <Toolbar className={classes.toolbarMargin}>
-            <img alt="logo" src="logo.png" className={classes.logo} />
+            <Button className={classes.buttonlogo} component={Link} href="/home">
+            <img  alt="logo" src="logo.png" className={classes.logo} />
+            </Button>
             <div className={classes.navContainer}>
-              <Button variant="text" className={classes.nav}>
+              <Button component={Link} href="/home" variant="text" className={classes.nav}>
                 หน้าแรก
               </Button>
               <Button
@@ -484,7 +486,7 @@ export default function Header(props) {
                               selected={i === selectedIndex}
                               onClick={(event) => {
                                 handleAboutItemClick(event, i);
-                                props.setValue(1);
+                                
                                 handleClose();
                               }}
                             >
@@ -502,7 +504,7 @@ export default function Header(props) {
                 variant="text"
                 className={classes.navWork}
                 endIcon={<ExpandMoreIcon />}
-                aria-controls="simple-menu"
+                aria-controls="ourwork-menu"
                 aria-haspopup="true"
                 onClick={handleWorkClick}
               >
@@ -538,7 +540,7 @@ export default function Header(props) {
                               selected={i === selectedWorkIndex}
                               onClick={(event) => {
                                 handleWorkItemClick(event, i);
-                                props.setValue(1);
+                                
                                 handleWorkClose();
                               }}
                             >
@@ -587,7 +589,7 @@ export default function Header(props) {
                     <Paper className={classes.Navmenu} elevation={0}>
                       <ClickAwayListener onClickAway={handleNavClose}>
                         <MenuList
-                          id="simple-menu"
+                          id="home-menu"
                           disablePadding
                           autoFocusItem={false}
                         >
@@ -600,7 +602,7 @@ export default function Header(props) {
                               selected={i === selectedNavIndex}
                               onClick={(event) => {
                                 handleNavItemClick(event, i);
-                                props.setValue(1);
+                                
                                 handleNavClose();
                               }}
                             >
@@ -619,7 +621,7 @@ export default function Header(props) {
               className={classes.nav2}
               startIcon={<LanguageIcon />}
               endIcon={<ExpandMoreIcon />}
-              aria-controls="simple-menu"
+              aria-controls="langauges-menu"
               aria-haspopup="true"
               onClick={handleClickMenu}
             ><Typography className={classes.CloseLanguage}>English</Typography>
@@ -642,7 +644,7 @@ export default function Header(props) {
                   <Paper className={classes.LanguageMenu} elevation={0}>
                     <ClickAwayListener onClickAway={handleCloseMenu}>
                       <MenuList
-                        id="simple-menu"
+                        id="langauges-menu2"
                         disablePadding
                         autoFocusItem={false}
                       >
@@ -655,7 +657,7 @@ export default function Header(props) {
                             selected={i === selectedMenuIndex}
                             onClick={(event) => {
                               handleMenuItemClick(event, i);
-                              props.setValue(1);
+                              
                               handleCloseMenu();
                             }}
                           >
@@ -671,7 +673,7 @@ export default function Header(props) {
             <Tooltip title="Languages">
                 <IconButton
                   className={classes.nav3}
-                  aria-controls="simple-menu"
+                  aria-controls="langauges-menu"
                   aria-haspopup="true"
                   onClick={handleClickMenu}
                   aria-label="language"

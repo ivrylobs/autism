@@ -1,15 +1,17 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Link from "../Link";
 
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { Button, Grid } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
 
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import AddIcCallIcon from "@material-ui/icons/AddIcCall";
-import FacebookIcon from "@material-ui/icons/Facebook";
+
 
 const useStyle = makeStyles((theme) => ({
   BlogContainer: {
@@ -37,7 +39,7 @@ const useStyle = makeStyles((theme) => ({
       fontSize: 24
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: 19
+      fontSize: 17
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: 24
@@ -142,14 +144,19 @@ const useStyle = makeStyles((theme) => ({
       fontSize: 35,
     },
   },
-  iconfooter3: {
-    fontSize: 55,
-    color: "#3AC7FD",
-    marginTop: "60px",
-    textAlign: "center",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: 35,
+  imageIcon: {
+    height: 55,
+    marginTop: 60,
+    [theme.breakpoints.down("xs")]: {
+      height: 35,
     },
+  },
+  iconRoot: {
+    textAlign: "center",
+    [theme.breakpoints.down("xs")]: {
+      padding: 0
+    },
+  
   },
   contentfooter: {
     textAlign: "left",
@@ -158,6 +165,12 @@ const useStyle = makeStyles((theme) => ({
   },
   CarditemAbotus: {
     marginTop: 50,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 25,
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: 5,
+    },
   },
   iconfooter: {
     textAlign: "center",
@@ -270,10 +283,11 @@ export default function Home(props) {
                 className={classes.iconfooter2}
               ></AddIcCallIcon>
               <br></br>
-              <FacebookIcon
-                fontSize="large"
-                className={classes.iconfooter3}
-              ></FacebookIcon>
+              <IconButton component={Link}
+                  href="https://www.facebook.com/%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%9A%E0%B8%B1%E0%B8%99%E0%B8%A7%E0%B8%B4%E0%B8%88%E0%B8%B1%E0%B8%A2%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%94%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%AD%E0%B8%97%E0%B8%B4%E0%B8%8B%E0%B8%B6%E0%B8%A1-RSIA-1079148915621457"
+                  classes={{ root: classes.iconRoot }} fontSize="large">
+                    <img className={classes.imageIcon} src="facebook-24px.svg" />
+                  </IconButton>
             </Grid>
 
             <Grid item xs={6} sm={6} md={6} lg={3} xl={3} className={classes.contentfooter}>
