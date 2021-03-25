@@ -375,13 +375,13 @@ export default function Header(props) {
   const menuOptions = [
     {
       name: "English",
-      link: "/",
+      link: "/en/home",
       activeIndex: 1,
       selectedMenuIndex: 0,
     },
     {
       name: "ภาษาไทย",
-      link: "/homeTH",
+      link: "/th/home",
       activeIndex: 1,
       selectedMenuIndex: 1,
     },
