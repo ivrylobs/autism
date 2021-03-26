@@ -111,15 +111,15 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       margin: 10,
       padding: 0,
-      fontSize: 14
+      fontSize: 14,
     },
   },
   gridItem1: {
-    marginTop: 15
+    marginTop: 15,
   },
   gridItem2: {
-    marginTop: 15
-  }
+    marginTop: 15,
+  },
 }));
 
 export default function Home(props) {
@@ -130,49 +130,56 @@ export default function Home(props) {
       <main>
         <Header></Header>
         <Grid container className={classes.bgContainer}>
-        <Container maxWidth="xl" className={classes.Container}>
-          <Grid container>
-            <Grid item xs={12} className={classes.BgContainer}>
-              <img src="/news12.jpeg" alt="news12" className={classes.BgNews} />
-            </Grid>
-            <Grid item sm={7} md={8} className={classes.gridItem1}>
+          <Container maxWidth="xl" className={classes.Container}>
+            <Grid container>
+              <Grid item xs={12} className={classes.BgContainer}>
+                <img
+                  src="/news12.jpeg"
+                  alt="news12"
+                  className={classes.BgNews}
+                />
+              </Grid>
+              <Grid item sm={7} md={8} className={classes.gridItem1}>
                 <Typography variant="h4" className={classes.Typography1}>
-                  บุคลากรสถาบันวิจัยและบริการด้านออทิซึมได้รับเชิญเป็นวิทยากร
-                  การอบรมเชิงปฏิบัติการพัฒนาศักยภาพผู้ปกครอง ผู้ดูแลและ
-                  เครือข่ายสู่การเป็นต้นแบบ ครั้งที่ 1 เรื่อง
-                  “การพัฒนาสู่สุขภาวะ”
+                  ท่านรองอธิการบดีฝ่ายวิจัยและบัณฑิตศึกษา ศาสตราจารย์ มนต์ชัย
+                  ดวงจินดา ได้ให้ข้อเสนอแนะทีมบริหารสถาบันฯในการนำเสนอ Research
+                  Program ประจำปีงบประมาณ 2564
                 </Typography>
                 <Typography variant="caption" className={classes.Typography2}>
                   เผยแพร่โดยสถาบันวิจัยและบริการด้านออทิซึม
                 </Typography>
-                <br/>
+                <br />
                 <Typography variant="caption" className={classes.Typography2}>
-                  วันที่ 5/มีนาคม/2563
+                  วันที่ 20/07/2563
                 </Typography>
                 <Box>
-                  <Typography
-                    variant="subtitle1"
-                    className={classes.bgBox}
-                  >
-                    เมื่อวันที่ 19 กุมภาพันธ์ 2564
-                    บุคลากรสถาบันวิจัยและบริการด้านออทิซึมได้รับเชิญเป็นวิทยากรการอบรมเชิงปฏิบัติการพัฒนาศักยภาพผู้ปกครอง
-                    ผู้ดูแล และเครือข่ายสู่การเป็นต้นแบบ ครั้งที่ 1 เรื่อง
-                    “การพัฒนาสู่สุขภาวะ”
-                    มีวัตถุประสงค์เพื่อพัฒนาศักยภาพผู้ปกครอง ผู้ดูแล
-                    และเครือข่ายให้มีความรู้ความเข้าใจเรื่องการดูและส่งเสริมพัฒนาการบุคคลออทิสติกแบบบูรณาการ
-                    นำไปใช้ได้อย่างเหมาะสม
-                    และนำไปสู่การเป็นต้นแบบในการส่งเสริมสมรรถนะบุคคลออทิสติก
-                    ซึ่งจัดขึ้นโดย ศูนย์คนพิการ
-                    สมาคมผู้ปกครองบุคคลออทิสติกจังหวัดขอนแก่น ณ ห้องประชุม
-                    โรงแรมกรีน โฮเทล แอนด์ รีสอร์ท จังหวัดขอนแก่น
+                  <Typography variant="subtitle1" className={classes.bgBox}>
+                    #ทำความเข้าใจภาวะออทิซึมสเปกตรัม .. #ภาวะออทิซึมสเปกตรัม
+                    เป็นความผิดปกติทางสมองชนิดหนึ่ง ซึ่งเป็นตั้งแต่กำเนิด
+                    อาการจะค่อย ๆ
+                    เห็นชัดตอนที่เด็กเริ่มโตขึ้นอาการจะแตกต่างกันเป็นราย ๆ
+                    ในขณะที่รูปร่างหน้าตาจะปกติ
+                    ภาวะนี้มักเป็นในเด็กผู้ชายมากกว่าเด็กผู้หญิง
+                    #อาการของภาวะออทิซึมสเปกตรัม •
+                    การสื่อสารและการมีปฏิสัมพันธ์ทางสังคมบกพร่อง ไม่ชอบสบตา
+                    เฉยเมย ชอบเล่นคนเดียว • แสดงสีหน้า ท่าทาง • มีพฤติกรรมซ้ำ ๆ
+                    แบบเดิม ๆ • ประสาทสัมผัสอาจจะไวหรือช้า เช่น ไวต่อเสียง
+                    ไวต่อแสง ไม่ชอบการสัมผัสตัว ไม่รับรู้ความเจ็บปวด
+                    ทำร้ายร่างกายตนเอง •
+                    เด็กที่มีภาวะออทิซึมสเปกตรัมบางคนอาจมีความสามารถโดดเด่น
+                    ดังนี้ o เชาวน์ปัญญาสูงกว่าปกติหรือเท่าปกติ เรียนรู้ได้ดี
+                    จำข้อมูลได้มาก o เรียนรู้ด้วยวิธีการมองและการได้ยิน o
+                    เก่งเลข วิทยาศาสตร์ ดนตรี ศิลป์ ที่มา: ศ.นพ.สุชาติ พหลภาคย์
+                    ภาควิชาจิตเวชศาสตร์ คณะแพทย์ศาสตร์ มหาวิทยาลัยขอนแก่น
+                    #ออทิซึมสเปกตรัม #Autism #ออทิสติก #Autistic ดูน้อยลง
                   </Typography>
                 </Box>
+              </Grid>
+              <Grid item sm={5} md={4} className={classes.gridItem2}>
+                <Update />
+              </Grid>
             </Grid>
-            <Grid item sm={5} md={4} className={classes.gridItem2}>
-              <Update />
-            </Grid>
-          </Grid>
-        </Container>
+          </Container>
         </Grid>
         <Footer></Footer>
       </main>

@@ -111,15 +111,15 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       margin: 10,
       padding: 0,
-      fontSize: 14
+      fontSize: 14,
     },
   },
   gridItem1: {
-    marginTop: 15
+    marginTop: 15,
   },
   gridItem2: {
-    marginTop: 15
-  }
+    marginTop: 15,
+  },
 }));
 
 export default function Home(props) {
@@ -130,49 +130,47 @@ export default function Home(props) {
       <main>
         <Header></Header>
         <Grid container className={classes.bgContainer}>
-        <Container maxWidth="xl" className={classes.Container}>
-          <Grid container>
-            <Grid item xs={12} className={classes.BgContainer}>
-              <img src="/news19.jpeg" alt="news19" className={classes.BgNews} />
-            </Grid>
-            <Grid item sm={7} md={8} className={classes.gridItem1}>
+          <Container maxWidth="xl" className={classes.Container}>
+            <Grid container>
+              <Grid item xs={12} className={classes.BgContainer}>
+                <img
+                  src="/news19.jpeg"
+                  alt="news19"
+                  className={classes.BgNews}
+                />
+              </Grid>
+              <Grid item sm={7} md={8} className={classes.gridItem1}>
                 <Typography variant="h4" className={classes.Typography1}>
-                  บุคลากรสถาบันวิจัยและบริการด้านออทิซึมได้รับเชิญเป็นวิทยากร
-                  การอบรมเชิงปฏิบัติการพัฒนาศักยภาพผู้ปกครอง ผู้ดูแลและ
-                  เครือข่ายสู่การเป็นต้นแบบ ครั้งที่ 1 เรื่อง
-                  “การพัฒนาสู่สุขภาวะ”
+                  บุคลากรสถาบันวิจัยและบริการด้านออทิซึมได้เข้าร่วมโครงการ
+                  การจัดบริการตามภารกิจของศูนย์บริการคนพิการ
+                  สมาคมผู้ปกครองออทิสติกจังหวัดขอนแก่น
                 </Typography>
                 <Typography variant="caption" className={classes.Typography2}>
                   เผยแพร่โดยสถาบันวิจัยและบริการด้านออทิซึม
                 </Typography>
-                <br/>
+                <br />
                 <Typography variant="caption" className={classes.Typography2}>
-                  วันที่ 5/มีนาคม/2563
+                  วันที่ 10/03/2563
                 </Typography>
                 <Box>
-                  <Typography
-                    variant="subtitle1"
-                    className={classes.bgBox}
-                  >
-                    เมื่อวันที่ 19 กุมภาพันธ์ 2564
-                    บุคลากรสถาบันวิจัยและบริการด้านออทิซึมได้รับเชิญเป็นวิทยากรการอบรมเชิงปฏิบัติการพัฒนาศักยภาพผู้ปกครอง
-                    ผู้ดูแล และเครือข่ายสู่การเป็นต้นแบบ ครั้งที่ 1 เรื่อง
-                    “การพัฒนาสู่สุขภาวะ”
-                    มีวัตถุประสงค์เพื่อพัฒนาศักยภาพผู้ปกครอง ผู้ดูแล
-                    และเครือข่ายให้มีความรู้ความเข้าใจเรื่องการดูและส่งเสริมพัฒนาการบุคคลออทิสติกแบบบูรณาการ
-                    นำไปใช้ได้อย่างเหมาะสม
-                    และนำไปสู่การเป็นต้นแบบในการส่งเสริมสมรรถนะบุคคลออทิสติก
-                    ซึ่งจัดขึ้นโดย ศูนย์คนพิการ
-                    สมาคมผู้ปกครองบุคคลออทิสติกจังหวัดขอนแก่น ณ ห้องประชุม
-                    โรงแรมกรีน โฮเทล แอนด์ รีสอร์ท จังหวัดขอนแก่น
+                  <Typography variant="subtitle1" className={classes.bgBox}>
+                    โครงการการจัดบริการตามภารกิจของศูนย์บริการคนพิการฯ
+                    ระหว่างวันที่ 5-10 มีนาคม 2563
+                    บุคลากรสถาบันวิจัยและบริการด้านออทิซึมได้เข้าร่วมโครงการการจัดบริการตามภารกิจของศูนย์บริการคนพิการ
+                    สมาคมผู้ปกครองออทิสติกจังหวัดขอนแก่น
+                    โดยได้รับการสนับสนุนจากกองทุนส่งเสริมและพัฒนาคุณภาพชีวิตคนพิการ
+                    ประจะปี 2563
+                    และกำหนดจัดบริการตามภารกิจของศูนย์บริการคนพิการกลุ่มเป้าหมายประกอบด้วยบุคคลออทิสติกและผู้ดูแล
+                    จำนวน 20 ครอบครัว ณ ห้องประชุมศูนย์การศึกษาพิเศษ เขตการศึกษา
+                    9 ขอนแก่น
                   </Typography>
                 </Box>
+              </Grid>
+              <Grid item sm={5} md={4} className={classes.gridItem2}>
+                <Update />
+              </Grid>
             </Grid>
-            <Grid item sm={5} md={4} className={classes.gridItem2}>
-              <Update />
-            </Grid>
-          </Grid>
-        </Container>
+          </Container>
         </Grid>
         <Footer></Footer>
       </main>
