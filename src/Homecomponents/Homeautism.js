@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 import Container from "@material-ui/core/Container";
-import { Grid, Box } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 
 
