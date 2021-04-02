@@ -343,19 +343,19 @@ export default function Header(props) {
     const workOptions = [
         {
             name: "งานด้านการวิจัย",
-            link: "/",
+            link: "/works/research",
             activeIndex: 1,
             selectedWorkIndex: 0,
         },
         {
             name: "งานวิจัยที่อยู่ระหว่างการดำเนินการ",
-            link: "/",
+            link: "/works/research/active",
             activeIndex: 1,
             selectedWorkIndex: 1,
         },
         {
             name: "งานด้านการบริการ",
-            link: "/",
+            link: "/works/service",
             activeIndex: 1,
             selectedWorkIndex: 2,
         },
