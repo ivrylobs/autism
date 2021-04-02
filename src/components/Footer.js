@@ -269,7 +269,7 @@ export default function Home(props) {
               <Typography className={classes.FooterTypo1} variant="h4">ติดต่อเรา</Typography>
               <Typography className={classes.FooterTypo2} variant="caption">Contact</Typography>
               <Divider className={classes.Dividerlinear1} variant="fullWidth" />
-              <img alt="logo" src="map.png" className={classes.mapgoogle} />
+              <img alt="logo" src="/map.png" className={classes.mapgoogle} />
             </Grid>
 
             <Grid item xs={6} sm={6} md={6} lg={2} xl={2} className={classes.iconfooter}>

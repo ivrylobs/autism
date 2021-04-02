@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { makeStyles } from "@material-ui/styles";
-import Link from "../src/Link";
+import Link from "../../../src/Link";
 
 import Container from "@material-ui/core/Container";
 import { Grid, Paper } from "@material-ui/core";
@@ -11,8 +11,8 @@ import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
 import Popper from "@material-ui/core/Popper";
 import MenuList from "@material-ui/core/MenuList";
-import Header from "../src/components/Header";
-import Footer from "../src/components/Footer";
+import Header from "../../../src/components/Header";
+import Footer from "../../../src/components/Footer";
 
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Typography, Button } from "@material-ui/core";

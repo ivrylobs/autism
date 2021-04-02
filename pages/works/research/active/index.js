@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Header from "../src/components/Header";
-import Footer from "../src/components/Footer";
+import Header from "../../../../src/components/Header";
+import Footer from "../../../../src/components/Footer";
 import Container from "@material-ui/core/Container";
 import { Button, Grid, Paper } from "@material-ui/core";
-import Link from "../src/Link";
+import Link from "../../../../src/Link";
 import MenuItem from "@material-ui/core/MenuItem";
 
 import { makeStyles } from "@material-ui/core/styles";

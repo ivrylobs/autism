@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Header from "../src/components/Header";
-import Footer from "../src/components/Footer";
-import Link from "../src/Link";
+import Header from "../../src/components/Header";
+import Footer from "../../src/components/Footer";
+import Link from "../../src/Link";
 
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
@@ -267,7 +267,7 @@ export default function Home(props) {
     },
     {
       name: "ความเป็นมาและวัตถุประสงค์",
-      link: "/aboutus",
+      link: "/about",
       selectedIndex: 1,
     },
     {
