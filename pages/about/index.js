@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header from "../src/components/Header";
-import Link from "../src/Link";
+import Header from "../../src/components/Header";
+import Link from "../../src/Link";
 
 import {
   Typography,
@@ -10,7 +10,7 @@ import {
   Button,
   Box,
 } from "@material-ui/core";
-import Footer from "../src/components/Footer";
+import Footer from "../../src/components/Footer";
 import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Popper from "@material-ui/core/Popper";
@@ -768,7 +768,7 @@ export default function Aboutas() {
   const aboutMenuOptions = [
     {
       name: "ความเป็นมาและวัตถุประสงค์",
-      link: "/aboutus",
+      link: "/about",
       selectedIndex: 0,
     },
     {

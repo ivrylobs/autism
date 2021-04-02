@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Link from "../src/Link";
+import Link from "../../src/Link";
 
 import Typography from "@material-ui/core/Typography";
-import Header from "../src/components/Header";
-import Footer from "../src/components/Footer";
+import Header from "../../src/components/Header";
+import Footer from "../../src/components/Footer";
 
 import Container from "@material-ui/core/Container";
 import { Grid } from "@material-ui/core";
@@ -288,7 +288,7 @@ export default function Home(props) {
     },
     {
       name: "ความเป็นมาและวัตถุประสงค์",
-      link: "/aboutus",
+      link: "/about",
       selectedIndex: 1,
     },
     {
