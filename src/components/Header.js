@@ -439,7 +439,7 @@ export default function Header(props) {
         },
         {
             name: "ประชาสัมพันธ์",
-            link: "/",
+            link: "/blog",
             activeIndex: 1,
             selectedNavIndex: 3,
         },
@@ -544,7 +544,7 @@ export default function Header(props) {
                                     </Grow>
                                 )}
                             </Popper>
-                            <Button variant="text" className={classes.navNews}>
+                            <Button variant="text" href="/blog" className={classes.navNews}>
                                 ประชาสัมพันธ์
                             </Button>
                         </div>
