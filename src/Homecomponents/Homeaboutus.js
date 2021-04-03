@@ -248,7 +248,7 @@ export default function Home(props) {
                 xl={6}
                 className={classes.GridPaper}
               >
-                <img className={classes.imagabout} src="about1.jpg" />
+                <img className={classes.imagabout} src="/about1.jpg" />
               </Grid>
 
               <Grid
@@ -334,7 +334,7 @@ export default function Home(props) {
                     <div className={classes.alignButton}>
                       <Button
                         component={Link}
-                        href="/aboutus"
+                        href="/about"
                         variant="contained"
                         size="large"
                         className={classes.buttonMore}

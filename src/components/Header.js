@@ -20,680 +20,647 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import LanguageIcon from "@material-ui/icons/Language";
 import { Typography } from "@material-ui/core";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 function ElevationScroll(props) {
-  const { children } = props;
+    const { children } = props;
 
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  });
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 0,
+    });
 
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  });
+    return React.cloneElement(children, {
+        elevation: trigger ? 4 : 0,
+    });
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-  },
-  toolbarMargin: {
-    [theme.breakpoints.down("xs")]: {
-      padding: 0
+    root: {
+        display: "flex",
     },
-  },
-  NavBar: {
-    zIndex: theme.zIndex.drawer,
-    backgroundColor: "#fff",
-  },
-  logo: {
-    maxHeight: 93,
-    margin: 5,
-    [theme.breakpoints.down("md")]: {
-      maxHeight: 60,
+    toolbarMargin: {
+        [theme.breakpoints.down("xs")]: {
+            padding: 0,
+        },
     },
-    [theme.breakpoints.down("sm")]: {
-      maxHeight: 54,
+    NavBar: {
+        zIndex: theme.zIndex.drawer,
+        backgroundColor: "#fff",
     },
-    [theme.breakpoints.down("xs")]: {
-      maxHeight: 45,
+    logo: {
+        maxHeight: 93,
+        margin: 5,
+        [theme.breakpoints.down("md")]: {
+            maxHeight: 60,
+        },
+        [theme.breakpoints.down("sm")]: {
+            maxHeight: 54,
+        },
+        [theme.breakpoints.down("xs")]: {
+            maxHeight: 45,
+        },
     },
-  },
-  navContainer: {
-    marginLeft: "auto",
-    [theme.breakpoints.down("md")]: {
-      display: "none",
+    navContainer: {
+        marginLeft: "auto",
+        [theme.breakpoints.down("md")]: {
+            display: "none",
+        },
+        [theme.breakpoints.down("xs")]: {
+            display: "none",
+        },
+        [theme.breakpoints.down("sm")]: {
+            display: "none",
+        },
+        [theme.breakpoints.down("xs")]: {
+            display: "none",
+        },
     },
-    [theme.breakpoints.down("xs")]: {
-      display: "none",
+    navContainer2: {
+        marginLeft: "auto",
+        display: "block",
+        [theme.breakpoints.up("xl")]: {
+            display: "none",
+        },
+        [theme.breakpoints.up("lg")]: {
+            display: "none",
+        },
     },
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
+    navMobile: {
+        ...theme.typography.tab,
+        minWidth: 15,
+        color: "#EF5666",
+        [theme.breakpoints.up("xs")]: {
+            padding: 0,
+        },
     },
-    [theme.breakpoints.down("xs")]: {
-      display: "none",
+    nav: {
+        ...theme.typography.tab,
+        minWidth: 15,
+        marginLeft: 15,
+        "&:hover": {
+            color: "#B1BE12",
+        },
     },
-  },
-  navContainer2: {
-    marginLeft: "auto",
-    display: "block",
-    [theme.breakpoints.up("xl")]: {
-      display: "none",
+    navWork: {
+        ...theme.typography.tab,
+        minWidth: 15,
+        marginLeft: 15,
+        "&:hover": {
+            color: "#B1BE12",
+        },
     },
-    [theme.breakpoints.up("lg")]: {
-      display: "none",
+    navNews: {
+        ...theme.typography.tab,
+        minWidth: 15,
+        marginLeft: 15,
+        "&:hover": {
+            color: "#B1BE12",
+        },
     },
-  },
-  navMobile: {
-    ...theme.typography.tab,
-    minWidth: 15,
-    color: "#EF5666",
-    [theme.breakpoints.up("xs")]: {
-     padding: 0
+    Aboutmenu: {
+        backgroundColor: "#B1BE12",
+        color: "white",
+        borderRadius: "3px",
+        zIndex: 1302,
     },
-  },
-  nav: {
-    ...theme.typography.tab,
-    minWidth: 15,
-    marginLeft: 15,
-    "&:hover": {
-      color: "#B1BE12",
+    AboutmenuItem: {
+        ...theme.typography.tab,
+        opacity: 0.7,
+        "&:hover": {
+            opacity: 1,
+        },
     },
-  },
-  navWork: {
-    ...theme.typography.tab,
-    minWidth: 15,
-    marginLeft: 15,
-    "&:hover": {
-      color: "#B1BE12",
+    FbIcon: {
+        color: "#3AC7FD",
     },
-  },
-  navNews: {
-    ...theme.typography.tab,
-    minWidth: 15,
-    marginLeft: 15,
-    "&:hover": {
-      color: "#B1BE12",
+    Workmenu: {
+        backgroundColor: "#B1BE12",
+        color: "white",
+        borderRadius: "3px",
+        zIndex: 1302,
     },
-  },
-  Aboutmenu: {
-    backgroundColor: "#B1BE12",
-    color: "white",
-    borderRadius: "3px",
-    zIndex: 1302,
-  },
-  AboutmenuItem: {
-    ...theme.typography.tab,
-    opacity: 0.7,
-    "&:hover": {
-      opacity: 1,
+    WorkmenuItem: {
+        ...theme.typography.tab,
+        opacity: 0.7,
+        "&:hover": {
+            opacity: 1,
+        },
     },
-  },
-  FbIcon: {
-    color: "#3AC7FD",
-  },
-  Workmenu: {
-    backgroundColor: "#B1BE12",
-    color: "white",
-    borderRadius: "3px",
-    zIndex: 1302,
-  },
-  WorkmenuItem: {
-    ...theme.typography.tab,
-    opacity: 0.7,
-    "&:hover": {
-      opacity: 1,
+    imageIcon: {
+        height: 35,
+        [theme.breakpoints.down("xs")]: {
+            height: 15,
+        },
     },
-  },
-  imageIcon: {
-    height: 35,
-    [theme.breakpoints.down("xs")]: {
-      height: 15,
+    iconRoot: {
+        textAlign: "center",
+        [theme.breakpoints.down("xs")]: {
+            paddingLeft: 0,
+        },
     },
-  },
-  iconRoot: {
-    textAlign: "center",
-    [theme.breakpoints.down("xs")]: {
-      paddingLeft: 0
+    nav2: {
+        ...theme.typography.estimate,
+        borderRadius: 5,
+        marginLeft: 20,
+        fontWeight: 700,
+        height: 45,
+        color: "#B1BE12",
+        [theme.breakpoints.down("md")]: {
+            marginLeft: 0,
+        },
+        [theme.breakpoints.down("sm")]: {
+            marginLeft: 0,
+            display: "none",
+        },
+        [theme.breakpoints.down("xs")]: {
+            display: "none",
+        },
     },
-  },
-  nav2: {
-    ...theme.typography.estimate,
-    borderRadius: 5,
-    marginLeft: 20,
-    fontWeight: 700,
-    height: 45,
-    color: "#B1BE12",
-    [theme.breakpoints.down("md")]: {
-      marginLeft: 0,
+    nav3: {
+        color: "#B1BE12",
+        [theme.breakpoints.up("xl")]: {
+            display: "none",
+        },
+        [theme.breakpoints.up("lg")]: {
+            display: "none",
+        },
+        [theme.breakpoints.up("md")]: {
+            display: "none",
+        },
     },
-    [theme.breakpoints.down("sm")]: {
-      marginLeft: 0,
-      display: "none"
+    navlg3: {
+        fontSize: 33,
+        color: "#B1BE12",
+        [theme.breakpoints.up("xl")]: {
+            display: "none",
+        },
+        [theme.breakpoints.up("lg")]: {
+            display: "none",
+        },
+        [theme.breakpoints.up("md")]: {
+            display: "none",
+        },
+        [theme.breakpoints.down("xs")]: {
+            fontSize: 15,
+        },
     },
-    [theme.breakpoints.down("xs")]: {
-      display: "none"
+    LanguageMenu: {
+        backgroundColor: "#B1BE12",
+        color: "white",
+        borderRadius: 3,
+        zIndex: 1302,
     },
-  },
-  nav3: {
-    color: "#B1BE12",
-    [theme.breakpoints.up("xl")]: {
-      display: "none"
+    LanguageMenuItem: {
+        ...theme.typography.tab,
+        opacity: 0.7,
+        "&:hover": {
+            opacity: 1,
+        },
     },
-    [theme.breakpoints.up("lg")]: {
-      display: "none"
+    CloseLanguage: {
+        [theme.breakpoints.down("xs")]: {
+            display: "none",
+        },
     },
-    [theme.breakpoints.up("md")]: {
-      display: "none"
+    Navmenu: {
+        backgroundColor: "#EAA0A8",
+        color: "white",
+        borderRadius: 3,
+        zIndex: 1302,
     },
-  },
-  navlg3: {
-    fontSize: 33,
-    color: "#B1BE12",
-    [theme.breakpoints.up("xl")]: {
-      display: "none"
+    NavmenuItem: {
+        ...theme.typography.tab,
+        fontWeight: 400,
+        opacity: 0.7,
+        "&:hover": {
+            opacity: 1,
+        },
     },
-    [theme.breakpoints.up("lg")]: {
-      display: "none"
+    Navbar: {
+        color: "#EF5666",
     },
-    [theme.breakpoints.up("md")]: {
-      display: "none"
+
+    button: {
+        ...theme.typography.tab,
+        borderRadius: 5,
+        marginLeft: 10,
+        marginRight: 5,
+        fontSize: 20,
+        fontWeight: 700,
+        height: 45,
+        color: "white",
+        backgroundColor: "#F26705",
+        [theme.breakpoints.down("sm")]: {
+            height: 35,
+            fontSize: 16,
+        },
+        [theme.breakpoints.down("xs")]: {
+            width: 65,
+            height: 25,
+            fontSize: 9,
+            marginLeft: 0,
+        },
     },
-    [theme.breakpoints.down("xs")]: {
-      fontSize: 15,
+    NavTypo: {
+        [theme.breakpoints.down("xs")]: {
+            fontSize: 9,
+        },
     },
-  },
-  LanguageMenu: {
-    backgroundColor: "#B1BE12",
-    color: "white",
-    borderRadius: 3,
-    zIndex: 1302,
-  },
-  LanguageMenuItem: {
-    ...theme.typography.tab,
-    opacity: 0.7,
-    "&:hover": {
-      opacity: 1,
+    buttonlogo: {
+        padding: 0,
     },
-  },
-  CloseLanguage: {
-    [theme.breakpoints.down("xs")]: {
-      display: "none"
-    },
-  },
-  Navmenu: {
-    backgroundColor: "#EAA0A8",
-    color: "white",
-    borderRadius: 3,
-    zIndex: 1302,
-  },
-  NavmenuItem: {
-    ...theme.typography.tab,
-    fontWeight: 400,
-    opacity: 0.7,
-    "&:hover": {
-      opacity: 1,
-    },
-  },
-  Navbar: {
-    color: "#EF5666"
-  },
-  
-  button: {
-    ...theme.typography.tab,
-    borderRadius: 5,
-    marginLeft: 10,
-    marginRight: 5,
-    fontSize: 20,
-    fontWeight: 700,
-    height: 45,
-    color: "white",
-    backgroundColor: "#F26705",
-    [theme.breakpoints.down("sm")]: {
-      height: 35,
-      fontSize: 16,
-      
-    },
-    [theme.breakpoints.down("xs")]: {
-      width: 65,
-      height: 25,
-      fontSize: 9,
-      marginLeft: 0,
-    },
-  },
-  NavTypo: {
-    [theme.breakpoints.down("xs")]: {
-      fontSize: 9,
-    },
-  },
-  buttonlogo: {
-    padding: 0
-  }
 }));
 
 export default function Header(props) {
-  const classes = useStyles(props);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [openAbout, setOpenAbout] = useState(false);
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+    // Require for bi-language
+    const router = useRouter();
+    const { locale, locales, defaultLocale } = router;
+    const { formatMessage } = useIntl();
+    const f = (id) => formatMessage({ id });
+    // End of Requirement
 
-  const handleClick = (e) => {
-    setAnchorEl(e.currentTarget);
-    setOpenAbout(true);
-  };
+    const classes = useStyles(props);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [openAbout, setOpenAbout] = useState(false);
+    const [selectedIndex, setSelectedIndex] = React.useState(0);
 
-  const handleAboutItemClick = (e, i) => {
-    setAnchorEl(null);
-    setOpenAbout(false);
-    setSelectedIndex(i);
-  };
+    const handleClick = (e) => {
+        setAnchorEl(e.currentTarget);
+        setOpenAbout(true);
+    };
 
-  const handleClose = (e) => {
-    setAnchorEl(null);
-    setOpenAbout(false);
-  };
+    const handleAboutItemClick = (e, i) => {
+        setAnchorEl(null);
+        setOpenAbout(false);
+        setSelectedIndex(i);
+    };
 
-  const aboutOptions = [
-    {
-      name: "ความเป็นมาและวัตถุประสงค์",
-      link: "/aboutus",
-      selectedIndex: 0,
-    },
-    {
-      name: "ทำเนียบบุคลากร",
-      link: "/team",
-      selectedIndex: 1,
-    },
-    {
-      name: "หน่วยงานที่เกี่ยวข้อง",
-      link: "/related",
-      selectedIndex: 2,
-    },
-  ];
+    const handleClose = (e) => {
+        setAnchorEl(null);
+        setOpenAbout(false);
+    };
 
-  const [anchorElWork, setAnchorElWork] = useState(null);
-  const [openWork, setOpenWork] = useState(false);
-  const [selectedWorkIndex, setSelectedWorkIndex] = React.useState(0);
+    const aboutOptions = [
+        {
+            name: "ความเป็นมาและวัตถุประสงค์",
+            link: "/about",
+            selectedIndex: 0,
+        },
+        {
+            name: "ทำเนียบบุคลากร",
+            link: "/team",
+            selectedIndex: 1,
+        },
+        {
+            name: "หน่วยงานที่เกี่ยวข้อง",
+            link: "/related",
+            selectedIndex: 2,
+        },
+    ];
 
-  const handleWorkClick = (e) => {
-    setAnchorElWork(e.currentTarget);
-    setOpenWork(true);
-  };
+    const [anchorElWork, setAnchorElWork] = useState(null);
+    const [openWork, setOpenWork] = useState(false);
+    const [selectedWorkIndex, setSelectedWorkIndex] = React.useState(0);
 
-  const handleWorkItemClick = (e, i) => {
-    setAnchorElWork(null);
-    setOpenWork(false);
-    setSelectedWorkIndex(i);
-  };
+    const handleWorkClick = (e) => {
+        setAnchorElWork(e.currentTarget);
+        setOpenWork(true);
+    };
 
-  const handleWorkClose = (e) => {
-    setAnchorElWork(null);
-    setOpenWork(false);
-  };
+    const handleWorkItemClick = (e, i) => {
+        setAnchorElWork(null);
+        setOpenWork(false);
+        setSelectedWorkIndex(i);
+    };
 
-  const workOptions = [
-    {
-      name: "งานด้านการวิจัย",
-      link: "/",
-      activeIndex: 1,
-      selectedWorkIndex: 0,
-    },
-    {
-      name: "งานวิจัยที่อยู่ระหว่างการดำเนินการ",
-      link: "/",
-      activeIndex: 1,
-      selectedWorkIndex: 1,
-    },
-    {
-      name: "งานด้านการบริการ",
-      link: "/",
-      activeIndex: 1,
-      selectedWorkIndex: 2,
-    },
-  ];
+    const handleWorkClose = (e) => {
+        setAnchorElWork(null);
+        setOpenWork(false);
+    };
 
-  const [anchorElMenu, setAnchorElMenu] = useState(null);
-  const [openMenu, setOpenMenu] = useState(false);
-  const [selectedMenuIndex, setselectedMenuIndex] = React.useState(0);
+    const workOptions = [
+        {
+            name: "งานด้านการวิจัย",
+            link: "/works/research",
+            activeIndex: 1,
+            selectedWorkIndex: 0,
+        },
+        {
+            name: "งานวิจัยที่อยู่ระหว่างการดำเนินการ",
+            link: "/works/research/active",
+            activeIndex: 1,
+            selectedWorkIndex: 1,
+        },
+        {
+            name: "งานด้านการบริการ",
+            link: "/works/service",
+            activeIndex: 1,
+            selectedWorkIndex: 2,
+        },
+    ];
 
-  const handleClickMenu = (e) => {
-    setAnchorElMenu(e.currentTarget);
-    setOpenMenu(true);
-  };
+    const [anchorElMenu, setAnchorElMenu] = useState(null);
+    const [openMenu, setOpenMenu] = useState(false);
+    const [selectedMenuIndex, setselectedMenuIndex] = React.useState(0);
 
-  const handleMenuItemClick = (e, i) => {
-    setAnchorElMenu(null);
-    setOpenMenu(false);
-    setselectedMenuIndex(i);
-  };
+    const handleClickMenu = (e) => {
+        setAnchorElMenu(e.currentTarget);
+        setOpenMenu(true);
+    };
 
-  const handleCloseMenu = (e) => {
-    setAnchorElMenu(null);
-    setOpenMenu(false);
-  };
+    const handleMenuItemClick = (e, i) => {
+        setAnchorElMenu(null);
+        setOpenMenu(false);
+        setselectedMenuIndex(i);
+    };
 
-  const menuOptions = [
-    {
-      name: "English",
-      link: "/en/home",
-      activeIndex: 1,
-      selectedMenuIndex: 0,
-    },
-    {
-      name: "ภาษาไทย",
-      link: "/th/home",
-      activeIndex: 1,
-      selectedMenuIndex: 1,
-    },
-  ];
+    const handleCloseMenu = (e) => {
+        setAnchorElMenu(null);
+        setOpenMenu(false);
+    };
 
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const [openNav, setOpenNav] = useState(false);
-  const [selectedNavIndex, setSelectedNavIndex] = React.useState(0);
+    const menuOptions = [
+        {
+            name: "ภาษาไทย",
+            locale: "th",
+            link: "/th",
+            activeIndex: 1,
+            selectedMenuIndex: 0,
+        },
+        {
+            name: "English",
+            locale: "en",
+            link: "/en",
+            activeIndex: 1,
+            selectedMenuIndex: 1,
+        },
+    ];
 
-  const handleNavClick = (e) => {
-    setAnchorElNav(e.currentTarget);
-    setOpenNav(true);
-  };
+    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [openNav, setOpenNav] = useState(false);
+    const [selectedNavIndex, setSelectedNavIndex] = React.useState(0);
 
-  const handleNavItemClick = (e, i) => {
-    setAnchorElNav(null);
-    setOpenNav(false);
-    setSelectedNavIndex(i);
-  };
+    const handleNavClick = (e) => {
+        setAnchorElNav(e.currentTarget);
+        setOpenNav(true);
+    };
 
-  const handleNavClose = (e) => {
-    setAnchorElNav(null);
-    setOpenNav(false);
-  };
+    const handleNavItemClick = (e, i) => {
+        setAnchorElNav(null);
+        setOpenNav(false);
+        setSelectedNavIndex(i);
+    };
 
-  const navOptions = [
-    {
-      name: "หน้าแรก",
-      link: "/home",
-      activeIndex: 1,
-      selectedNavIndex: 0,
-    },
-    {
-      name: "เกี่ยวกับเรา",
-      link: "/aboutus",
-      activeIndex: 1,
-      selectedNavIndex: 1,
-    },
-    {
-      name: "งานของเรา",
-      link: "/",
-      activeIndex: 1,
-      selectedNavIndex: 2,
-    },
-    {
-      name: "ประชาสัมพันธ์",
-      link: "/",
-      activeIndex: 1,
-      selectedNavIndex: 3,
-    },
-  ];
+    const handleNavClose = (e) => {
+        setAnchorElNav(null);
+        setOpenNav(false);
+    };
 
-  return (
-    <React.Fragment>
-      <ElevationScroll>
-        <AppBar position="relative" className={classes.NavBar}>
-          <Toolbar className={classes.toolbarMargin}>
-            <Button className={classes.buttonlogo} component={Link} href="/home">
-            <img  alt="logo" src="logo.png" className={classes.logo} />
-            </Button>
-            <div className={classes.navContainer}>
-              <Button component={Link} href="/home" variant="text" className={classes.nav}>
-                หน้าแรก
-              </Button>
-              <Button
-                variant="text"
-                className={classes.nav}
-                endIcon={<ExpandMoreIcon />}
-                aria-controls="simple-menu"
-                aria-haspopup="true"
-                onClick={handleClick}
-              >
-                เกี่ยวกับเรา
-              </Button>
-              <Popper
-                open={openAbout}
-                anchorEl={anchorEl}
-                role={undefined}
-                transition
-                disablePortal
-              >
-                {({ TransitionProps, placement }) => (
-                  <Grow
-                    {...TransitionProps}
-                    style={{
-                      transformOrigin: placement === "top left",
-                    }}
-                  >
-                    <Paper className={classes.Aboutmenu} elevation={0}>
-                      <ClickAwayListener onClickAway={handleClose}>
-                        <MenuList
-                          id="simple-menu"
-                          disablePadding
-                          autoFocusItem={false}
-                        >
-                          {aboutOptions.map((option, i) => (
-                            <MenuItem
-                              key={`${option}${i}`}
-                              component={Link}
-                              href={option.link}
-                              className={classes.AboutmenuItem}
-                              selected={i === selectedIndex}
-                              onClick={(event) => {
-                                handleAboutItemClick(event, i);
-                                
-                                handleClose();
-                              }}
+    const navOptions = [
+        {
+            name: "หน้าแรก",
+            link: "/",
+            activeIndex: 1,
+            selectedNavIndex: 0,
+        },
+        {
+            name: "เกี่ยวกับเรา",
+            link: "/about",
+            activeIndex: 1,
+            selectedNavIndex: 1,
+        },
+        {
+            name: "งานของเรา",
+            link: "/works/research",
+            activeIndex: 1,
+            selectedNavIndex: 2,
+        },
+        {
+            name: "ประชาสัมพันธ์",
+            link: "/blog",
+            activeIndex: 1,
+            selectedNavIndex: 3,
+        },
+    ];
+
+    return (
+        <React.Fragment>
+            <ElevationScroll>
+                <AppBar position="relative" className={classes.NavBar}>
+                    <Toolbar className={classes.toolbarMargin}>
+                        <Button className={classes.buttonlogo} component={Link} href="/">
+                            <img alt="logo" src="/logo.png" className={classes.logo} />
+                        </Button>
+                        <div className={classes.navContainer}>
+                            <Button component={Link} href="/" variant="text" className={classes.nav}>
+                                หน้าแรก
+                            </Button>
+                            <Button
+                                variant="text"
+                                className={classes.nav}
+                                endIcon={<ExpandMoreIcon />}
+                                aria-controls="simple-menu"
+                                aria-haspopup="true"
+                                onClick={handleClick}
                             >
-                              {option.name}
-                            </MenuItem>
-                          ))}
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                  </Grow>
-                )}
-              </Popper>
+                                เกี่ยวกับเรา
+                            </Button>
+                            <Popper open={openAbout} anchorEl={anchorEl} role={undefined} transition disablePortal>
+                                {({ TransitionProps, placement }) => (
+                                    <Grow
+                                        {...TransitionProps}
+                                        style={{
+                                            transformOrigin: placement === "top left",
+                                        }}
+                                    >
+                                        <Paper className={classes.Aboutmenu} elevation={0}>
+                                            <ClickAwayListener onClickAway={handleClose}>
+                                                <MenuList id="simple-menu" disablePadding autoFocusItem={false}>
+                                                    {aboutOptions.map((option, i) => (
+                                                        <MenuItem
+                                                            key={`${option}${i}`}
+                                                            component={Link}
+                                                            href={option.link}
+                                                            className={classes.AboutmenuItem}
+                                                            selected={i === selectedIndex}
+                                                            onClick={(event) => {
+                                                                handleAboutItemClick(event, i);
 
-              <Button
-                variant="text"
-                className={classes.navWork}
-                endIcon={<ExpandMoreIcon />}
-                aria-controls="ourwork-menu"
-                aria-haspopup="true"
-                onClick={handleWorkClick}
-              >
-                งานของเรา
-              </Button>
-              <Popper
-                open={openWork}
-                anchorEl={anchorElWork}
-                role={undefined}
-                transition
-                disablePortal
-              >
-                {({ TransitionProps, placement }) => (
-                  <Grow
-                    {...TransitionProps}
-                    style={{
-                      transformOrigin: placement === "top left",
-                    }}
-                  >
-                    <Paper className={classes.Workmenu} elevation={0}>
-                      <ClickAwayListener onClickAway={handleWorkClose}>
-                        <MenuList
-                          id="simple-menu"
-                          disablePadding
-                          autoFocusItem={false}
-                        >
-                          {workOptions.map((option, i) => (
-                            <MenuItem
-                              key={`${option}${i}`}
-                              component={Link}
-                              href={option.link}
-                              className={classes.WorkmenuItem}
-                              selected={i === selectedWorkIndex}
-                              onClick={(event) => {
-                                handleWorkItemClick(event, i);
-                                
-                                handleWorkClose();
-                              }}
+                                                                handleClose();
+                                                            }}
+                                                        >
+                                                            {option.name}
+                                                        </MenuItem>
+                                                    ))}
+                                                </MenuList>
+                                            </ClickAwayListener>
+                                        </Paper>
+                                    </Grow>
+                                )}
+                            </Popper>
+
+                            <Button
+                                variant="text"
+                                className={classes.navWork}
+                                endIcon={<ExpandMoreIcon />}
+                                aria-controls="ourwork-menu"
+                                aria-haspopup="true"
+                                onClick={handleWorkClick}
                             >
-                              {option.name}
-                            </MenuItem>
-                          ))}
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                  </Grow>
-                )}
-              </Popper>
-              <Button variant="text" className={classes.navNews}>
-                ประชาสัมพันธ์
-              </Button>
-            </div>
-            <div className={classes.navContainer2}>
-            
-                <Button
-                 
-                  aria-controls="simple-menu"
-                  aria-haspopup="true"
-                  onClick={handleNavClick}
-                  aria-label="menu"
-                  variant="text"
-                className={classes.navMobile}
-                endIcon={<ExpandMoreIcon />}
-                >
-                  <Typography className={classes.NavTypo}>หน้าแรก</Typography>
-                </Button>
-             
-              <Popper
-                open={openNav}
-                anchorEl={anchorElNav}
-                role={undefined}
-                transition
-                disablePortal
-              >
-                {({ TransitionProps, placement }) => (
-                  <Grow
-                    {...TransitionProps}
-                    style={{
-                      transformOrigin: placement === "top left",
-                    }}
-                  >
-                    <Paper className={classes.Navmenu} elevation={0}>
-                      <ClickAwayListener onClickAway={handleNavClose}>
-                        <MenuList
-                          id="home-menu"
-                          disablePadding
-                          autoFocusItem={false}
-                        >
-                          {navOptions.map((option, i) => (
-                            <MenuItem
-                              key={`${option}${i}`}
-                              component={Link}
-                              href={option.link}
-                              className={classes.NavmenuItem}
-                              selected={i === selectedNavIndex}
-                              onClick={(event) => {
-                                handleNavItemClick(event, i);
-                                
-                                handleNavClose();
-                              }}
+                                งานของเรา
+                            </Button>
+                            <Popper open={openWork} anchorEl={anchorElWork} role={undefined} transition disablePortal>
+                                {({ TransitionProps, placement }) => (
+                                    <Grow
+                                        {...TransitionProps}
+                                        style={{
+                                            transformOrigin: placement === "top left",
+                                        }}
+                                    >
+                                        <Paper className={classes.Workmenu} elevation={0}>
+                                            <ClickAwayListener onClickAway={handleWorkClose}>
+                                                <MenuList id="simple-menu" disablePadding autoFocusItem={false}>
+                                                    {workOptions.map((option, i) => (
+                                                        <MenuItem
+                                                            key={`${option}${i}`}
+                                                            component={Link}
+                                                            href={option.link}
+                                                            className={classes.WorkmenuItem}
+                                                            selected={i === selectedWorkIndex}
+                                                            onClick={(event) => {
+                                                                handleWorkItemClick(event, i);
+
+                                                                handleWorkClose();
+                                                            }}
+                                                        >
+                                                            {option.name}
+                                                        </MenuItem>
+                                                    ))}
+                                                </MenuList>
+                                            </ClickAwayListener>
+                                        </Paper>
+                                    </Grow>
+                                )}
+                            </Popper>
+                            <Button variant="text" href="/blog" className={classes.navNews}>
+                                ประชาสัมพันธ์
+                            </Button>
+                        </div>
+                        <div className={classes.navContainer2}>
+                            <Button
+                                aria-controls="simple-menu"
+                                aria-haspopup="true"
+                                onClick={handleNavClick}
+                                aria-label="menu"
+                                variant="text"
+                                className={classes.navMobile}
+                                endIcon={<ExpandMoreIcon />}
                             >
-                              {option.name}
-                            </MenuItem>
-                          ))}
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                  </Grow>
-                )}
-              </Popper>
-            </div>
-            <Button
-              variant="text"
-              className={classes.nav2}
-              startIcon={<LanguageIcon />}
-              endIcon={<ExpandMoreIcon />}
-              aria-controls="langauges-menu"
-              aria-haspopup="true"
-              onClick={handleClickMenu}
-            ><Typography className={classes.CloseLanguage}>English</Typography>
-              
-            </Button>
-            <Popper
-              open={openMenu}
-              anchorEl={anchorElMenu}
-              role={undefined}
-              transition
-              disablePortal
-            >
-              {({ TransitionProps, placement }) => (
-                <Grow
-                  {...TransitionProps}
-                  style={{
-                    transformOrigin: placement === "top left",
-                  }}
-                >
-                  <Paper className={classes.LanguageMenu} elevation={0}>
-                    <ClickAwayListener onClickAway={handleCloseMenu}>
-                      <MenuList
-                        id="langauges-menu2"
-                        disablePadding
-                        autoFocusItem={false}
-                      >
-                        {menuOptions.map((option, i) => (
-                          <MenuItem
-                            key={`${option}${i}`}
-                            component={Link}
-                            href={option.link}
-                            className={classes.LanguageMenuItem}
-                            selected={i === selectedMenuIndex}
-                            onClick={(event) => {
-                              handleMenuItemClick(event, i);
-                              
-                              handleCloseMenu();
-                            }}
-                          >
-                            {option.name}
-                          </MenuItem>
-                        ))}
-                      </MenuList>
-                    </ClickAwayListener>
-                  </Paper>
-                </Grow>
-              )}
-            </Popper>
-            <Tooltip title="Languages">
-                <IconButton
-                  className={classes.nav3}
-                  aria-controls="langauges-menu"
-                  aria-haspopup="true"
-                  onClick={handleClickMenu}
-                  aria-label="language"
-                >
-                  <LanguageIcon className={classes.navlg3} />
-                </IconButton>
-              </Tooltip>
-            <IconButton classes={{ root: classes.iconRoot }}>
-              <img className={classes.imageIcon} src="facebook-24px.svg" />
-            </IconButton>
-            <Button
-              variant="contained"
-              className={classes.button}
-              endIcon={<ArrowRightIcon />}
-            >
-              บริจาค
-            </Button>
-          </Toolbar>
-        </AppBar>
-      </ElevationScroll>
-    </React.Fragment>
-  );
+                                <Typography className={classes.NavTypo}>เมนู</Typography>
+                            </Button>
+
+                            <Popper open={openNav} anchorEl={anchorElNav} role={undefined} transition disablePortal>
+                                {({ TransitionProps, placement }) => (
+                                    <Grow
+                                        {...TransitionProps}
+                                        style={{
+                                            transformOrigin: placement === "top left",
+                                        }}
+                                    >
+                                        <Paper className={classes.Navmenu} elevation={0}>
+                                            <ClickAwayListener onClickAway={handleNavClose}>
+                                                <MenuList id="home-menu" disablePadding autoFocusItem={false}>
+                                                    {navOptions.map((option, i) => (
+                                                        <MenuItem
+                                                            key={`${option}${i}`}
+                                                            component={Link}
+                                                            href={option.link}
+                                                            className={classes.NavmenuItem}
+                                                            selected={i === selectedNavIndex}
+                                                            onClick={(event) => {
+                                                                handleNavItemClick(event, i);
+
+                                                                handleNavClose();
+                                                            }}
+                                                        >
+                                                            {option.name}
+                                                        </MenuItem>
+                                                    ))}
+                                                </MenuList>
+                                            </ClickAwayListener>
+                                        </Paper>
+                                    </Grow>
+                                )}
+                            </Popper>
+                        </div>
+                        <Button
+                            variant="text"
+                            className={classes.nav2}
+                            startIcon={<LanguageIcon />}
+                            endIcon={<ExpandMoreIcon />}
+                            aria-controls="langauges-menu"
+                            aria-haspopup="true"
+                            onClick={handleClickMenu}
+                        >
+                            <Typography className={classes.CloseLanguage}>
+                                {locale === "th" ? "ภาษาไทย" : "English"}
+                            </Typography>
+                        </Button>
+                        <Popper open={openMenu} anchorEl={anchorElMenu} role={undefined} transition disablePortal>
+                            {({ TransitionProps, placement }) => (
+                                <Grow
+                                    {...TransitionProps}
+                                    style={{
+                                        transformOrigin: placement === "top left",
+                                    }}
+                                >
+                                    <Paper className={classes.LanguageMenu} elevation={0}>
+                                        <ClickAwayListener onClickAway={handleCloseMenu}>
+                                            <MenuList id="langauges-menu2" disablePadding autoFocusItem={false}>
+                                                {menuOptions.map((option, i) => (
+                                                    <MenuItem
+                                                        key={`${option}${i}`}
+                                                        component={Link}
+                                                        href={option.link}
+                                                        className={classes.LanguageMenuItem}
+                                                        selected={i === selectedMenuIndex}
+                                                        onClick={(event) => {
+                                                            handleMenuItemClick(event, i);
+
+                                                            handleCloseMenu();
+                                                        }}
+                                                    >
+                                                        {option.name}
+                                                    </MenuItem>
+                                                ))}
+                                            </MenuList>
+                                        </ClickAwayListener>
+                                    </Paper>
+                                </Grow>
+                            )}
+                        </Popper>
+                        <Tooltip title="Languages">
+                            <IconButton
+                                className={classes.nav3}
+                                aria-controls="langauges-menu"
+                                aria-haspopup="true"
+                                onClick={handleClickMenu}
+                                aria-label="language"
+                            >
+                                <LanguageIcon className={classes.navlg3} />
+                            </IconButton>
+                        </Tooltip>
+                        <IconButton classes={{ root: classes.iconRoot }}>
+                            <img className={classes.imageIcon} src="/facebook-24px.svg" />
+                        </IconButton>
+                        <Button variant="contained" className={classes.button} endIcon={<ArrowRightIcon />}>
+                            บริจาค
+                        </Button>
+                    </Toolbar>
+                </AppBar>
+            </ElevationScroll>
+        </React.Fragment>
+    );
 }
