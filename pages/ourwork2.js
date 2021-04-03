@@ -116,7 +116,6 @@ const useStyle = makeStyles((theme) => ({
     backgroundColor: "#EF5666",
     color: "white",
     borderRadius: "3px",
-    zIndex: 1302,
   },
   WorkmenuItem: {
     ...theme.typography.tab,
@@ -241,11 +240,8 @@ const useStyle = makeStyles((theme) => ({
     padding: 10,
   },
   Griditem2: {
-    marginTop: 70,
+    marginTop: 15,
     marginBottom: 45,
-    [theme.breakpoints.down("lg")]: {
-      marginTop: 104,
-    },
     [theme.breakpoints.down("md")]: {
       fontSize: 12,
     },
@@ -254,7 +250,6 @@ const useStyle = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: 12,
-      marginTop: 142,
     },
   }
 }));
@@ -346,6 +341,9 @@ export default function Home(props) {
                     transition
                     disablePortal
                     className={classes.WorkMenu1}
+                    style={{
+                      zIndex: 1302
+                    }}
                   >
                     {({ TransitionProps, placement }) => (
                       <Grow
