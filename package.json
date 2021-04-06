@@ -13,6 +13,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "antd": "^4.12.3",
+    "axios": "^0.21.1",
     "framer": "^1.2.20",
     "framer-motion": "^3.3.0",
     "gsap": "^3.6.0",
@@ -21,6 +22,7 @@
     "react": "^17.0.1",
     "react-dom": "17.0.1",
     "react-intl": "^5.14.0",
+    "react-markdown": "^5.0.3",
     "react-player": "^2.9.0",
     "react-scroll-motion": "^0.2.1",
     "react-spring": "^8.0.27"
