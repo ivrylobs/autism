@@ -3,7 +3,7 @@ import { fetchAPI } from "../../lib/api";
 import ReactMarkdown from "react-markdown";
 
 const instance = axios.create({
-  baseURL: "http://localhost:1337",
+  baseURL: "https://cms.ivrylobs.xyz",
 });
 
 const Post = ({ post }) => {
@@ -13,7 +13,7 @@ const Post = ({ post }) => {
       <ReactMarkdown
         transformImageUri={(uri) => {
           console.log(uri);
-          return "http://localhost:1337" + uri;
+          return "https://cms.ivrylobs.xyz" + uri;
         }}
         children={post.content}
       />
