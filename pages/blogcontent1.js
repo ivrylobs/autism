@@ -139,7 +139,7 @@ export default function Home(props) {
                 <Typography variant="h4" className={classes.Typography1}>
                   บุคลากรสถาบันวิจัยและบริการด้านออทิซึมได้รับเชิญเป็นวิทยากร
                   การอบรมเชิงปฏิบัติการพัฒนาศักยภาพผู้ปกครอง ผู้ดูแลและ
-                  เครือข่ายสู่การเป็นต้นแบบ ครั้งที่ 1 เรื่อง
+                  เครือข่ายสู่การเป็นต้นแบบ ครั้งที่ 1 เรื่อง 
                   “การพัฒนาสู่สุขภาวะ”
                 </Typography>
                 <Typography variant="caption" className={classes.Typography2}>

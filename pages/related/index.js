@@ -107,6 +107,9 @@ const useStyles = makeStyles((theme) => ({
     color: "#EF5666",
   },
   aboutTypo1: {
+    [theme.breakpoints.down("lg")]: {
+      fontSize: 60,
+    },
     [theme.breakpoints.down("md")]: {
       fontSize: 48,
     },

@@ -12,7 +12,6 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import AddIcCallIcon from "@material-ui/icons/AddIcCall";
 
-
 const useStyle = makeStyles((theme) => ({
   BlogContainer: {
     [theme.breakpoints.down("xl")]: {
@@ -33,49 +32,48 @@ const useStyle = makeStyles((theme) => ({
   },
   FooterTypo1: {
     [theme.breakpoints.down("lg")]: {
-      fontSize: 24
+      fontSize: 24,
     },
     [theme.breakpoints.down("md")]: {
-      fontSize: 24
+      fontSize: 24,
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: 17
+      fontSize: 17,
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 24
+      fontSize: 24,
     },
-
   },
   FooterTypo2: {
     fontFamily: "Raleway",
     color: "#000",
     fontWeight: "bold",
     [theme.breakpoints.down("lg")]: {
-      fontSize: 10
+      fontSize: 10,
     },
     [theme.breakpoints.down("md")]: {
-      fontSize: 10
+      fontSize: 10,
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: 12
+      fontSize: 12,
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 8
+      fontSize: 8,
     },
   },
   boxText: {
     textIndent: 20,
     [theme.breakpoints.down("lg")]: {
-      fontSize: 12
+      fontSize: 12,
     },
     [theme.breakpoints.down("md")]: {
-      fontSize: 10
+      fontSize: 10,
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: 10
+      fontSize: 10,
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 8
+      fontSize: 8,
     },
   },
 
@@ -113,8 +111,7 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       height: 35,
       fontSize: 16,
-      marginTop: 22
-      
+      marginTop: 22,
     },
     [theme.breakpoints.down("xs")]: {
       width: 65,
@@ -125,7 +122,7 @@ const useStyle = makeStyles((theme) => ({
   },
   mapgoogle: {
     marginTop: 20,
-    width: "100%"
+    width: "100%",
   },
   iconfooter1: {
     color: "#B1BE12",
@@ -154,13 +151,11 @@ const useStyle = makeStyles((theme) => ({
   iconRoot: {
     textAlign: "center",
     [theme.breakpoints.down("xs")]: {
-      padding: 0
+      padding: 0,
     },
-  
   },
   contentfooter: {
     textAlign: "left",
-
     padding: 20,
   },
   CarditemAbotus: {
@@ -181,51 +176,48 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginTop: 55,
     },
-    [theme.breakpoints.down("xs")]: {
-     
-    },
+    [theme.breakpoints.down("xs")]: {},
   },
-  
+
   phoneNumber: {
     marginTop: 50,
     [theme.breakpoints.down("lg")]: {
-      fontSize: 14
+      fontSize: 14,
     },
     [theme.breakpoints.down("md")]: {
-      fontSize: 12
+      fontSize: 12,
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: 10,
       marginTop: 55,
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 8
+      fontSize: 8,
     },
   },
   FooterContact: {
     textIndent: 20,
     [theme.breakpoints.down("lg")]: {
-      fontSize: 14
+      fontSize: 14,
     },
     [theme.breakpoints.down("md")]: {
-      fontSize: 12
+      fontSize: 12,
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: 10
+      fontSize: 10,
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 8
+      fontSize: 8,
     },
   },
   footerRight: {
     [theme.breakpoints.down("sm")]: {
-      fontSize: 10
+      fontSize: 10,
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 8
+      fontSize: 8,
     },
-  }
-  
+  },
 }));
 
 export default function Home(props) {
@@ -257,22 +249,34 @@ export default function Home(props) {
                 และแผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 12 พ.ศ.2560-2564
               </Typography>
               <Button
-              variant="contained"
-              className={classes.button}
-              endIcon={<ArrowRightIcon />}
-            >
-              บริจาค
-            </Button>
+                variant="contained"
+                className={classes.button}
+                endIcon={<ArrowRightIcon />}
+              >
+                บริจาค
+              </Button>
             </Grid>
 
             <Grid item xs={12} sm={6} md={6} lg={3} xl={3}>
-              <Typography className={classes.FooterTypo1} variant="h4">ติดต่อเรา</Typography>
-              <Typography className={classes.FooterTypo2} variant="caption">Contact</Typography>
+              <Typography className={classes.FooterTypo1} variant="h4">
+                ติดต่อเรา
+              </Typography>
+              <Typography className={classes.FooterTypo2} variant="caption">
+                Contact
+              </Typography>
               <Divider className={classes.Dividerlinear1} variant="fullWidth" />
               <img alt="logo" src="/map.png" className={classes.mapgoogle} />
             </Grid>
 
-            <Grid item xs={6} sm={6} md={6} lg={2} xl={2} className={classes.iconfooter}>
+            <Grid
+              item
+              xs={6}
+              sm={6}
+              md={6}
+              lg={2}
+              xl={2}
+              className={classes.iconfooter}
+            >
               <LocationOnIcon
                 fontSize="large"
                 className={classes.iconfooter1}
@@ -283,27 +287,47 @@ export default function Home(props) {
                 className={classes.iconfooter2}
               ></AddIcCallIcon>
               <br></br>
-              <IconButton component={Link}
-                  href="https://www.facebook.com/%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%9A%E0%B8%B1%E0%B8%99%E0%B8%A7%E0%B8%B4%E0%B8%88%E0%B8%B1%E0%B8%A2%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%94%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%AD%E0%B8%97%E0%B8%B4%E0%B8%8B%E0%B8%B6%E0%B8%A1-RSIA-1079148915621457"
-                  classes={{ root: classes.iconRoot }} fontSize="large">
-                    <img className={classes.imageIcon} src="facebook-24px.svg" />
-                  </IconButton>
+              <IconButton
+                component={Link}
+                href="https://www.facebook.com/%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%9A%E0%B8%B1%E0%B8%99%E0%B8%A7%E0%B8%B4%E0%B8%88%E0%B8%B1%E0%B8%A2%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%94%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%AD%E0%B8%97%E0%B8%B4%E0%B8%8B%E0%B8%B6%E0%B8%A1-RSIA-1079148915621457"
+                classes={{ root: classes.iconRoot }}
+                fontSize="large"
+              >
+                <img className={classes.imageIcon} src="facebook-24px.svg" />
+              </IconButton>
             </Grid>
 
-            <Grid item xs={6} sm={6} md={6} lg={3} xl={3} className={classes.contentfooter}>
+            <Grid
+              item
+              xs={6}
+              sm={6}
+              md={6}
+              lg={3}
+              xl={3}
+              className={classes.contentfooter}
+            >
               <div>
-                <Typography className={classes.FooterContact} variant="subtitle1">
+                <Typography
+                  className={classes.FooterContact}
+                  variant="subtitle1"
+                >
                   สถาบันวิจัยและบริการด้านออทิซึม อาคารวิจัยเพื่อพัฒนาสังคม
                   (RSDI) มหาวิทยาลัยขอนแก่น เลขที่ 123 หมู่ที่ 16 ตำบลในเมือง
                   อำเภอเมืองขอนแก่น จังหวัดขอนแก่น 40002
                 </Typography>
               </div>
-             
-                <Typography className={classes.phoneNumber} variant="subtitle1">043-009-700 เบอร์ภายใน 50491, 50492</Typography>
-             
+
+              <Typography className={classes.phoneNumber} variant="subtitle1">
+                043-009-700 เบอร์ภายใน 50491, 50492
+              </Typography>
+
               <div className={classes.Typographyfacebookfooter}>
-                <Typography className={classes.footerRight} variant="caption">Privacy Policy</Typography>
-                <Typography className={classes.footerRight} variant="caption">Terms and Conditions</Typography>
+                <Typography className={classes.footerRight} variant="caption">
+                  Privacy Policy
+                </Typography>
+                <Typography className={classes.footerRight} variant="caption">
+                  Terms and Conditions
+                </Typography>
                 <Typography className={classes.footerRight} variant="caption">
                   © 2021 สถาบันวิจัยและบริการด้านออทิซึม RSIA
                 </Typography>

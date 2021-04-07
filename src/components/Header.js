@@ -655,7 +655,7 @@ export default function Header(props) {
                         <IconButton classes={{ root: classes.iconRoot }}>
                             <img className={classes.imageIcon} src="/facebook-24px.svg" />
                         </IconButton>
-                        <Button variant="contained" className={classes.button} endIcon={<ArrowRightIcon />}>
+                        <Button component={Link} href="/donate" variant="contained" className={classes.button} endIcon={<ArrowRightIcon />}>
                             บริจาค
                         </Button>
                     </Toolbar>

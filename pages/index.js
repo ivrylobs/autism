@@ -29,8 +29,8 @@ export default function Home(props) {
     <React.Fragment>
       <main>
         <Header></Header>
-        <h1>{f("hello")}</h1>
-        <h1>{f("welcomeMessage")}</h1>
+        {/*<h1>{f("hello")}</h1>
+        <h1>{f("welcomeMessage")}</h1>*/}
         <Homeautism></Homeautism>
         <Homeaboutus></Homeaboutus>
         <Homeourwork></Homeourwork>

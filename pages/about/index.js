@@ -74,6 +74,9 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   aboutTypo1: {
+    [theme.breakpoints.down("lg")]: {
+      fontSize: 60,
+    },
     [theme.breakpoints.down("md")]: {
       fontSize: 48,
     },
