@@ -179,7 +179,7 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-export default function Home({posts}) {
+export default function Home({ posts }) {
   const classes = useStyle();
 
   return (
@@ -197,7 +197,12 @@ export default function Home({posts}) {
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <Grid container>
+                <Grid
+                  container
+                  direction="column"
+                  justify="center"
+                  alignItems="center"
+                >
                   {posts
                     ? posts.map((post) => (
                         <Grid
