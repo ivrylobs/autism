@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 
 import Container from "@material-ui/core/Container";
 import { Button, Grid } from "@material-ui/core";
+import Link from "../Link";
 
 const useStyle = makeStyles((theme) => ({
   NewsContainer: {
@@ -292,6 +293,8 @@ export default function Home(props) {
                 className={classes.alignButton}
               >
                 <Button
+                component={Link}
+                href="/blog"
                   variant="contained"
                   size="large"
                   className={classes.buttonMore}

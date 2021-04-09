@@ -176,9 +176,23 @@ const useStyle = makeStyles((theme) => ({
       width: "60%",
     },
     [theme.breakpoints.down("sm")]: {
-      width: "134%",
+      display: "none"
     },
     [theme.breakpoints.down("xs")]: {},
+  },
+  tabs3: {
+    borderRight: `1px solid ${theme.palette.divider}`,
+    paddingTop: 70,
+    width: "16%",
+    [theme.breakpoints.up("md")]: {
+      display: "none"
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "134%",
+    },
+    [theme.breakpoints.down("xs")]: {
+      
+    },
   },
   Typographytitlework: {
     paddingBottom: 5,
@@ -244,7 +258,7 @@ const useStyle = makeStyles((theme) => ({
       fontSize: 12,
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 10,
+      fontSize: 7,
     },
   },
   multiImg: {
@@ -255,16 +269,14 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       fontSize: 8,
     },
-    [theme.breakpoints.down("xs")]: {},
-  },
-  Griditem1: {
     [theme.breakpoints.down("xs")]: {
-      textAlign: "center",
+      fontSize: 7
     },
   },
+ 
   tabs2: {
-    [theme.breakpoints.down("xs")]: {
-      fontSize: 6,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 16
     },
   },
   paddingPanel: {
@@ -272,6 +284,7 @@ const useStyle = makeStyles((theme) => ({
       padding: 0,
     },
   },
+ 
 }));
 
 export default function Ourwork1(props) {
@@ -305,19 +318,19 @@ export default function Ourwork1(props) {
   const workMenuOptions = [
     {
       name: "งานด้านการวิจัย",
-      link: "/ourwork1",
+      link: "/works/research",
       activeIndex: 1,
       selectedIndex: 0,
     },
     {
       name: "งานวิจัยที่อยู่ระหว่างการดำเนินการ",
-      link: "/ourwork2",
+      link: "/works/research/active",
       activeIndex: 1,
       selectedIndex: 1,
     },
     {
       name: "งานด้านการบริการ",
-      link: "/ourwork3",
+      link: "/works/service",
       activeIndex: 1,
       selectedIndex: 2,
     },
@@ -446,6 +459,35 @@ export default function Ourwork1(props) {
                     <Tab
                       className={classes.tabs2}
                       label="โครงการวิจัยย่อยที่ 4"
+                      {...a11yProps(3)}
+                    />
+                  </Tabs>
+                  <Tabs
+                    orientation="vertical"
+                    variant="scrollable"
+                    value={value}
+                    onChange={handleChange}
+                    aria-label="Vertical tabs example"
+                    className={classes.tabs3}
+                  >
+                    <Tab
+                      className={classes.tabs2}
+                      label="1"
+                      {...a11yProps(0)}
+                    />
+                    <Tab
+                      className={classes.tabs2}
+                      label="2"
+                      {...a11yProps(1)}
+                    />
+                    <Tab
+                      className={classes.tabs2}
+                      label="3"
+                      {...a11yProps(2)}
+                    />
+                    <Tab
+                      className={classes.tabs2}
+                      label="4"
                       {...a11yProps(3)}
                     />
                   </Tabs>

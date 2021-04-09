@@ -41,7 +41,7 @@ const useStyle = makeStyles((theme) => ({
       fontSize: 17,
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 24,
+      fontSize: 20,
     },
   },
   FooterTypo2: {

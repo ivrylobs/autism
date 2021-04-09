@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { Button, Grid, Paper } from "@material-ui/core";
+import Link from "../Link";
 
 
 const useStyle = makeStyles((theme) => ({
@@ -185,6 +186,8 @@ export default function Home(props) {
                 <br></br>
                 <div className={classes.BTalign}>
                   <Button
+                  component={Link}
+                  href="/works/research"
                     variant="contained"
                     size="large"
                     className={classes.buttonMore}
