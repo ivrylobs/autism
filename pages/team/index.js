@@ -472,79 +472,79 @@ export default function Home(props) {
                 </Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={6} xl={6} className={classes.Griditem4}>
-                <img alt="person1" src="0.png" className={classes.df} />
+                <img alt="person1" src="/0.png" className={classes.df} />
                 <Typography>ศ. เกียรติคุณ นพ. สุชาติ พหลภาคย์</Typography>
                 <Typography>Suchat Paholpak</Typography>
                 <Typography>ที่ปรึกษา</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={6} xl={6} className={classes.Griditem4}>
-                <img alt="logo" src="000.png" className={classes.df} />
+                <img alt="logo" src="/000.png" className={classes.df} />
                 <Typography>นายบุรี เสรีโยธิน</Typography>
                 <Typography>Buree Seriyothin</Typography>
                 <Typography>ที่ปรึกษา</Typography>
               </Grid>
               <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.Griditem5}>
-                <img alt="logo" src="1.png" className={classes.df1} />
+                <img alt="logo" src="/1.png" className={classes.df1} />
                 <Typography>รศ. ดร. ปิยะววรณ ศรีสุรักษ์</Typography>
                 <Typography>Piyawan Srisuruk</Typography>
                 <Typography>รักษาการแทนผู้อำนวยการ</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className={classes.Griditem6}>
-                <img alt="logo" src="2.png" className={classes.df2} />
+                <img alt="logo" src="/2.png" className={classes.df2} />
                 <Typography>นางพรมณี หาญหัก</Typography>
                 <Typography>Pronmanee Hanhak</Typography>
                 <Typography>กรรมการและเลขานุการ</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className={classes.Griditem6}>
-                <img alt="logo" src="3.png" className={classes.df2} />
+                <img alt="logo" src="/3.png" className={classes.df2} />
                 <Typography>นางปริศนา อานจำปา</Typography>
                 <Typography>Prison Anjumpa</Typography>
                 <Typography>ผู้ช่วยเลขานุการ</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className={classes.Griditem6}>
-                <img alt="logo" src="4.png" className={classes.df2} />
+                <img alt="logo" src="/4.png" className={classes.df2} />
                 <Typography>ดร. ธิรากร มณีรัตน์</Typography>
                 <Typography>Thirakorn Maneerat</Typography>
                 <Typography>กรรมการ</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className={classes.Griditem6}>
-                <img alt="logo" src="12.png" className={classes.df2} />
+                <img alt="logo" src="/12.png" className={classes.df2} />
                 <Typography>ผศ.พญ. กุศลาภร์ ชัยอุดมสม</Typography>
                 <Typography>Kusalaporn Chaiudomsom</Typography>
                 <Typography>กรรมการ</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
-                <img alt="logo" src="6.png" className={classes.df3} />
+                <img alt="logo" src="/6.png" className={classes.df3} />
                 <Typography>จิตรา โซ่เมืองแซะ</Typography>
                 <Typography>Jittra Shomuangshae</Typography>
                 <Typography>งานวิชาการและบริการ</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
-                <img alt="logo" src="7.png" className={classes.df3} />
+                <img alt="logo" src="/7.png" className={classes.df3} />
                 <Typography>จิราภรณ์ ต่างสมบัติ</Typography>
                 <Typography>Jiraporn Tangsombut</Typography>
                 <Typography>งานวิชาการและบริการ</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
-                <img alt="logo" src="8.png" className={classes.df3} />
+                <img alt="logo" src="/8.png" className={classes.df3} />
                 <Typography>วรรณภา เรืองจันทร์</Typography>
                 <Typography>Wannapa Ruengjan</Typography>
                 <Typography>งานวิชาการและบริการ</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
-                <img alt="logo" src="10.png" className={classes.df3} />
+                <img alt="logo" src="/10.png" className={classes.df3} />
                 <Typography>ธัญญรัตน์ จันทร์แสง</Typography>
                 <Typography>Thanyarat Chanseang</Typography>
                 <Typography>งานวิชาการและบริการ</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
-                <img alt="logo" src="11.png" className={classes.df3} />
+                <img alt="logo" src="/11.png" className={classes.df3} />
                 <Typography>นิษฐเนตร์ กาสีชา</Typography>
                 <Typography>Nitthanate Kasicha</Typography>
                 <Typography>งานการเงินและงบประมาณ</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
-                <img alt="logo" src="5.png" className={classes.df3} />
+                <img alt="logo" src="/5.png" className={classes.df3} />
                 <Typography>ชนิดา ศรีมาพล</Typography>
                 <Typography>Chanida Srimapol</Typography>
                 <Typography>งานพัสดุและธุรการ</Typography>
