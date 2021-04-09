@@ -3,9 +3,13 @@ import axios from "axios";
 import { fetchAPI } from "../../lib/api";
 import ReactMarkdown from "react-markdown";
 import { makeStyles } from "@material-ui/core/styles";
+import moment from "moment";
 
 import Header from "../../src/components/Header";
 import Footer from "../../src/components/Footer";
+
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
 
 import { Grid, Container, Typography, Avatar } from "@material-ui/core";
 import Update from "../../src/Blogcomponents/NewsUpdate";
@@ -144,12 +148,20 @@ const useStyle = makeStyles((theme) => ({
     height: theme.spacing(7),
   },
   RightPadding: {
-    paddingRight: 25
-  }
+    paddingRight: 25,
+  },
 }));
 
 const Post = ({ post }) => {
   const classes = useStyle();
+
+  // Require for bi-language
+  const router = useRouter();
+  const { locale, locales, defaultLocale } = router;
+  const { formatMessage } = useIntl();
+  const f = (id) => formatMessage({ id });
+  // End of Requirement
+
   return (
     <React.Fragment>
       <main>
@@ -159,9 +171,7 @@ const Post = ({ post }) => {
             <Grid container direction="column" justify="center">
               <Grid item xs={12} className={classes.gridItem1}>
                 <Typography variant="h2" className={classes.Typography1}>
-                  บุคลากรสถาบันวิจัยและบริการด้านออทิซึมได้รับเชิญเป็นวิทยากรการอบรมเชิงปฏิบัติการพัฒนาศักยภาพผู้ปกครอง
-                  ผู้ดูแลและ เครือข่ายสู่การเป็นต้นแบบ ครั้งที่ 1 เรื่อง
-                  “การพัฒนาสู่สุขภาวะ”
+                  {post.title}
                 </Typography>
                 <Grid
                   container
@@ -186,21 +196,22 @@ const Post = ({ post }) => {
                 <br />
               </Grid>
               <Grid item xs={12} className={classes.BgContainer}>
-                <img src="/news1.jpeg" alt="news1" className={classes.BgNews} />
+                <img
+                  src={"https://cms.rsiakku.com" + post.cover.url}
+                  alt="news1"
+                  className={classes.BgNews}
+                />
               </Grid>
               <br />
               <Grid item xs={12}>
-                <Grid
-                  container
-                  direction="row"
-                  justify="center"
-                >
+                <Grid container direction="row" justify="center">
                   <Grid item sm={7} md={8} className={classes.RightPadding}>
                     <Typography
                       variant="caption"
                       className={classes.Typography2}
                     >
-                      วันที่ 05/03/2564
+                      เผยแพร่{" "}
+                      {moment(post.published_at).locale(locale).format("lll")}
                     </Typography>
                     <ReactMarkdown
                       transformImageUri={(uri) => {

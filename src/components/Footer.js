@@ -293,7 +293,7 @@ export default function Home(props) {
                 classes={{ root: classes.iconRoot }}
                 fontSize="large"
               >
-                <img className={classes.imageIcon} src="facebook-24px.svg" />
+                <img className={classes.imageIcon} src="/facebook-24px.svg" />
               </IconButton>
             </Grid>
 
