@@ -110,11 +110,14 @@ const useStyle = makeStyles((theme) => ({
     textAlign: "center",
   },
   buttonMore: {
-    background: "#EAA0A8",
+    backgroundColor: "#F26705",
     color: "#fff",
     width: 190,
     fontSize: 24,
     marginTop: "auto",
+    '&:focus': {
+      backgroundColor: "#ED9B61"
+    },
     [theme.breakpoints.down("md")]: {
       width: 150,
       fontSize: 20,
@@ -131,8 +134,9 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   BTalign: {
+    textAlign: "center",
+    marginTop: 20,
     [theme.breakpoints.down("xs")]: {
-      textAlign: "center",
       marginBottom: 20
     },
     VideoCard: {
@@ -251,8 +255,9 @@ export default function Home(props) {
                   </Typography>
                 </div>
               </Grid>
-              <div className={classes.BTalign}>
+              <Grid item xs={12} className={classes.BTalign}>
                   <Button
+                  color="warning"
                   component={Link}
                   href="/team"
                     variant="contained"
@@ -261,7 +266,7 @@ export default function Home(props) {
                   >
                     เพิ่มเติม
                   </Button>
-                </div>
+                </Grid>
             </Grid>
           </Container>
         </Grid>

@@ -83,7 +83,7 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   buttonnew: {
-    background: "#ADE8FF",
+    backgroundColor: "#ADE8FF",
     marginLeft: 620,
     marginTop: 20,
     width: "100px",
@@ -143,12 +143,15 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   buttonMore: {
-    background: "#ADE8FF",
+    backgroundColor: "#3AC7FD",
     color: "#fff",
     width: 190,
     fontSize: 24,
     marginTop: 40,
     marginBottom: 30,
+    '&:focus': {
+      backgroundColor: "#ADE8FF"
+    },
     [theme.breakpoints.down("md")]: {
       width: 150,
       fontSize: 20,
@@ -286,10 +289,6 @@ export default function Home(props) {
               <Grid
                 item
                 xs={12}
-                sm={12}
-                md={12}
-                lg={12}
-                xl={12}
                 className={classes.alignButton}
               >
                 <Button

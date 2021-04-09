@@ -127,11 +127,14 @@ const useStyle = makeStyles((theme) => ({
     padding: 5,
   },
   buttonMore: {
-    background: "#DBE0A5",
+    background: "#B1BE12",
     color: "#fff",
     width: 190,
     fontSize: 24,
     marginTop: 10,
+    '&:focus': {
+      backgroundColor: "#DBE0A5"
+    },
     [theme.breakpoints.down("lg")]: {
       marginTop: 10,
     },

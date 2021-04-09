@@ -114,11 +114,14 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   buttonMore: {
-    background: "#EAA0A8",
+    background: "#EF5666",
     color: "#fff",
     width: 190,
     fontSize: 24,
     marginTop: "auto",
+    '&:focus': {
+      backgroundColor: "#EAA0A8"
+    },
     [theme.breakpoints.down("md")]: {
       width: 150,
       fontSize: 20,

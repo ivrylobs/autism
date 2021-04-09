@@ -108,6 +108,9 @@ const useStyle = makeStyles((theme) => ({
     color: "white",
     marginTop: 60,
     backgroundColor: "#F26705",
+    '&::after': {
+      backgroundColor: "#ED9B61"
+    },
     [theme.breakpoints.down("sm")]: {
       height: 35,
       fontSize: 16,
