@@ -6,7 +6,7 @@ import Header from "../src/components/Header";
 import Homeautism from "../src/Homecomponents/Homeautism";
 import Homeaboutus from "../src/Homecomponents/Homeaboutus";
 import Homeourwork from "../src/Homecomponents/Homeourwork";
-import Homenew from "../src/Homecomponents/Homenew";
+import Homenews from "../src/Homecomponents/Homenews";
 import Homeperson from "../src/Homecomponents/Homeperson";
 import Footer from "../src/components/Footer";
 
@@ -34,7 +34,7 @@ export default function Home(props) {
         <Homeautism></Homeautism>
         <Homeaboutus></Homeaboutus>
         <Homeourwork></Homeourwork>
-        <Homenew></Homenew>
+        <Homenews></Homenews>
         <Homeperson></Homeperson>
         <Footer></Footer>
       </main>

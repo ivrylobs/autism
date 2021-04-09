@@ -7,7 +7,9 @@ import Container from "@material-ui/core/Container";
 import { Button, Grid } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
+import Fab from '@material-ui/core/Fab';
 
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import AddIcCallIcon from "@material-ui/icons/AddIcCall";
@@ -77,50 +79,109 @@ const useStyle = makeStyles((theme) => ({
         },
     },
 
-  Paper1: {
-    width: "100%",
-    height: "500px",
-    backgroundColor: "grey",
-  },
-  Containeraboutus: {
-    marginTop: 20,
-  },
-  logo: {
-    maxHeight: 120,
-    marginLeft: "40px",
-  },
-  Gridcontainer3: {
-    marginTop: 30,
-    marginLeft: 30,
-  },
-  Dividerlinear1: {
-    height: "5px",
-    border: "2",
-    background: "black",
-    width: "40px",
-  },
-  button: {
-    ...theme.typography.tab,
-    borderRadius: 5,
-    fontSize: 20,
-    fontWeight: 700,
-    height: 45,
-    color: "white",
-    marginTop: 60,
-    backgroundColor: "#F26705",
-    '&::after': {
-      backgroundColor: "#ED9B61"
+    Paper1: {
+        width: "100%",
+        height: "500px",
+        backgroundColor: "grey",
     },
-    [theme.breakpoints.down("sm")]: {
-      height: 35,
-      fontSize: 16,
-      marginTop: 22,
+    Containeraboutus: {
+        marginTop: 20,
     },
-    [theme.breakpoints.down("xs")]: {
-      width: 65,
-      height: 25,
-      fontSize: 9,
-      marginLeft: 0,
+    logo: {
+        maxHeight: 120,
+        marginLeft: "40px",
+    },
+    Gridcontainer3: {
+        marginTop: 30,
+        marginLeft: 30,
+    },
+    Dividerlinear1: {
+        height: "5px",
+        border: "2",
+        background: "black",
+        width: "40px",
+    },
+    button: {
+        ...theme.typography.tab,
+        borderRadius: 5,
+        fontSize: 20,
+        fontWeight: 700,
+        height: 45,
+        color: "white",
+        marginTop: 60,
+        backgroundColor: "#F26705",
+        '&::after': {
+          backgroundColor: "#ED9B61"
+        },
+        [theme.breakpoints.down("sm")]: {
+            height: 35,
+            fontSize: 16,
+            marginTop: 22,
+        },
+        [theme.breakpoints.down("xs")]: {
+            width: 65,
+            height: 25,
+            fontSize: 9,
+            marginLeft: 0,
+        },
+    },
+    mapgoogle: {
+        marginTop: 20,
+        width: "100%",
+    },
+    iconfooter1: {
+        color: "#B1BE12",
+        fontSize: 55,
+        textAlign: "center",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 35,
+        },
+    },
+    iconfooter2: {
+        fontSize: 55,
+        color: "#EF5666",
+        marginTop: "60px",
+        textAlign: "center",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 35,
+        },
+    },
+    imageIcon: {
+        height: 55,
+        marginTop: 60,
+        [theme.breakpoints.down("xs")]: {
+            height: 35,
+        },
+    },
+    iconRoot: {
+        textAlign: "center",
+        [theme.breakpoints.down("xs")]: {
+            padding: 0,
+        },
+    },
+    contentfooter: {
+        textAlign: "left",
+        padding: 20,
+    },
+    CarditemAbotus: {
+        marginTop: 50,
+        [theme.breakpoints.down("sm")]: {
+            marginTop: 25,
+        },
+        [theme.breakpoints.down("xs")]: {
+            marginTop: 5,
+        },
+    },
+    iconfooter: {
+        textAlign: "center",
+    },
+    Typographyfacebookfooter: {
+        marginTop: 70,
+        display: "grid",
+        [theme.breakpoints.down("sm")]: {
+            marginTop: 55,
+        },
+        [theme.breakpoints.down("xs")]: {},
     },
 
     phoneNumber: {
@@ -162,6 +223,17 @@ const useStyle = makeStyles((theme) => ({
             fontSize: 8,
         },
     },
+    AlignButton: {
+        textAlign: "right"
+    },
+    FabArrow: {
+        margin: 5,
+        marginBottom: 15,
+        backgroundColor: "#B1BE12",
+        '&:focus': {
+          backgroundColor: "#3AC7FD"
+        },
+    }
 }));
 
 export default function Home(props) {
@@ -246,7 +318,9 @@ export default function Home(props) {
                             </div>
                         </Grid>
                     </Grid>
-                    <Button
+                    <Grid item xs={12} className={classes.AlignButton}>
+                    <Fab
+                    className={classes.FabArrow}
                         onClick={(event) => {
                             const anchor = (event.target.ownerDocument || document).querySelector(
                                 "#back-to-top"
@@ -257,8 +331,9 @@ export default function Home(props) {
                             }
                         }}
                     >
-                        Back to top`
-                    </Button>
+                        <KeyboardArrowUpIcon />
+                    </Fab>
+                    </Grid>
                 </Container>
             </main>
         </React.Fragment>
