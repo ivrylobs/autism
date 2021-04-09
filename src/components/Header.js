@@ -449,7 +449,7 @@ export default function Header(props) {
         <React.Fragment>
             <ElevationScroll>
                 <AppBar position="relative" className={classes.NavBar}>
-                    <Toolbar className={classes.toolbarMargin}>
+                    <Toolbar id="back-to-top" className={classes.toolbarMargin}>
                         <Button className={classes.buttonlogo} component={Link} href="/">
                             <img alt="logo" src="/logo.png" className={classes.logo} />
                         </Button>
