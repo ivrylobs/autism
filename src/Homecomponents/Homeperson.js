@@ -143,7 +143,7 @@ export default function Home(props) {
                 className={classes.personCenter}
               >
                 <div>
-                  <img className={classes.person} src="person1.png" />
+                  <img className={classes.person} src="/0.png" />
                 </div>
                
                   <Typography className={classes.TeamTypo3} variant="h5" align="center">
@@ -172,7 +172,7 @@ export default function Home(props) {
                 className={classes.personCenter}
               >
                 <div>
-                  <img className={classes.person} src="person2.png" />
+                  <img className={classes.person} src="/000.png" />
                 </div>
                 
                   <Typography className={classes.TeamTypo3} variant="h5" align="center">
@@ -201,7 +201,7 @@ export default function Home(props) {
                 className={classes.personCenter}
               >
                 <div>
-                  <img className={classes.person} src="person3.png" />
+                  <img className={classes.person} src="/1.png" />
                 </div>
                
                   <Typography className={classes.TeamTypo3} variant="h5" align="center">
