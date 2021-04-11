@@ -182,6 +182,10 @@ const useStyle = makeStyles((theme) => ({
 export default function Home({ posts }) {
   const classes = useStyle();
 
+  React.useEffect(() => {
+    console.log(posts);
+  }, []);
+
   return (
     <React.Fragment>
       <main>
@@ -197,21 +201,10 @@ export default function Home({ posts }) {
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="center"
-                >
+                <Grid container direction="column" justify="center" alignItems="center">
                   {posts
                     ? posts.map((post) => (
-                        <Grid
-                          key={post.id}
-                          item
-                          sm={12}
-                          md={6}
-                          className={classes.NewsContainer}
-                        >
+                        <Grid key={post.id} item sm={12} md={6} className={classes.NewsContainer}>
                           <Blog1 post={post} url={`/post/${post.id}`} />
                         </Grid>
                       ))
@@ -219,13 +212,7 @@ export default function Home({ posts }) {
                 </Grid>
               </Grid>
               <Grid item xs={12} className={classes.alignButton}>
-                <Button
-                  component={Link}
-                  href="/blog"
-                  variant="contained"
-                  size="large"
-                  className={classes.buttonMore}
-                >
+                <Button component={Link} href="/blog" variant="contained" size="large" className={classes.buttonMore}>
                   เพิ่มเติม
                 </Button>
               </Grid>
@@ -235,13 +222,4 @@ export default function Home({ posts }) {
       </main>
     </React.Fragment>
   );
-}
-
-export async function getStaticProps() {
-  const res = await fetch("https://cms.rsiakku.com/blogs");
-  const data = await res.json();
-
-  return {
-    props: { posts: data },
-  };
 }
