@@ -45,7 +45,13 @@ export async function getStaticProps() {
   const res = await fetch("https://cms.rsiakku.com/blogs");
   const data = await res.json();
 
+  const sortedData = data.sort((a, b) => {
+    return new Date(b.updated_at) - new Date(a.updated_at);
+  });
+
+  sortedData.length -= sortedData.length - 2;
+
   return {
-    props: { posts: data },
+    props: { posts: sortedData },
   };
 }
