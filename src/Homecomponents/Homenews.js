@@ -11,7 +11,6 @@ const useStyle = makeStyles((theme) => ({
   NewsContainer: {
     backgroundColor: "#fff",
     height: "auto",
-    backgroundSize: "100%",
     paddingBottom: 50,
     paddingTop: 70,
     [theme.breakpoints.down("md")]: {
@@ -170,7 +169,7 @@ const useStyle = makeStyles((theme) => ({
   alignButton: {
     textAlign: "center",
   },
-  NewsContainer: {
+  NewsContainer2: {
     padding: 15,
     [theme.breakpoints.down("xs")]: {
       paddingBottom: 15,
@@ -201,10 +200,10 @@ export default function Home({ posts }) {
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <Grid container direction="column" justify="center" alignItems="center">
+                <Grid container direction="row" justify="center" alignItems="center">
                   {posts
                     ? posts.map((post) => (
-                        <Grid key={post.id} item sm={12} md={6} className={classes.NewsContainer}>
+                        <Grid key={post.id} item sm={12} md={6} className={classes.NewsContainer2}>
                           <Blog1 post={post} url={`/post/${post.id}`} />
                         </Grid>
                       ))
