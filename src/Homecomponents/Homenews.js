@@ -181,10 +181,6 @@ const useStyle = makeStyles((theme) => ({
 export default function Home({ posts }) {
   const classes = useStyle();
 
-  React.useEffect(() => {
-    console.log(posts);
-  }, []);
-
   return (
     <React.Fragment>
       <main>

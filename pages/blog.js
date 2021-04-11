@@ -189,7 +189,7 @@ export default function Blog({ posts }) {
                             </Grid>
                         </Grid>
                         <Grid item sm={5} md={3} className={classes.PaperUpdate}>
-                            <Update />
+                            <Update posts={posts} />
                         </Grid>
                     </Grid>
                 </Container>
