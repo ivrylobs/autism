@@ -152,7 +152,7 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-const Post = ({ post }) => {
+const Post = ({ post, posts }) => {
   const classes = useStyle();
 
   // Require for bi-language
@@ -173,22 +173,10 @@ const Post = ({ post }) => {
                 <Typography variant="h2" className={classes.Typography1}>
                   {post.title}
                 </Typography>
-                <Grid
-                  container
-                  direction="row"
-                  justify="flex-start"
-                  alignItems="center"
-                >
+                <Grid container direction="row" justify="flex-start" alignItems="center">
                   <Grid item xs={12}>
-                    <Avatar
-                      alt="public"
-                      src="/logo.png"
-                      className={classes.large}
-                    />
-                    <Typography
-                      variant="caption"
-                      className={classes.Typography2}
-                    >
+                    <Avatar alt="public" src="/logo.png" className={classes.large} />
+                    <Typography variant="caption" className={classes.Typography2}>
                       เผยแพร่โดยสถาบันวิจัยและบริการด้านออทิซึม
                     </Typography>
                   </Grid>
@@ -196,22 +184,14 @@ const Post = ({ post }) => {
                 <br />
               </Grid>
               <Grid item xs={12} className={classes.BgContainer}>
-                <img
-                  src={"https://cms.rsiakku.com" + post.cover.url}
-                  alt="news1"
-                  className={classes.BgNews}
-                />
+                <img src={"https://cms.rsiakku.com" + post.cover.url} alt="news1" className={classes.BgNews} />
               </Grid>
               <br />
               <Grid item xs={12}>
                 <Grid container direction="row" justify="center">
                   <Grid item sm={7} md={8} className={classes.RightPadding}>
-                    <Typography
-                      variant="caption"
-                      className={classes.Typography2}
-                    >
-                      เผยแพร่{" "}
-                      {moment(post.published_at).locale(locale).format("lll")}
+                    <Typography variant="caption" className={classes.Typography2}>
+                      เผยแพร่ {moment(post.published_at).locale(locale).format("lll")}
                     </Typography>
                     <ReactMarkdown
                       transformImageUri={(uri) => {
@@ -222,7 +202,7 @@ const Post = ({ post }) => {
                     />
                   </Grid>
                   <Grid item sm={5} md={4} className={classes.gridItem2}>
-                    <Update />
+                    <Update posts={posts} />
                   </Grid>
                 </Grid>
               </Grid>
@@ -249,9 +229,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const post = await instance.get(`/blogs/${params.id}`);
+  const posts = await instance.get("/blogs");
 
   return {
     props: {
+      posts: posts.data,
       post: post.data,
     },
   };

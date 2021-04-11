@@ -2,11 +2,10 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Header from "../src/components/Header";
 
-
 import Homeautism from "../src/Homecomponents/Homeautism";
 import Homeaboutus from "../src/Homecomponents/Homeaboutus";
 import Homeourwork from "../src/Homecomponents/Homeourwork";
-import Homenew from "../src/Homecomponents/Homenew";
+import Homenews from "../src/Homecomponents/Homenews";
 import Homeperson from "../src/Homecomponents/Homeperson";
 import Footer from "../src/components/Footer";
 
@@ -15,7 +14,7 @@ import { useIntl } from "react-intl";
 
 const useStyle = makeStyles((theme) => ({}));
 
-export default function Home(props) {
+export default function Home({ posts }) {
   const classes = useStyle();
 
   // Require for bi-language
@@ -34,10 +33,25 @@ export default function Home(props) {
         <Homeautism></Homeautism>
         <Homeaboutus></Homeaboutus>
         <Homeourwork></Homeourwork>
-        <Homenew></Homenew>
+        <Homenews posts={posts}></Homenews>
         <Homeperson></Homeperson>
         <Footer></Footer>
       </main>
     </React.Fragment>
   );
+}
+
+export async function getStaticProps() {
+  const res = await fetch("https://cms.rsiakku.com/blogs");
+  const data = await res.json();
+
+  const sortedData = data.sort((a, b) => {
+    return new Date(b.updated_at) - new Date(a.updated_at);
+  });
+
+  sortedData.length -= sortedData.length - 4;
+
+  return {
+    props: { posts: sortedData },
+  };
 }

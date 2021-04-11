@@ -251,19 +251,19 @@ export default function Home(props) {
   const aboutOptions = [
     {
       name: "งานด้านการบริการ",
-      link: "/ourwork3",
+      link: "/works/service",
       activeIndex: 1,
       selectedIndex: 0,
     },
     {
       name: "งานด้านการวิจัย",
-      link: "/ourwork1",
+      link: "/works/research",
       activeIndex: 1,
       selectedIndex: 1,
     },
     {
       name: "งานวิจัยที่อยู่ระหว่างการดำเนินการ",
-      link: "/ourwork2",
+      link: "/works/research/active",
       activeIndex: 1,
       selectedIndex: 2,
     },

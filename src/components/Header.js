@@ -252,6 +252,9 @@ const useStyles = makeStyles((theme) => ({
         height: 45,
         color: "white",
         backgroundColor: "#F26705",
+        '&::after': {
+            backgroundColor: "#ED9B61"
+          },
         [theme.breakpoints.down("sm")]: {
             height: 35,
             fontSize: 16,
@@ -449,7 +452,7 @@ export default function Header(props) {
         <React.Fragment>
             <ElevationScroll>
                 <AppBar position="relative" className={classes.NavBar}>
-                    <Toolbar className={classes.toolbarMargin}>
+                    <Toolbar id="back-to-top" className={classes.toolbarMargin}>
                         <Button className={classes.buttonlogo} component={Link} href="/">
                             <img alt="logo" src="/logo.png" className={classes.logo} />
                         </Button>

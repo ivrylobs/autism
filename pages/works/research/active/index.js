@@ -222,10 +222,10 @@ const useStyle = makeStyles((theme) => ({
   },
   heading: {
     [theme.breakpoints.down("md")]: {
-      fontSize: 18,
+      fontSize: 14,
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 14,
+      fontSize: 12,
     },
   },
   paraGraph: {
@@ -285,19 +285,19 @@ export default function Home(props) {
   const aboutOptions = [
     {
       name: "งานวิจัยที่อยู่ระหว่างการดำเนินการ",
-      link: "/ourwork2",
+      link: "/works/research/active",
       activeIndex: 1,
       selectedIndex: 0,
     },
     {
       name: "งานด้านการบริการ",
-      link: "/ourwork3",
+      link: "/works/service",
       activeIndex: 1,
       selectedIndex: 1,
     },
     {
       name: "งานด้านการวิจัย",
-      link: "/ourwork1",
+      link: "/works/research",
       activeIndex: 1,
       selectedIndex: 2,
     },

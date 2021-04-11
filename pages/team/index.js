@@ -342,13 +342,13 @@ export default function Home(props) {
       selectedIndex: 0,
     },
     {
-      name: "ความเป็นมาและวัตถุประสงค์",
-      link: "/about",
+      name: "หน่วยงานที่เกี่ยวข้อง",
+      link: "/related",
       selectedIndex: 1,
     },
     {
-      name: "หน่วยงานที่เกี่ยวข้อง",
-      link: "/related",
+      name: "ความเป็นมาและวัตถุประสงค์",
+      link: "/about",
       selectedIndex: 2,
     },
   ];
