@@ -221,6 +221,9 @@ const useStyle = makeStyles((theme) => ({
     backgroundColor: "#DBE0A5",
   },
   heading: {
+    [theme.breakpoints.down("lg")]: {
+      fontSize: 20,
+    },
     [theme.breakpoints.down("md")]: {
       fontSize: 14,
     },

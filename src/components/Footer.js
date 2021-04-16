@@ -33,17 +33,18 @@ const useStyle = makeStyles((theme) => ({
         },
     },
     FooterTypo1: {
+        fontSize: 28,
         [theme.breakpoints.down("lg")]: {
             fontSize: 24,
         },
         [theme.breakpoints.down("md")]: {
-            fontSize: 24,
+            fontSize: 22,
         },
         [theme.breakpoints.down("sm")]: {
-            fontSize: 17,
+            fontSize: 14,
         },
         [theme.breakpoints.down("xs")]: {
-            fontSize: 20,
+            fontSize: 12,
         },
     },
     FooterTypo2: {
