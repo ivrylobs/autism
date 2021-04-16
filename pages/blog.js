@@ -2,18 +2,10 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Header from "../src/components/Header";
 import Footer from "../src/components/Footer";
-import { Typography, Container, Grid, Paper, IconButton, Button } from "@material-ui/core";
+import { Typography, Container, Grid, Paper, IconButton, Button, TextField } from "@material-ui/core";
 import Blog1 from "../src/Blogcomponents/Blog1";
-import Blog2 from "../src/Blogcomponents/Blog2";
-import Blog3 from "../src/Blogcomponents/Blog3";
-import Blog4 from "../src/Blogcomponents/Blog4";
-import Blog5 from "../src/Blogcomponents/Blog5";
-import Blog6 from "../src/Blogcomponents/Blog6";
-import Blog7 from "../src/Blogcomponents/Blog7";
-import Blog8 from "../src/Blogcomponents/Blog8";
-import Pagination from "@material-ui/lab/Pagination";
 import Update from "../src/Blogcomponents/NewsUpdate";
-
+import Fuse from "fuse.js";
 import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
@@ -79,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
     title3: {
         paddingTop: 15,
         textAlign: "left",
+        width: 200,
     },
     SearchButton: {
         paddingTop: 18,
@@ -133,6 +126,47 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Blog({ posts }) {
     const classes = useStyles();
+    const [postsData, setPostsData] = React.useState(posts);
+    const [searchText, setSearchText] = React.useState("text");
+
+    React.useEffect(() => {
+        setPostsData(posts);
+    }, []);
+
+    const keyPress = (e) => {
+        console.log(postsData);
+        console.log(posts);
+        if (e.key == "Enter") {
+            searchData(searchText);
+        }
+    };
+
+    const onEnter = (e) => {
+        searchData(searchText);
+    };
+
+    const onTextChange = (e) => {
+        setSearchText(e.target.value);
+    };
+
+    const searchData = (searchField) => {
+        console.log("search");
+        if (searchField != "") {
+            const options = {
+                includeScore: true,
+                findAllMatches: true,
+                useExtendedSearch: true,
+                keys: ["title", "description", "content"],
+            };
+
+            const fuse = new Fuse(posts, options);
+            const result = fuse.search(searchField);
+            const mappedResult = result.map((item) => item.item);
+            setPostsData(mappedResult);
+        } else {
+            setPostsData(posts);
+        }
+    };
 
     return (
         <React.Fragment>
@@ -164,12 +198,21 @@ export default function Blog({ posts }) {
                                             </IconButton>
                                         </Grid>
                                         <Grid item xs={6}>
-                                            <Typography variant="subtitle1" className={classes.title3}>
-                                                ค้นหาหัวข้อหลัก
-                                            </Typography>
+                                            <TextField
+                                                type="search"
+                                                placeholder="ค้นหาหัวข้อหลัก"
+                                                variant="standard"
+                                                className={classes.title3}
+                                                onKeyPress={keyPress}
+                                                onChange={onTextChange}
+                                            />
                                         </Grid>
                                         <Grid item xs={4}>
-                                            <Button variant="contained" className={classes.buttonSearch}>
+                                            <Button
+                                                variant="contained"
+                                                className={classes.buttonSearch}
+                                                onClick={onEnter}
+                                            >
                                                 ค้นหา
                                             </Button>
                                         </Grid>
@@ -179,17 +222,19 @@ export default function Blog({ posts }) {
                         </Grid>
                         <Grid item sm={7} md={9}>
                             <Grid container>
-                                {posts
-                                    ? posts.map((post) => (
-                                          <Grid key={post.id} item sm={12} md={6} className={classes.NewsContainer}>
-                                              <Blog1 post={post} url={`/post/${post.id}`} />
-                                          </Grid>
-                                      ))
-                                    : "Loading Data"}
+                                {postsData[0] ? (
+                                    postsData.map((post) => (
+                                        <Grid key={post.id} item sm={12} md={6} className={classes.NewsContainer}>
+                                            <Blog1 post={post} url={`/post/${post.id}`} />
+                                        </Grid>
+                                    ))
+                                ) : (
+                                    <h1>ไม่พบข้อมูล</h1>
+                                )}
                             </Grid>
                         </Grid>
                         <Grid item sm={5} md={3} className={classes.PaperUpdate}>
-                            <Update />
+                            <Update posts={posts} />
                         </Grid>
                     </Grid>
                 </Container>
