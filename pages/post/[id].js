@@ -29,11 +29,8 @@ const useStyle = makeStyles((theme) => ({
 		[theme.breakpoints.down("xs")]: {},
 	},
 	Container: {
-		[theme.breakpoints.down("xl")]: {
-			maxWidth: 1720,
-		},
 		[theme.breakpoints.down("lg")]: {
-			maxWidth: 1200,
+			maxWidth: 1100,
 		},
 		[theme.breakpoints.down("md")]: {
 			maxWidth: 900,
@@ -46,31 +43,18 @@ const useStyle = makeStyles((theme) => ({
 		},
 	},
 	BgNews: {
-		width: "100%",
-		height: "100%",
-		[theme.breakpoints.down("sm")]: {
-			height: 500,
-		},
-		[theme.breakpoints.down("xs")]: {
-			height: 260,
-		},
+		width: "90%",
+		height: "auto",
 	},
 	BgContainer: {
-		height: 800,
-		[theme.breakpoints.down("sm")]: {
-			height: 500,
-		},
-		[theme.breakpoints.down("xs")]: {
-			height: 260,
-		},
+		height: "auto",
+		marginTop: 15,
 	},
 	Typography1: {
 		textAlign: "left",
 		paddingBottom: 40,
-		paddingRight: 30,
-		[theme.breakpoints.down("lg")]: {
-			fontSize: 54,
-		},
+		paddingRight: 320,
+		fontSize: 32,
 		[theme.breakpoints.down("md")]: {
 			fontSize: 40,
 			paddingBottom: 30,
@@ -167,38 +151,14 @@ const Post = ({ post, posts }) => {
 			<main>
 				<Header></Header>
 				<Grid container className={classes.bgContainer}>
-					<Container maxWidth="xl" className={classes.Container}>
-						<Grid container direction="column" justify="center">
-							<Grid item xs={12} className={classes.gridItem1}>
-								<Typography
-									variant="h2"
-									className={classes.Typography1}
-								>
-									{post.title}
-								</Typography>
-								<Grid
-									container
-									direction="row"
-									justify="flex-start"
-									alignItems="center"
-								>
-									<Grid item xs={12}>
-										<Avatar
-											alt="public"
-											src="/logo.png"
-											className={classes.large}
-										/>
-										<Typography
-											variant="caption"
-											className={classes.Typography2}
-										>
-											เผยแพร่โดยสถาบันวิจัยและบริการด้านออทิซึม
-										</Typography>
-									</Grid>
-								</Grid>
-								<br />
-							</Grid>
-							<Grid item xs={12} className={classes.BgContainer}>
+					<Container maxWidth="lg" className={classes.Container}>
+						<Grid
+							container
+							direction="row"
+							justify="center"
+							alignItems="flex-start"
+						>
+							<Grid item xs={9} className={classes.BgContainer}>
 								<img
 									src={
 										"https://cms.rsiakku.com" +
@@ -208,13 +168,20 @@ const Post = ({ post, posts }) => {
 									className={classes.BgNews}
 								/>
 							</Grid>
+							<Grid item xs={3} className={classes.gridItem2}>
+								<Update posts={posts} />
+							</Grid>
+							<Grid item xs={12} className={classes.gridItem1}>
+								<Typography
+									variant="h2"
+									className={classes.Typography1}
+								>
+									{post.title}
+								</Typography>
+							</Grid>
 							<br />
 							<Grid item xs={12}>
-								<Grid
-									container
-									direction="row"
-									justify="center"
-								>
+								<Grid container direction="row" justify="left">
 									<Grid
 										item
 										sm={7}
@@ -250,14 +217,6 @@ const Post = ({ post, posts }) => {
 											}}
 											children={post.content}
 										/>
-									</Grid>
-									<Grid
-										item
-										sm={5}
-										md={4}
-										className={classes.gridItem2}
-									>
-										<Update posts={posts} />
 									</Grid>
 								</Grid>
 							</Grid>

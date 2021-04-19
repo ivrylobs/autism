@@ -33,12 +33,9 @@ const useStyle = makeStyles((theme) => ({
         },
     },
     FooterTypo1: {
-        fontSize: 28,
-        [theme.breakpoints.down("lg")]: {
-            fontSize: 24,
-        },
+        fontSize: 20,
         [theme.breakpoints.down("md")]: {
-            fontSize: 22,
+            fontSize: 18,
         },
         [theme.breakpoints.down("sm")]: {
             fontSize: 14,
@@ -244,8 +241,8 @@ export default function Home(props) {
         <React.Fragment>
             <main>
                 <Container maxWidth="xl" className={classes.BlogContainer}>
-                    <Grid container className={classes.CarditemAbotus} spacing={5}>
-                        <Grid item xs={12} sm={6} md={6} lg={4} xl={4}>
+                    <Grid container className={classes.CarditemAbotus} spacing={3}>
+                        <Grid item xs={12} sm={6} md={6} lg={4} xl={5}>
                             <Typography className={classes.FooterTypo1} variant="h4">
                                 สถาบันวิจัยและบริการด้านออทิซึม
                             </Typography>
@@ -268,7 +265,7 @@ export default function Home(props) {
                             </Button>
                         </Grid>
 
-                        <Grid item xs={12} sm={6} md={6} lg={3} xl={3}>
+                        <Grid item xs={12} sm={6} md={6} lg={3} xl={4}>
                             <Typography className={classes.FooterTypo1} variant="h4">
                                 ติดต่อเรา
                             </Typography>
@@ -279,7 +276,7 @@ export default function Home(props) {
                             <img alt="logo" src="/map.png" className={classes.mapgoogle} />
                         </Grid>
 
-                        <Grid item xs={6} sm={6} md={6} lg={2} xl={2} className={classes.iconfooter}>
+                        <Grid item xs={6} sm={6} md={6} lg={2} xl={1} className={classes.iconfooter}>
                             <LocationOnIcon fontSize="large" className={classes.iconfooter1}></LocationOnIcon>
                             <br></br>
                             <AddIcCallIcon fontSize="large" className={classes.iconfooter2}></AddIcCallIcon>
@@ -294,7 +291,7 @@ export default function Home(props) {
                             </IconButton>
                         </Grid>
 
-                        <Grid item xs={6} sm={6} md={6} lg={3} xl={3} className={classes.contentfooter}>
+                        <Grid item xs={6} sm={6} md={6} lg={3} xl={2} className={classes.contentfooter}>
                             <div>
                                 <Typography className={classes.FooterContact} variant="subtitle1">
                                     สถาบันวิจัยและบริการด้านออทิซึม อาคารวิจัยเพื่อพัฒนาสังคม (RSDI) มหาวิทยาลัยขอนแก่น
