@@ -264,9 +264,13 @@ export async function getServerSideProps({ params }) {
 	const post = await instance.get(`/blogs/${params.id}`);
 	const posts = await instance.get("/blogs");
 
+	const sortedPosts = posts.data.sort(
+		(a, b) => new Date(b.updated_at) - new Date(a.updated_at)
+	);
+
 	return {
 		props: {
-			posts: posts.data,
+			posts: sortedPosts,
 			post: post.data,
 		},
 	};
