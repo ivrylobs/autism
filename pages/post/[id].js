@@ -4,7 +4,7 @@ import { FacebookShareButton } from "react-share";
 import ReactMarkdown from "react-markdown";
 import { makeStyles } from "@material-ui/core/styles";
 import moment from "moment";
-
+import { FacebookIcon } from "../../node_modules/react-share/es/";
 import Header from "../../src/components/Header";
 import Footer from "../../src/components/Footer";
 
@@ -178,6 +178,13 @@ const Post = ({ post, posts }) => {
 								>
 									{post.title}
 								</Typography>
+								<br />
+								<FacebookShareButton
+									url={"https://rsiakku.com/post/" + post.id}
+									quote={post.title}
+								>
+									<FacebookIcon size={32} round />
+								</FacebookShareButton>
 							</Grid>
 							<br />
 							<Grid item xs={12}>
