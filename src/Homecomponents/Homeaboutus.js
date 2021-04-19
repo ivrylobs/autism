@@ -79,7 +79,7 @@ const useStyle = makeStyles((theme) => ({
     height: "auto",
     borderRadius: 5,
     [theme.breakpoints.down("lg")]: {
-      height: 456,
+    
     },
     [theme.breakpoints.down("md")]: {
       height: "75%",

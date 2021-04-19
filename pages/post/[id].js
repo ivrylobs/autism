@@ -68,8 +68,9 @@ const useStyle = makeStyles((theme) => ({
     textAlign: "left",
     paddingBottom: 40,
     paddingRight: 30,
+    fontSize: 48,
     [theme.breakpoints.down("lg")]: {
-      fontSize: 54,
+      fontSize: 42,
     },
     [theme.breakpoints.down("md")]: {
       fontSize: 40,
@@ -169,6 +170,9 @@ const Post = ({ post, posts }) => {
         <Grid container className={classes.bgContainer}>
           <Container maxWidth="xl" className={classes.Container}>
             <Grid container direction="column" justify="center">
+            <Grid item xs={12} className={classes.BgContainer}>
+                <img src={"https://cms.rsiakku.com" + post.cover.url} alt="news1" className={classes.BgNews} />
+              </Grid>
               <Grid item xs={12} className={classes.gridItem1}>
                 <Typography variant="h2" className={classes.Typography1}>
                   {post.title}
@@ -182,9 +186,6 @@ const Post = ({ post, posts }) => {
                   </Grid>
                 </Grid>
                 <br />
-              </Grid>
-              <Grid item xs={12} className={classes.BgContainer}>
-                <img src={"https://cms.rsiakku.com" + post.cover.url} alt="news1" className={classes.BgNews} />
               </Grid>
               <br />
               <Grid item xs={12}>
