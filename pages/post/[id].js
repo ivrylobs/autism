@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { fetchAPI } from "../../lib/api";
+import { FacebookShareButton } from "react-share";
 import ReactMarkdown from "react-markdown";
 import { makeStyles } from "@material-ui/core/styles";
 import moment from "moment";
@@ -231,6 +231,16 @@ const Post = ({ post, posts }) => {
 												.format("lll")}
 										</Typography>
 										<ReactMarkdown
+											components={{
+												img: ({ node, ...props }) => (
+													<img
+														style={{
+															width: "100%",
+														}}
+														{...props}
+													/>
+												),
+											}}
 											transformImageUri={(uri) => {
 												console.log(uri);
 												return (
