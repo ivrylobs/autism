@@ -49,8 +49,6 @@ export async function getStaticProps() {
     return new Date(b.updated_at) - new Date(a.updated_at);
   });
 
-  sortedData.length -= sortedData.length - 4;
-
   return {
     props: { posts: sortedData },
   };
