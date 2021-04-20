@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 			maxWidth: 590,
 		},
 		[theme.breakpoints.down("xs")]: {
-			maxWidth: 350,
+			maxWidth: 370,
 		},
 	},
 	title: {
@@ -98,9 +98,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	NewsContainer: {
 		padding: 15,
-		[theme.breakpoints.down("xs")]: {
-			paddingBottom: 15,
-			padding: 0,
+		[theme.breakpoints.down("sm")]: {
+			padding: 8,
 		},
 	},
 	NextButton: {
@@ -223,7 +222,7 @@ export default function Blog({ posts }) {
 								</Paper>
 							</Grid>
 						</Grid>
-						<Grid item sm={7} md={9}>
+						<Grid item sm={8} md={9}>
 							<Grid container>
 								{postsData[0] ? (
 									postsData.map((post) => (
@@ -247,7 +246,7 @@ export default function Blog({ posts }) {
 						</Grid>
 						<Grid
 							item
-							sm={5}
+							sm={4}
 							md={3}
 							className={classes.PaperUpdate}
 						>

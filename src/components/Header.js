@@ -598,7 +598,7 @@ export default function Header(props) {
                                 )}
                             </Popper>
                         </div>
-                        <Button
+                      {/*  <Button
                             variant="text"
                             className={classes.nav2}
                             startIcon={<LanguageIcon />}
@@ -610,7 +610,7 @@ export default function Header(props) {
                             <Typography className={classes.CloseLanguage}>
                                 {locale === "th" ? "ภาษาไทย" : "English"}
                             </Typography>
-                        </Button>
+                        </Button>*/}
                         <Popper open={openMenu} anchorEl={anchorElMenu} role={undefined} transition disablePortal>
                             {({ TransitionProps, placement }) => (
                                 <Grow

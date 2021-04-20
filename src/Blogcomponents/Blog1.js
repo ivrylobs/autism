@@ -9,56 +9,56 @@ import { useIntl } from "react-intl";
 const useStyles = makeStyles((theme) => ({
   Blogpaper: {
     width: "100%",
-    height: 650,
+    height: 600,
     [theme.breakpoints.down("lg")]: {
-      height: 600,
-    },
-    [theme.breakpoints.down("md")]: {
-      height: 440,
-    },
-    [theme.breakpoints.down("md")]: {
       height: 500,
     },
     [theme.breakpoints.down("md")]: {
+      height: 370,
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: 470,
+    },
+    [theme.breakpoints.down("xs")]: {
       height: 460,
     },
   },
   Typo1: {
     color: "#3AC7FD",
-    paddingTop: 10,
   },
   Typo2: {
-    paddingTop: 10,
-    paddingBottom: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
+    padding: 10,
+    fontSize: 20,
     [theme.breakpoints.down("lg")]: {
       fontSize: 16,
     },
     [theme.breakpoints.down("md")]: {
-      fontSize: 14,
+      fontSize: 10,
     },
     [theme.breakpoints.down("sm")]: {
       paddingLeft: 0,
       paddingRight: 0,
-      fontSize: 16,
+      fontSize: 14,
     },
   },
   PaddingText: {
-    padding: 28,
-    [theme.breakpoints.down("md")]: {
-      padding: 14,
-    },
+   padding: 0,
+   [theme.breakpoints.down("sm")]: {
+    padding: 10,
+  },
   },
   imgNews: {
-    height: 460,
+    height: 415,
+    marginBottom: 15,
     [theme.breakpoints.down("lg")]: {
       height: 350,
     },
     [theme.breakpoints.down("md")]: {
       height: 242,
     },
-    [theme.breakpoints.down("sm")]: {},
+    [theme.breakpoints.down("sm")]: {
+      height: 275
+    },
     [theme.breakpoints.down("xs")]: {},
   },
 }));

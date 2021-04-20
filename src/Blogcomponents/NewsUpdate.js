@@ -1,6 +1,14 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Paper, Button, List, ListItem, ListItemText, Divider } from "@material-ui/core";
+import {
+  Typography,
+  Paper,
+  Button,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
+} from "@material-ui/core";
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
 
@@ -25,12 +33,19 @@ const useStyles = makeStyles((theme) => ({
   },
   TypoNews2: {
     paddingBottom: 15,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 10,
+      paddingBottom: 5,
+    },
   },
   updateLink: {
     padding: 0,
   },
   PaperUpdate: {
-    marginTop: 15,
+    marginTop: 13,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 8,
+    },
   },
 }));
 
@@ -55,12 +70,23 @@ export default function Blog({ posts }) {
           <List className={classes.update}>
             {posts.slice(0, 4).map((post) => (
               <div key={post.id}>
-                <ListItem component={Button} className={classes.updateLink} href={"/post/" + post.id}>
+                <ListItem
+                  component={Button}
+                  className={classes.updateLink}
+                  href={"/post/" + post.id}
+                >
                   <ListItemText>
-                    <Typography variant="caption" className={classes.NewsUpdate2}>
-                      สถาบันวิจัยและบริการด้านออทิซึม - {moment(post.updated_at).locale(locale).format("l")}
+                    <Typography
+                      variant="caption"
+                      className={classes.NewsUpdate2}
+                    >
+                      สถาบันวิจัยและบริการด้านออทิซึม -{" "}
+                      {moment(post.updated_at).locale(locale).format("l")}
                     </Typography>
-                    <Typography variant="subtitle2" className={classes.TypoNews2}>
+                    <Typography
+                      variant="subtitle2"
+                      className={classes.TypoNews2}
+                    >
                       {post.title}
                     </Typography>
                   </ListItemText>
