@@ -10,8 +10,11 @@ const useStyles = makeStyles((theme) => ({
   Blogpaper: {
     width: "100%",
     height: 600,
+    "&:hover": {
+      border: "1px solid #3AC7FD",
+  },
     [theme.breakpoints.down("lg")]: {
-      height: 500,
+      height: 530,
     },
     [theme.breakpoints.down("md")]: {
       height: 370,

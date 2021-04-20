@@ -72,6 +72,7 @@ const useStyle = makeStyles((theme) => ({
   },
   Typography2: {
     fontWeight: 600,
+    color: "#3AC7FD",
     [theme.breakpoints.down("md")]: {
       fontSize: 16,
     },
