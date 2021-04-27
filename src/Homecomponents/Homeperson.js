@@ -4,7 +4,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 import Container from "@material-ui/core/Container";
-import { Grid } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
+import Link from "../Link";
+
 
 const useStyle = makeStyles((theme) => ({
   TeamContainer: {
@@ -107,6 +109,40 @@ const useStyle = makeStyles((theme) => ({
   personCenter: {
     textAlign: "center",
   },
+  buttonMore: {
+    backgroundColor: "#F26705",
+    color: "#fff",
+    width: 190,
+    fontSize: 24,
+    marginTop: "auto",
+    '&:focus': {
+      backgroundColor: "#ED9B61"
+    },
+    [theme.breakpoints.down("md")]: {
+      width: 150,
+      fontSize: 20,
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: 96,
+      height: 30,
+      fontSize: 16,
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: 80,
+      height: 25,
+      fontSize: 10,
+    },
+  },
+  BTalign: {
+    textAlign: "center",
+    marginTop: 20,
+    [theme.breakpoints.down("xs")]: {
+      marginBottom: 20
+    },
+    VideoCard: {
+      width: "100%"
+    }
+  }
  
 }));
 
@@ -143,7 +179,7 @@ export default function Home(props) {
                 className={classes.personCenter}
               >
                 <div>
-                  <img className={classes.person} src="person1.png" />
+                  <img className={classes.person} src="/0.png" />
                 </div>
                
                   <Typography className={classes.TeamTypo3} variant="h5" align="center">
@@ -172,7 +208,7 @@ export default function Home(props) {
                 className={classes.personCenter}
               >
                 <div>
-                  <img className={classes.person} src="person2.png" />
+                  <img className={classes.person} src="/000.png" />
                 </div>
                 
                   <Typography className={classes.TeamTypo3} variant="h5" align="center">
@@ -201,7 +237,7 @@ export default function Home(props) {
                 className={classes.personCenter}
               >
                 <div>
-                  <img className={classes.person} src="person3.png" />
+                  <img className={classes.person} src="/1.png" />
                 </div>
                
                   <Typography className={classes.TeamTypo3} variant="h5" align="center">
@@ -219,6 +255,18 @@ export default function Home(props) {
                   </Typography>
                 </div>
               </Grid>
+              <Grid item xs={12} className={classes.BTalign}>
+                  <Button
+                  color="warning"
+                  component={Link}
+                  href="/team"
+                    variant="contained"
+                    size="large"
+                    className={classes.buttonMore}
+                  >
+                    เพิ่มเติม
+                  </Button>
+                </Grid>
             </Grid>
           </Container>
         </Grid>

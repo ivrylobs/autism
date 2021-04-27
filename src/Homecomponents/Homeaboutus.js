@@ -79,7 +79,7 @@ const useStyle = makeStyles((theme) => ({
     height: "auto",
     borderRadius: 5,
     [theme.breakpoints.down("lg")]: {
-      height: 456,
+    
     },
     [theme.breakpoints.down("md")]: {
       height: "75%",
@@ -127,11 +127,14 @@ const useStyle = makeStyles((theme) => ({
     padding: 5,
   },
   buttonMore: {
-    background: "#DBE0A5",
+    background: "#B1BE12",
     color: "#fff",
     width: 190,
     fontSize: 24,
     marginTop: 10,
+    '&:focus': {
+      backgroundColor: "#DBE0A5"
+    },
     [theme.breakpoints.down("lg")]: {
       marginTop: 10,
     },
@@ -248,7 +251,7 @@ export default function Home(props) {
                 xl={6}
                 className={classes.GridPaper}
               >
-                <img className={classes.imagabout} src="about1.jpg" />
+                <img className={classes.imagabout} src="/about1.jpg" />
               </Grid>
 
               <Grid
@@ -334,7 +337,7 @@ export default function Home(props) {
                     <div className={classes.alignButton}>
                       <Button
                         component={Link}
-                        href="/aboutus"
+                        href="/about"
                         variant="contained"
                         size="large"
                         className={classes.buttonMore}

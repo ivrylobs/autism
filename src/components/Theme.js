@@ -44,7 +44,7 @@ export default createMuiTheme({
     ),
     h1: {
       fontWeight: 700,
-      fontSize: 93,
+      fontSize: 65,
       lineHeight: 1.167,
       letterSpacing: "-0.01562em",
     },
@@ -80,8 +80,8 @@ export default createMuiTheme({
     },
     subtitle1: {
       fontWeight: 400,
-      fontSize: 18,
-      lineHeight: 1.75,
+      fontSize: 16,
+      lineHeight: 1.55,
       letterSpacing: "0.00938em",
     },
     subtitle2: {

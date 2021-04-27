@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { Button, Grid, Paper } from "@material-ui/core";
+import Link from "../Link";
 
 
 const useStyle = makeStyles((theme) => ({
@@ -113,11 +114,14 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   buttonMore: {
-    background: "#EAA0A8",
+    background: "#EF5666",
     color: "#fff",
     width: 190,
     fontSize: 24,
     marginTop: "auto",
+    '&:focus': {
+      backgroundColor: "#EAA0A8"
+    },
     [theme.breakpoints.down("md")]: {
       width: 150,
       fontSize: 20,
@@ -185,6 +189,8 @@ export default function Home(props) {
                 <br></br>
                 <div className={classes.BTalign}>
                   <Button
+                  component={Link}
+                  href="/works/research"
                     variant="contained"
                     size="large"
                     className={classes.buttonMore}
