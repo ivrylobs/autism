@@ -307,17 +307,17 @@ export default function Header(props) {
 
     const aboutOptions = [
         {
-            name: "ความเป็นมาและวัตถุประสงค์",
+            name: f("about"),
             link: "/about",
             selectedIndex: 0,
         },
         {
-            name: "ทำเนียบบุคลากร",
+            name: f("team"),
             link: "/team",
             selectedIndex: 1,
         },
         {
-            name: "หน่วยงานที่เกี่ยวข้อง",
+            name: f("related"),
             link: "/related",
             selectedIndex: 2,
         },
@@ -345,19 +345,19 @@ export default function Header(props) {
 
     const workOptions = [
         {
-            name: "งานด้านการวิจัย",
+            name: f("research"),
             link: "/works/research",
             activeIndex: 1,
             selectedWorkIndex: 0,
         },
         {
-            name: "งานวิจัยที่อยู่ระหว่างการดำเนินการ",
+            name: f("active"),
             link: "/works/research/active",
             activeIndex: 1,
             selectedWorkIndex: 1,
         },
         {
-            name: "งานด้านการบริการ",
+            name:f("service"),
             link: "/works/service",
             activeIndex: 1,
             selectedWorkIndex: 2,
@@ -458,7 +458,7 @@ export default function Header(props) {
                         </Button>
                         <div className={classes.navContainer}>
                             <Button component={Link} href="/" variant="text" className={classes.nav}>
-                                หน้าแรก
+                               {f("menuIndex")}
                             </Button>
                             <Button
                                 variant="text"
@@ -468,7 +468,7 @@ export default function Header(props) {
                                 aria-haspopup="true"
                                 onClick={handleClick}
                             >
-                                เกี่ยวกับเรา
+                                {f("menuAbout")}
                             </Button>
                             <Popper open={openAbout} anchorEl={anchorEl} role={undefined} transition disablePortal>
                                 {({ TransitionProps, placement }) => (
@@ -512,7 +512,7 @@ export default function Header(props) {
                                 aria-haspopup="true"
                                 onClick={handleWorkClick}
                             >
-                                งานของเรา
+                                {f("menuWork")}
                             </Button>
                             <Popper open={openWork} anchorEl={anchorElWork} role={undefined} transition disablePortal>
                                 {({ TransitionProps, placement }) => (
@@ -548,7 +548,7 @@ export default function Header(props) {
                                 )}
                             </Popper>
                             <Button variant="text" href="/blog" className={classes.navNews}>
-                                ประชาสัมพันธ์
+                            {f("menuNews")}
                             </Button>
                         </div>
                         <div className={classes.navContainer2}>
@@ -598,7 +598,7 @@ export default function Header(props) {
                                 )}
                             </Popper>
                         </div>
-                      {/*  <Button
+                       <Button
                             variant="text"
                             className={classes.nav2}
                             startIcon={<LanguageIcon />}
@@ -610,7 +610,7 @@ export default function Header(props) {
                             <Typography className={classes.CloseLanguage}>
                                 {locale === "th" ? "ภาษาไทย" : "English"}
                             </Typography>
-                        </Button>*/}
+                        </Button>
                         <Popper open={openMenu} anchorEl={anchorElMenu} role={undefined} transition disablePortal>
                             {({ TransitionProps, placement }) => (
                                 <Grow
@@ -659,7 +659,7 @@ export default function Header(props) {
                             <img className={classes.imageIcon} src="/facebook-24px.svg" />
                         </IconButton>
                         <Button component={Link} href="/donate" variant="contained" className={classes.button} endIcon={<ArrowRightIcon />}>
-                            บริจาค
+                        {f("menuDonate")}
                         </Button>
                     </Toolbar>
                 </AppBar>
