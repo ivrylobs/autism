@@ -140,6 +140,7 @@ export default function Home(props) {
                   คณะผู้ตรวจสอบภายใน กองตรวจสอบภายใน สำนักงานอธิการบดี
                   เข้าตรวจสอบหน่วยงาน เพื่อแจ้งขอบเขตการตรวจสอบ ประจำปีงบประมาณ
                   2564
+                  
                 </Typography>
                 <Typography variant="caption" className={classes.Typography2}>
                   เผยแพร่โดยสถาบันวิจัยและบริการด้านออทิซึม
