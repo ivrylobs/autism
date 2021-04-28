@@ -28,6 +28,7 @@ export const en = {
     address: "Research And Service Institute For Autism Khon Kaen University No. 123, Village No. 16, Nai Mueang Subdistrict, Mueang Khon Kaen District Khon Kaen Province 40002",
     phone: "043-009-700 Internal numbers 50491, 50492",
     licences: "© 2021 Research And Service Institute For Autism Khon Kaen University RSIA",
+    researchwork1:"The objective was to investigate the ways to screen young children with symptoms at risk for autism spectrum disorder until to seek for how to take care of people with autism spectrum disorder, from young age to teenagers. For young people with autism spectrum disorder, the research plan to devised an educational method for advancing education. For adolescent with autism spectrum disorder, a research plan to look at ways to encourage families to promote better social skills. The research plan consists of 4 research projects as follows:",
   },
   "/home": {
     hello: "Hello, world!",
