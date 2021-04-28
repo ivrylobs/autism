@@ -14,6 +14,9 @@ import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import AddIcCallIcon from "@material-ui/icons/AddIcCall";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 const useStyle = makeStyles((theme) => ({
     BlogContainer: {
         [theme.breakpoints.down("xl")]: {
@@ -236,6 +239,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Home(props) {
     const classes = useStyle();
+     // Require for bi-language
+  const router = useRouter();
+  const { locale, locales, defaultLocale } = router;
+  const { formatMessage } = useIntl();
+  const f = (id) => formatMessage({ id });
+  // End of Requirement
 
     return (
         <React.Fragment>
@@ -244,33 +253,28 @@ export default function Home(props) {
                     <Grid container className={classes.CarditemAbotus} spacing={3}>
                         <Grid item xs={12} sm={6} md={6} lg={4} xl={5}>
                             <Typography className={classes.FooterTypo1} variant="h4">
-                                สถาบันวิจัยและบริการด้านออทิซึม
+                            {f("rsia")}
                             </Typography>
                             <Typography className={classes.FooterTypo2} variant="caption">
-                                Research And Service Institute For Autism Khon Kaen University
+                            {f("rsiakku")}
                             </Typography>
                             <br></br>
                             <Divider className={classes.Dividerlinear1} variant="fullWidth" />
                             <br></br>
                             <Typography className={classes.boxText} variant="subtitle2">
-                                สถาบันวิจัยและบริการด้านออทิซึม สำนักงานอธิการบดี มหาวิทยาลัยขอนแก่น
-                                ได้รับอนุมัติขึ้นตามข้อสั่งการของนายกรัฐมนตรี พลเอกประยุทธ์ จันทร์โอชา ณ วันที่ 21
-                                มิถุนายน 2560 เป็นหน่วยงานสนับสนุนภารกิจและยุทธศาสตร์ของมหาวิทยาลัยขอนแก่น
-                                ในการดูแลบุคคลออทิซึมให้สามารถช่วยเหลือตนเองและอยู่ร่วมกับสังคมอย่างมีความสุข
-                                ตามยุทธศาสตร์ชาติ 20 ปี ยุทธศาสตร์ที่ 4 การสร้างโอกาสและความเสมอภาคทางสังคม
-                                และแผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 12 พ.ศ.2560-2564
+                            {f("footerInfo")}
                             </Typography>
                             <Button variant="contained" className={classes.button} endIcon={<ArrowRightIcon />}>
-                                บริจาค
+                            {f("menuDonate")}
                             </Button>
                         </Grid>
 
                         <Grid item xs={12} sm={6} md={6} lg={3} xl={4}>
                             <Typography className={classes.FooterTypo1} variant="h4">
-                                ติดต่อเรา
+                            {f("contact")}
                             </Typography>
                             <Typography className={classes.FooterTypo2} variant="caption">
-                                Contact
+                            {f("contact1")}
                             </Typography>
                             <Divider className={classes.Dividerlinear1} variant="fullWidth" />
                             <img alt="logo" src="/map.png" className={classes.mapgoogle} />
@@ -294,13 +298,12 @@ export default function Home(props) {
                         <Grid item xs={6} sm={6} md={6} lg={3} xl={2} className={classes.contentfooter}>
                             <div>
                                 <Typography className={classes.FooterContact} variant="subtitle1">
-                                    สถาบันวิจัยและบริการด้านออทิซึม อาคารวิจัยเพื่อพัฒนาสังคม (RSDI) มหาวิทยาลัยขอนแก่น
-                                    เลขที่ 123 หมู่ที่ 16 ตำบลในเมือง อำเภอเมืองขอนแก่น จังหวัดขอนแก่น 40002
+                                {f("address")}
                                 </Typography>
                             </div>
 
                             <Typography className={classes.phoneNumber} variant="subtitle1">
-                                043-009-700 เบอร์ภายใน 50491, 50492
+                            {f("phone")}
                             </Typography>
 
                             <div className={classes.Typographyfacebookfooter}>
@@ -311,7 +314,7 @@ export default function Home(props) {
                                     Terms and Conditions
                                 </Typography>
                                 <Typography className={classes.footerRight} variant="caption">
-                                    © 2021 สถาบันวิจัยและบริการด้านออทิซึม RSIA
+                                {f("licences")}
                                 </Typography>
                             </div>
                         </Grid>

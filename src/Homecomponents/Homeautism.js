@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { Grid } from "@material-ui/core";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
 
 
 const useStyle = makeStyles((theme) => ({
@@ -124,6 +126,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Home(props) {
   const classes = useStyle();
+  // Require for bi-language
+  const router = useRouter();
+  const { locale, locales, defaultLocale } = router;
+  const { formatMessage } = useIntl();
+  const f = (id) => formatMessage({ id });
+  // End of Requirement
 
   return (
     <React.Fragment>
@@ -134,10 +142,10 @@ export default function Home(props) {
               <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <div className={classes.bgBox}>
                 <Typography variant="h1" className={classes.Typography1}>
-                  สถาบันวิจัยและบริการด้านออทิซึม
+                {f("rsia")}
                 </Typography>
                 <Typography variant="h4" className={classes.Typography2}>
-                  Research And Service Institute For Autism Khon Kaen University
+                {f("rsiakku")}
                 </Typography>
                 </div>
               </Grid>

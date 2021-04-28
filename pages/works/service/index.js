@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import Header from "../../../src/components/Header";
 import Footer from "../../../src/components/Footer";
-import IconButton from "@material-ui/core/IconButton";
 import Container from "@material-ui/core/Container";
 import { Button, Grid, Paper } from "@material-ui/core";
 import Link from "../../../src/Link";
 
 import MenuItem from "@material-ui/core/MenuItem";
 
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import { makeStyles} from "@material-ui/core/styles";
 
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -17,6 +16,9 @@ import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
 import Popper from "@material-ui/core/Popper";
 import MenuList from "@material-ui/core/MenuList";
+
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
 
 const useStyle = makeStyles((theme) => ({
   WorkContainer: {
@@ -222,6 +224,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Home(props) {
   const classes = useStyle();
+  // Require for bi-language
+  const router = useRouter();
+  const { locale, locales, defaultLocale } = router;
+  const { formatMessage } = useIntl();
+  const f = (id) => formatMessage({ id });
+  // End of Requirement
   const [anchorEl, setAnchorEl] = useState(null);
   const [openAbout, setOpenAbout] = useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -250,19 +258,19 @@ export default function Home(props) {
 
   const aboutOptions = [
     {
-      name: "งานด้านการบริการ",
+      name: f("service"),
       link: "/works/service",
       activeIndex: 1,
       selectedIndex: 0,
     },
     {
-      name: "งานด้านการวิจัย",
+      name: f("research"),
       link: "/works/research",
       activeIndex: 1,
       selectedIndex: 1,
     },
     {
-      name: "งานวิจัยที่อยู่ระหว่างการดำเนินการ",
+      name: f("active"),
       link: "/works/research/active",
       activeIndex: 1,
       selectedIndex: 2,
@@ -280,7 +288,7 @@ export default function Home(props) {
                 <Grid container>
                   <Grid item xs={12}>
                     <Typography variant="h1" className={classes.title}>
-                      งานของเรา
+                    {f("menuWork")}
                     </Typography>
                     <Typography variant="h4" className={classes.title2}>
                       OUR WORK
@@ -297,18 +305,15 @@ export default function Home(props) {
                       size="large"
                     >
                       <Typography variant="h3" className={classes.workTypo3}>
-                      งานด้านการบริการ
+                      {f("service")}
                       </Typography>
                     </Button>
                     <Typography variant="subtitle1" className={classes.workTypo4}>
-                      1.
-                      คลินิกให้คำปรึกษาสำหรับบุคคลที่มีภาวะออทิซึมสเปกตรัมโดยผู้เชี่ยวชาญ
+                    {f("service1")}
                     </Typography>
                     <br></br>
                     <Typography variant="subtitle1" className={classes.workTypo4}>
-                      2.
-                      การให้ความช่วยเหลือบุคคลที่มีภาวะออทิซึมสเปกตรัมในชั้นเรียนรวม
-                      โรงเรียนสาธิตมหาวิทยาลัยขอนแก่น มอดินแดง ฝ่ายการศึกษาพิเศษ
+                    {f("service2")}
                     </Typography>
                     <Popper
                       open={openAbout}

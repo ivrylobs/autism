@@ -21,6 +21,9 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -289,6 +292,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Ourwork1(props) {
   const classes = useStyle();
+  // Require for bi-language
+  const router = useRouter();
+  const { locale, locales, defaultLocale } = router;
+  const { formatMessage } = useIntl();
+  const f = (id) => formatMessage({ id });
+  // End of Requirement
   const [anchorEl, setAnchorEl] = useState(null);
   const [openWork, setOpenWork] = useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -317,19 +326,19 @@ export default function Ourwork1(props) {
 
   const workMenuOptions = [
     {
-      name: "งานด้านการวิจัย",
+      name: f("research"),
       link: "/works/research",
       activeIndex: 1,
       selectedIndex: 0,
     },
     {
-      name: "งานวิจัยที่อยู่ระหว่างการดำเนินการ",
+      name: f("active"),
       link: "/works/research/active",
       activeIndex: 1,
       selectedIndex: 1,
     },
     {
-      name: "งานด้านการบริการ",
+      name: f("service"),
       link: "/works/service",
       activeIndex: 1,
       selectedIndex: 2,
@@ -347,7 +356,7 @@ export default function Ourwork1(props) {
                 <Grid container>
                   <Grid item xs={12}>
                     <Typography variant="h1" className={classes.title}>
-                      งานของเรา
+                    {f("menuWork")}
                     </Typography>
                     <Typography variant="h4" className={classes.title2}>
                       OUR WORK
@@ -364,7 +373,7 @@ export default function Ourwork1(props) {
                       size="large"
                     >
                       <Typography variant="h3" className={classes.workTypo3}>
-                        งานด้านการวิจัย
+                      {f("researchwork")}
                       </Typography>
                     </Button>
                     <Popper
@@ -414,12 +423,7 @@ export default function Ourwork1(props) {
                   </Grid>
                   <Grid item xs={12}>
                     <Typography variant="subtitle1">
-                      การพัฒนานวัตกรรมสำหรับการช่วยเหลือบุคคลที่มีภาวะออทิซึมสเปกตรัมที่สอดคล้องกับบริบททางสังคมไทยตาม
-                      4 กลไกหลักของออทิซึมสเปกตรัมโรดแมป
-                      มีวัตถุประสงค์ตั้งแต่การคิดค้นหาวิธีการคัดกรองเด็กเล็กที่มีอาการที่เสี่ยงต่อการเป็นโรคออทิซึมสเปกตรัมจนถึงค้นหาวิธีการดูแลผู้ป่วยที่เป็นโรคออทิซึมสเปกตรัมตั้งแต่อายุน้อยจนถึงวัยรุ่น
-                      ผู้ป่วยที่เป็นเด็กอายุน้อยแผนการวิจัยก็คิดค้นวิธีการให้การศึกษาเพื่อให้การศึกษาก้าวหน้า
-                      ผู้ป่วยที่เป็นวัยรุ่นแผนการวิจัยก็คิดค้นหาวิธีส่งเสริมให้ครอบครัวมีวิธีการส่งเสริมให้วัยรุ่นมีทักษะทางสังคมดีขึ้น
-                      แผนการวิจัยจึงประกอบด้วยโครงการวิจัยย่อย 4 โครงการดังนี้
+                    {f("researchwork1")}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -443,22 +447,22 @@ export default function Ourwork1(props) {
                   >
                     <Tab
                       className={classes.tabs2}
-                      label="โครงการวิจัยย่อยที่ 1"
+                      label={f("subresearch1")}
                       {...a11yProps(0)}
                     />
                     <Tab
                       className={classes.tabs2}
-                      label="โครงการวิจัยย่อยที่ 2"
+                      label={f("subresearch2")}
                       {...a11yProps(1)}
                     />
                     <Tab
                       className={classes.tabs2}
-                      label="โครงการวิจัยย่อยที่ 3"
+                      label={f("subresearch3")}
                       {...a11yProps(2)}
                     />
                     <Tab
                       className={classes.tabs2}
-                      label="โครงการวิจัยย่อยที่ 4"
+                      label={f("subresearch4")}
                       {...a11yProps(3)}
                     />
                   </Tabs>
@@ -502,7 +506,7 @@ export default function Ourwork1(props) {
                         className={classes.Typographytitlework}
                         align="center"
                       >
-                        โครงการวิจัยย่อยที่ 1
+                        {f("subresearch1")}
                       </Typography>
                       <Typography
                         variant="h5"
@@ -534,8 +538,7 @@ export default function Ourwork1(props) {
                         align="center"
                         className={classes.BoxTypo}
                       >
-                        เป็นการวิจัยพัฒนาสร้างแอพพลิเคชั่นบนทุกระบบปฏิบัติการอินเตอร์เน็ตเพื่อให้พ่อแม่ผู้ปกครองได้ใช้คัดกรองตรวจสอบว่าบุตรหลานมีอาการและมีความเสี่ยงต่อการเป็นโรคออทิซึมสเปกตรัมหรือไม่
-                        (ผู้ประดิษฐ์: ผศ.พญ.กุศลาภรณ์ ชัยอุดมสม)
+                        {f("projectreseach1")}
                       </Typography>
                     </Container>
                   </TabPanel>
@@ -550,7 +553,7 @@ export default function Ourwork1(props) {
                         className={classes.Typographytitlework}
                         align="center"
                       >
-                        โครงการวิจัยย่อยที่ 2
+                         {f("subresearch2")}
                       </Typography>
                       <Typography
                         variant="h5"
@@ -581,8 +584,7 @@ export default function Ourwork1(props) {
                         align="center"
                         className={classes.BoxTypo}
                       >
-                        เป็นการวิจัยพัฒนาสร้างโปรแกรมให้ครูในโรงเรียนเรียนรวมนำไปใช้สอนเด็กประถมศึกษาที่มีโรคออทิซึมสเปกตรัมเพื่อเพิ่มทักษะทางด้านวิชาการและด้านสังคม
-                        (ผู้ประดิษฐ์: รศ.ดร.ปิยะวรรณ ศรีสุรักษ์)
+                        {f("projectreseach2")}
                       </Typography>
                     </Container>
                   </TabPanel>
@@ -597,7 +599,7 @@ export default function Ourwork1(props) {
                         className={classes.Typographytitlework}
                         align="center"
                       >
-                        โครงการวิจัยย่อยที่ 3
+                         {f("subresearch3")}
                       </Typography>
                       <Typography
                         variant="h5"
@@ -629,9 +631,7 @@ export default function Ourwork1(props) {
                         align="center"
                         className={classes.BoxTypo}
                       >
-                        เป็นการวิจัยพัฒนาสร้างโปรแกรมให้ครูในโรงเรียนเรียนรวมนำไปใช้สอนเด็กอนุบาลที่มี
-                        โรคออทิซึมสเปกตรัมเพื่อเพิ่มทักษะทางด้านวิชาการและด้านภาษา
-                        (ผู้ประดิษฐ์: นางพรมณี หาญหัก)
+                        {f("projectreseach3")}
                       </Typography>
                     </Container>
                   </TabPanel>
@@ -646,7 +646,7 @@ export default function Ourwork1(props) {
                         className={classes.Typographytitlework}
                         align="center"
                       >
-                        โครงการวิจัยย่อยที่ 4
+                         {f("subresearch4")}
                       </Typography>
                       <Typography
                         variant="h5"
@@ -677,8 +677,7 @@ export default function Ourwork1(props) {
                         align="center"
                         className={classes.BoxTypo}
                       >
-                        เป็นการวิจัยพัฒนาสร้างโปรแกรมให้พ่อแม่หรือผู้ปกครองนำไปใช้เพื่อเพิ่มทักษะการสังคมให้แก่วัยรุ่นในบ้านที่เป็นโรคออทิซึมสเปกตรัม
-                        (ผู้ประดิษฐ์: ดร.ธิรากร มณีรัตน์)
+                         {f("projectreseach4")}
                       </Typography>
                     </Container>
                   </TabPanel>

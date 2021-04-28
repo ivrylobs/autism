@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
     fontSize: 20,
     [theme.breakpoints.down("lg")]: {
-      fontSize: 16,
+      fontSize: 18,
     },
     [theme.breakpoints.down("md")]: {
       fontSize: 10,
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   PaddingText: {
-   padding: 0,
+   padding: 15,
    [theme.breakpoints.down("sm")]: {
     padding: 10,
   },
@@ -83,7 +83,7 @@ export default function Blog1({ url, post }) {
           <CardMedia component="img" alt="blog1" className={classes.imgNews} image={"https://cms.rsiakku.com" + post.cover.url} title="blog1" />
           <CardContent className={classes.PaddingText}>
             <Typography gutterBottom variant="caption" className={classes.Typo1}>
-              สถาบันวิจัยและบริการด้านออทิซึม - {moment(post.updated_at).locale(locale).format("l")}
+            {f("rsia")} - {moment(post.updated_at).locale(locale).format("l")}
             </Typography>
             <Typography variant="subtitle1" className={classes.Typo2}>
               {post.title}

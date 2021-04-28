@@ -423,25 +423,25 @@ export default function Header(props) {
 
     const navOptions = [
         {
-            name: "หน้าแรก",
+            name: f("menuIndex"),
             link: "/",
             activeIndex: 1,
             selectedNavIndex: 0,
         },
         {
-            name: "เกี่ยวกับเรา",
+            name:f("menuAbout"),
             link: "/about",
             activeIndex: 1,
             selectedNavIndex: 1,
         },
         {
-            name: "งานของเรา",
+            name: f("menuWork"),
             link: "/works/research",
             activeIndex: 1,
             selectedNavIndex: 2,
         },
         {
-            name: "ประชาสัมพันธ์",
+            name: f("menuNews"),
             link: "/blog",
             activeIndex: 1,
             selectedNavIndex: 3,

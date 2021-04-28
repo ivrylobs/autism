@@ -17,6 +17,9 @@ import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 const useStyles = makeStyles((theme) => ({
   RelatedContainer: {
     height: "auto",
@@ -242,6 +245,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home(props) {
   const classes = useStyles(props);
+   // Require for bi-language
+   const router = useRouter();
+   const { locale, locales, defaultLocale } = router;
+   const { formatMessage } = useIntl();
+   const f = (id) => formatMessage({ id });
+   // End of Requirement
   const [anchorEl, setAnchorEl] = useState(null);
   const [openAbout, setOpenAbout] = useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -264,17 +273,17 @@ export default function Home(props) {
 
   const aboutMenuOptions = [
     {
-      name: "หน่วยงานที่เกี่ยวข้อง",
+      name: "related",
       link: "/related",
       selectedIndex: 0,
     },
     {
-      name: "ความเป็นมาและวัตถุประสงค์",
+      name: "about",
       link: "/about",
       selectedIndex: 1,
     },
     {
-      name: "ทำเนียบบุคลากร",
+      name: "team",
       link: "/team",
       selectedIndex: 2,
     },
@@ -297,7 +306,7 @@ export default function Home(props) {
                 className={classes.BgContainer}
               >
                 <Typography variant="h1" className={classes.aboutTypo1}>
-                  เกี่ยวกับเรา
+                {f("menuAbout")}
                 </Typography>
                 <Typography variant="h4" className={classes.aboutTypo2}>
                   ABOUT US
@@ -322,7 +331,7 @@ export default function Home(props) {
                   size="large"
                 >
                   <Typography variant="h3" className={classes.aboutTypo3}>
-                    หน่วยงานที่เกี่ยวข้อง
+                  {f("related")}
                   </Typography>
                 </Button>
                 <Popper
@@ -385,49 +394,49 @@ export default function Home(props) {
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • ฝ่ายวิจัยและการถ่ายทอดเทคโนโลยี
+                  {f("related1")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • คณะแพทยศาสตร์ มหาวิทยาลัยขอนแก่น
+                  {f("related2")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • คณะศึกษาศาสตร์ มหาวิทยาลัยขอนแก่น
+                 {f("related3")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • คณะพยาบาลศาสตร์ มหาวิทยาลัยขอนแก่น
+                 {f("related4")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • คณะศิลปกรรมศาสตร์ มหาวิทยาลัยขอนแก่น
+                 {f("related5")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • โรงเรียนสาธิตมอดินแดง มหาวิทยาลัยขอนแก่น
+                 {f("related6")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • โรงเรียนสาธิตศึกษาศาสตร์ มหาวิทยาลัยขอนแก่น
+                  {f("related7")}
                 </Typography>
               </Grid>
 
@@ -445,49 +454,49 @@ export default function Home(props) {
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • โรงพยาบาลศรีนครินทร์
+                  {f("related8")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • โรงพยาบาลขอนแก่น
+                 {f("related9")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • สมาคมผู้ปกครองออทิซึม
+                  {f("related10")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • มูลนิธิขอบฟ้ากว้าง
+                  {f("related11")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • ศูนย์พัฒนาศักยภาพบุคคลออทิสติกจังหวัดขอนแก่น
+                 {f("related12")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • ศูนย์การศึกษาพิเศษ เขตการศึกษา 9 จังหวัดขอนแก่น
+                 {f("related13")}
                 </Typography>
                 <Typography
                   align="left"
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  • สถาบันสุขภาพจิตเด็กและวัยรุ่นภาคตะวันออกเฉียงเหนือ
+                  {f("related14")}
                 </Typography>
               </Grid>
             </Grid>

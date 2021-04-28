@@ -18,6 +18,9 @@ import Grow from "@material-ui/core/Grow";
 import Popper from "@material-ui/core/Popper";
 import MenuList from "@material-ui/core/MenuList";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 const useStyle = makeStyles((theme) => ({
   WorkContainer: {
     height: "auto",
@@ -259,6 +262,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Home(props) {
   const classes = useStyle();
+   // Require for bi-language
+   const router = useRouter();
+   const { locale, locales, defaultLocale } = router;
+   const { formatMessage } = useIntl();
+   const f = (id) => formatMessage({ id });
+   // End of Requirement
   const [anchorEl, setAnchorEl] = useState(null);
   const [openAbout, setOpenAbout] = useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -287,19 +296,19 @@ export default function Home(props) {
 
   const aboutOptions = [
     {
-      name: "งานวิจัยที่อยู่ระหว่างการดำเนินการ",
+      name: f("active"),
       link: "/works/research/active",
       activeIndex: 1,
       selectedIndex: 0,
     },
     {
-      name: "งานด้านการบริการ",
+      name: f("service"),
       link: "/works/service",
       activeIndex: 1,
       selectedIndex: 1,
     },
     {
-      name: "งานด้านการวิจัย",
+      name: f("research"),
       link: "/works/research",
       activeIndex: 1,
       selectedIndex: 2,
@@ -317,7 +326,7 @@ export default function Home(props) {
               <Grid container>
                 <Grid item xs={12}>
                   <Typography variant="h1" className={classes.title}>
-                    งานของเรา
+                  {f("menuWork")}
                   </Typography>
                   <Typography variant="h4" className={classes.title2}>
                     OUR WORK
@@ -334,7 +343,7 @@ export default function Home(props) {
                     size="large"
                   >
                     <Typography variant="h3" className={classes.workTypo3}>
-                      งานวิจัยที่อยู่ระหว่างการดำเนินการ
+                    {f("researchactive")}
                     </Typography>
                   </Button>
                   <Popper
@@ -397,11 +406,9 @@ export default function Home(props) {
                   >
                     <Typography variant="h5" className={classes.heading}>
                       {" "}
-                      1. การพัฒนาโปรแกรมการฝึกกิจวัตรประจำวันร่วมกับ
-                      การใช้ห้องตัวอย่าง สำหรับนักเรียนระดับอนุบาลที่มีภาวะ
-                      ออทิซึมสเปกตรัม และครอบครัว (HCP) <br></br>
+                      {f("researchactive1")} <br></br>
                       <br></br>
-                      (อ.ดร.กรวรรณ โหม่งพุฒ)
+                      {f("researchactive11")}
                     </Typography>
                     <br></br>
                   </AccordionSummary>
@@ -421,11 +428,10 @@ export default function Home(props) {
                     id="panel1a-header"
                   >
                     <Typography variant="h5" className={classes.heading}>
-                      2. การพัฒนาหลักสูตรการเรียนรวม 5 ทักษะพื้นฐานใน
-                      ผู้เรียนระดับอนุบาลที่มีภาวะออทิซึมสเปกตรัม
+                    {f("researchactive2")}
                       <br></br>
                       <br></br>
-                      (ผศ.ดร.ปิยะวรรณ ศรีสุรักษ์)
+                      {f("researchactive22")}
                     </Typography>
                     <br></br>
 
@@ -433,26 +439,15 @@ export default function Home(props) {
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography variant="subtitle1" align="left" className={classes.paraGraph}>
-                      2.1
-                      หลักสูตรการเรียนรวมเพื่อพัฒนาทักษะด้านความรู้ความเข้าใจสำหรับนักเรียนที่มีภาวะออทิซึมสเปกตรัมในระดับอนุบาลศึกษา
-                      (ผศ.ดร.ปิยะวรรณ ศรีสุรักษ์)
+                    {f("researchactive222")}
                       <br></br>
-                      2.2
-                      หลักสูตรการพัฒนาทักษะการรับรู้และแสดงออกทางภาษาสำหรับเด็กอนุบาลที่มีภาวะออทิซึมสเปกตรัมในชั้นเรียนรวม
-                      (อ.อาพร ตรีสูน)
+                      {f("researchactive2222")}
                       <br></br>
-                      2.3
-                      หลักสูตรเพิ่มสมรรถภาพทางกายสำหรับผู้เรียนระดับอนุบาลศึกษาที่มีภาวะออทิซึมสเปกตรัมในโรงเรียนเรียนร่วม
-                      (อ.วันชัย จันทการกุล)
+                      {f("researchactive22222")}
                       <br></br>
-                      2.4
-                      หลักสูตรการเรียนรวมเพื่อพัฒนาทักษะการช่วยเหลือตนเองในการปฏิบัติกิจวัตรประจำวันในนักเรียน
-                      ระดับอนุบาลศึกษา ที่มีภาวะออทิซึมสเปกตรัม (อ.เจริญขวัญ
-                      ศรีพันธ์ชาติ)
+                      {f("researchactive222222")}
                       <br></br>
-                      2.5
-                      หลักสูตรเรียนรวมพัฒนาทักษะทางสังคมของนักเรียนอนุบาลศึกษาที่มีภาวะออทิซึมสเปกตรัม
-                      (อ.พรมณี หาญหัก)
+                      {f("researchactive2222222")}
                     </Typography>
                   </AccordionDetails>
                 </Accordion>
@@ -468,10 +463,9 @@ export default function Home(props) {
                   >
                     <Typography variant="h5" className={classes.heading}>
                       {" "}
-                      3. โปรแกรมการฝึกทักษะงานบ้านสำหรับบุคคลออทิสติก
-                      กลุ่มวัยรุ่นที่ไม่มีภาษาพูด <br></br>
+                      {f("researchactive3")} <br></br>
                       <br></br>
-                      (อาจารย์ปริศนา อานจำปา)
+                      {f("researchactive33")}
                     </Typography>
                     <br></br>
                   </AccordionSummary>
@@ -491,11 +485,10 @@ export default function Home(props) {
                     id="panel1a-header"
                   >
                     <Typography variant="h5" className={classes.heading}>
-                      4. การพัฒนาโปรแกรมการฝึกทักษะสังคมสำหรับวัยรุ่นที่มี
-                      ภาวะออทิซึม
+                    {f("researchactive4")}
                       <br></br>
                       <br></br>
-                      (อาจารย์ปริศนา อานจำปา)
+                      {f("researchactive44")}
                     </Typography>
                     <br></br>
 
@@ -517,11 +510,10 @@ export default function Home(props) {
                   >
                     <Typography variant="h5" className={classes.heading}>
                       {" "}
-                      5. การพัฒนาหลักสูตรการวางแผนและการจัดระเบียบ
-                      ดำเนินการเพื่อการประกอบอาชีพ ในวัยรุ่นออทิซึมสเปกตรัม
+                      {f("researchactive5")}
                       <br></br>
                       <br></br>
-                      (ดร.เบญจมาภรณ์ ช้อยเครือ)
+                      {f("researchactive55")}
                     </Typography>
                     <br></br>
                   </AccordionSummary>
@@ -541,12 +533,10 @@ export default function Home(props) {
                     id="panel1a-header"
                   >
                     <Typography variant="h5" className={classes.heading}>
-                      6. การเปลี่ยนแปลงเมทาบอลิซึมของกลูโคสในสมอง
-                      ซึ่งประเมินด้วยเอฟดีจี เพทซีที ในผู้ป่วยออทิซึม
-                      หลังการกระตุ้นด้วยไฟฟ้ากระแสตรงผ่านกะโหลกศีรษะ
+                    {f("researchactive6")}
                       <br></br>
                       <br></br>
-                      (รศ.พญ.ภารดี เอื้อวิชญาแพทย์)
+                      {f("researchactive66")}
                     </Typography>
                     <br></br>
 
@@ -568,9 +558,9 @@ export default function Home(props) {
                   >
                     <Typography variant="h5" className={classes.heading}>
                       {" "}
-                      7. การดูแลช่วยเหลือแก่ครอบครัวที่มีบุตรออทิสติก <br></br>
+                      {f("researchactive7")} <br></br>
                       <br></br>
-                      (ผศ. พัชราภรณ์ เจนใจวิทย์)
+                      {f("researchactive77")}
                     </Typography>
                     <br></br>
                   </AccordionSummary>

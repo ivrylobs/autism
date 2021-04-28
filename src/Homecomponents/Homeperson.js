@@ -7,6 +7,9 @@ import Container from "@material-ui/core/Container";
 import { Grid, Button } from "@material-ui/core";
 import Link from "../Link";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 
 const useStyle = makeStyles((theme) => ({
   TeamContainer: {
@@ -92,6 +95,7 @@ const useStyle = makeStyles((theme) => ({
   },
   person: {
     width: 250,
+    borderRadius: "50%",
     [theme.breakpoints.down("lg")]: {
       width: 140,
     },
@@ -148,6 +152,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Home(props) {
   const classes = useStyle();
+   // Require for bi-language
+   const router = useRouter();
+   const { locale, locales, defaultLocale } = router;
+   const { formatMessage } = useIntl();
+   const f = (id) => formatMessage({ id });
+   // End of Requirement
 
   return (
     <React.Fragment>
@@ -158,7 +168,7 @@ export default function Home(props) {
               <Grid item xs={12} align="center">
                 <div>
                   <Typography variant="h2" className={classes.TeamTypo1}>
-                    ทำเนียบบุคคลากร
+                  {f("team")}
                   </Typography>
                 </div>
                 <div>
@@ -193,7 +203,7 @@ export default function Home(props) {
                 </div>
                 <div>
                   <Typography className={classes.TeamTypo3} variant="h5" align="center">
-                    ที่ปรึกษา
+                  {f("team2")}
                   </Typography>
                 </div>
               </Grid>
@@ -222,7 +232,7 @@ export default function Home(props) {
                 </div>
                 <div>
                   <Typography className={classes.TeamTypo3} variant="h5" align="center">
-                    ที่ปรึกษา
+                  {f("team2")}
                   </Typography>
                 </div>
               </Grid>
@@ -251,7 +261,7 @@ export default function Home(props) {
                 </div>
                 <div>
                   <Typography className={classes.TeamTypo3} variant="h5" align="center">
-                    รักษาการแทนผู้อำนวยการ
+                  {f("team3")}
                   </Typography>
                 </div>
               </Grid>
@@ -264,7 +274,7 @@ export default function Home(props) {
                     size="large"
                     className={classes.buttonMore}
                   >
-                    เพิ่มเติม
+                   {f("button")}
                   </Button>
                 </Grid>
             </Grid>

@@ -7,6 +7,9 @@ import Container from "@material-ui/core/Container";
 import { Button, Grid } from "@material-ui/core";
 import Link from "../Link";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 const useStyle = makeStyles((theme) => ({
 	NewsContainer: {
 		backgroundColor: "#fff",
@@ -144,7 +147,6 @@ const useStyle = makeStyles((theme) => ({
 	buttonMore: {
 		backgroundColor: "#3AC7FD",
 		color: "#fff",
-		width: 190,
 		fontSize: 24,
 		marginTop: 40,
 		marginBottom: 30,
@@ -152,16 +154,13 @@ const useStyle = makeStyles((theme) => ({
 			backgroundColor: "#ADE8FF",
 		},
 		[theme.breakpoints.down("md")]: {
-			width: 150,
 			fontSize: 20,
 		},
 		[theme.breakpoints.down("sm")]: {
-			width: 96,
 			height: 30,
 			fontSize: 16,
 		},
 		[theme.breakpoints.down("xs")]: {
-			width: 80,
 			height: 25,
 			fontSize: 10,
 		},
@@ -180,6 +179,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Home({ posts }) {
 	const classes = useStyle();
+	 // Require for bi-language
+	 const router = useRouter();
+	 const { locale, locales, defaultLocale } = router;
+	 const { formatMessage } = useIntl();
+	 const f = (id) => formatMessage({ id });
+	 // End of Requirement
 
 	return (
 		<React.Fragment>
@@ -192,7 +197,7 @@ export default function Home({ posts }) {
 									variant="h2"
 									className={classes.NewsTypo1}
 								>
-									ข่าวสารและประชาสัมพันธ์
+									{f("menuNews")}
 								</Typography>
 								<Typography
 									variant="h5"
@@ -236,7 +241,7 @@ export default function Home({ posts }) {
 									size="large"
 									className={classes.buttonMore}
 								>
-									เพิ่มเติม
+								 {f("button")}
 								</Button>
 							</Grid>
 						</Grid>

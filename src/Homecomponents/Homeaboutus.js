@@ -7,6 +7,9 @@ import Container from "@material-ui/core/Container";
 import { Button, Grid } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 const useStyle = makeStyles((theme) => ({
   AboutContainer: {
     backgroundColor: "#fff",
@@ -76,20 +79,8 @@ const useStyle = makeStyles((theme) => ({
   },
   imagabout: {
     width: "100%",
-    height: "auto",
+    height: "100%",
     borderRadius: 5,
-    [theme.breakpoints.down("lg")]: {
-    
-    },
-    [theme.breakpoints.down("md")]: {
-      height: "75%",
-    },
-    [theme.breakpoints.down("sm")]: {
-      height: "auto",
-    },
-    [theme.breakpoints.down("xs")]: {
-      height: "auto",
-    },
   },
   paperabout3: {
     padding: 5,
@@ -129,7 +120,6 @@ const useStyle = makeStyles((theme) => ({
   buttonMore: {
     background: "#B1BE12",
     color: "#fff",
-    width: 190,
     fontSize: 24,
     marginTop: 10,
     '&:focus': {
@@ -139,18 +129,16 @@ const useStyle = makeStyles((theme) => ({
       marginTop: 10,
     },
     [theme.breakpoints.down("md")]: {
-      width: 150,
+      
       fontSize: 20,
       marginTop: 0,
     },
     [theme.breakpoints.down("sm")]: {
-      width: 96,
-      height: 30,
+     
       fontSize: 16,
     },
     [theme.breakpoints.down("xs")]: {
-      width: 80,
-      height: 25,
+      
       fontSize: 10,
     },
   },
@@ -235,6 +223,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Home(props) {
   const classes = useStyle();
+  // Require for bi-language
+  const router = useRouter();
+  const { locale, locales, defaultLocale } = router;
+  const { formatMessage } = useIntl();
+  const f = (id) => formatMessage({ id });
+  // End of Requirement
 
   return (
     <React.Fragment>
@@ -248,7 +242,6 @@ export default function Home(props) {
                 sm={6}
                 md={6}
                 lg={5}
-                xl={6}
                 className={classes.GridPaper}
               >
                 <img className={classes.imagabout} src="/about1.jpg" />
@@ -259,35 +252,42 @@ export default function Home(props) {
                 xs={12}
                 sm={6}
                 md={4}
-                lg={5}
-                xl={4}
+                lg={4}
                 className={classes.AboutMid}
               >
                 <div>
                   <Typography variant="h2" className={classes.our}>
-                    เกี่ยวกับเรา
+                  {f("menuAbout")}
                   </Typography>
 
                   <Typography variant="h5" className={classes.us}>
                     ABOUT US
                   </Typography>
                   <Typography variant="h5" className={classes.info}>
-                    ความเป็นมาและวัตถุประสงค์
+                  {f("about")}
                   </Typography>
                   <Divider className={classes.Dividerlinear1} />
                 </div>
                 <br></br>
 
                 <Typography className={classes.TypoSpace}>
-                  สถาบันวิจัยและบริการด้านออทิซึม สำนักงานอธิการบดี
-                  มหาวิทยาลัยขอนแก่นได้รับอนุมัติขึ้นตามข้อสั่งการของนายกรัฐมนตรี
-                  พลเอกประยุทธ์ จันทร์โอชา ณ วันที่ 21 มิถุนายน 2560
-                  เป็นหน่วยงานสนับสนุนภารกิจและยุทธศาสตร์ของมหาวิทยาลัย
-                  ขอนแก่นในการดูแลบุคคลออทิซึม
+                {f("about1")}
                 </Typography>
+                    <div className={classes.alignButton}>
+                      <Button
+                        component={Link}
+                        href="/about"
+                        variant="contained"
+                        size="large"
+                        className={classes.buttonMore}
+                      >
+                       {f("button")}
+                      </Button>
+                    </div>
+                  
               </Grid>
 
-              <Grid item xs={12} sm={12} md={2} lg={2} xl={2}>
+              <Grid item xs={12} sm={12} md={2} lg={3} >
                 <Grid container>
                   <Grid
                     item
@@ -299,11 +299,11 @@ export default function Home(props) {
                     className={classes.paperabout3}
                   >
                     <Typography variant="h5" className={classes.info}>
-                      ทำเนียบบุคลากร
+                    {f("team")}
                     </Typography>
                     <Divider className={classes.Dividerlinear1} />
                     <Typography className={classes.TypoSpace}>
-                      เพื่อให้บริการแก่บุคคลออทิซึมให้ได้รับบริการอย่างทั่วถึงและครอบคลุมในทุกด้าน
+                    {f("team1")}
                     </Typography>
                   </Grid>
                   <Grid
@@ -316,35 +316,13 @@ export default function Home(props) {
                     className={classes.paperabout4}
                   >
                     <Typography variant="h5" className={classes.info}>
-                      หน่วยงานที่เกียวข้อง
+                    {f("related")}
                     </Typography>
                     <Divider className={classes.Dividerlinear1} />
 
                     <Typography className={classes.TypoSpace}>
-                      ฝ่ายวิจัยและการถ่ายทอดเทคโนโลยี คณะแพทยศาสตร์
-                      มหาวิทยาลัยขอนแก่น
+                    {f("related1")}
                     </Typography>
-                  </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={12}
-                    lg={12}
-                    xl={12}
-                    className={classes.paperabout5}
-                  >
-                    <div className={classes.alignButton}>
-                      <Button
-                        component={Link}
-                        href="/about"
-                        variant="contained"
-                        size="large"
-                        className={classes.buttonMore}
-                      >
-                        เพิ่มเติม
-                      </Button>
-                    </div>
                   </Grid>
                 </Grid>
               </Grid>

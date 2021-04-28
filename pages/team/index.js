@@ -18,6 +18,9 @@ import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 const useStyle = makeStyles((theme) => ({
   TeamContainer: {
     height: "auto",
@@ -315,6 +318,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Home(props) {
   const classes = useStyle();
+   // Require for bi-language
+   const router = useRouter();
+   const { locale, locales, defaultLocale } = router;
+   const { formatMessage } = useIntl();
+   const f = (id) => formatMessage({ id });
+   // End of Requirement
   const [anchorEl, setAnchorEl] = useState(null);
   const [openAbout, setOpenAbout] = useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -337,17 +346,17 @@ export default function Home(props) {
 
   const aboutMenuOptions = [
     {
-      name: "ทำเนียบบุคลากร",
+      name: f("team"),
       link: "/team",
       selectedIndex: 0,
     },
     {
-      name: "หน่วยงานที่เกี่ยวข้อง",
+      name: f("related"),
       link: "/related",
       selectedIndex: 1,
     },
     {
-      name: "ความเป็นมาและวัตถุประสงค์",
+      name: f("about"),
       link: "/about",
       selectedIndex: 2,
     },
@@ -370,7 +379,7 @@ export default function Home(props) {
                 className={classes.BgContainer}
               >
                 <Typography variant="h1" className={classes.aboutTypo1}>
-                  เกี่ยวกับเรา
+                {f("menuAbout")}
                 </Typography>
                 <Typography variant="h4" className={classes.aboutTypo2}>
                   ABOUT US
@@ -395,7 +404,7 @@ export default function Home(props) {
                   size="large"
                 >
                   <Typography variant="h3" className={classes.aboutTypo3}>
-                    ทำเนียบบุคลากร
+                  {f("team")}
                   </Typography>
                 </Button>
                 <Popper
@@ -465,89 +474,89 @@ export default function Home(props) {
                 className={classes.Griditem3}
               >
                 <Typography variant="h3" className={classes.Typography1}>
-                  สถาบันวิจัยและบริการด้านออทิซึม
+                {f("rsia")}
                 </Typography>
                 <Typography variant="h4" className={classes.Typography2}>
-                  Research And Service Institute For Autism Khon Kaen University
+                {f("rsiakku")}
                 </Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={6} xl={6} className={classes.Griditem4}>
                 <img alt="person1" src="/0.png" className={classes.df} />
                 <Typography>ศ. เกียรติคุณ นพ. สุชาติ พหลภาคย์</Typography>
                 <Typography>Suchat Paholpak</Typography>
-                <Typography>ที่ปรึกษา</Typography>
+                <Typography>{f("member1")}</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={6} xl={6} className={classes.Griditem4}>
                 <img alt="logo" src="/000.png" className={classes.df} />
                 <Typography>นายบุรี เสรีโยธิน</Typography>
                 <Typography>Buree Seriyothin</Typography>
-                <Typography>ที่ปรึกษา</Typography>
+                <Typography>{f("member1")}</Typography>
               </Grid>
               <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.Griditem5}>
                 <img alt="logo" src="/1.png" className={classes.df1} />
                 <Typography>รศ. ดร. ปิยะววรณ ศรีสุรักษ์</Typography>
                 <Typography>Piyawan Srisuruk</Typography>
-                <Typography>รักษาการแทนผู้อำนวยการ</Typography>
+                <Typography>{f("member11")}</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className={classes.Griditem6}>
                 <img alt="logo" src="/4.png" className={classes.df2} />
                 <Typography>นางพรมณี หาญหัก</Typography>
                 <Typography>Pronmanee Hanhak</Typography>
-                <Typography>กรรมการและเลขานุการ</Typography>
+                <Typography>{f("member111")}</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className={classes.Griditem6}>
                 <img alt="logo" src="/3.png" className={classes.df2} />
                 <Typography>นางปริศนา อานจำปา</Typography>
                 <Typography>Prison Anjumpa</Typography>
-                <Typography>ผู้ช่วยเลขานุการ</Typography>
+                <Typography>{f("member1111")}</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className={classes.Griditem6}>
                 <img alt="logo" src="/2.png" className={classes.df2} />
                 <Typography>ดร. ธิรากร มณีรัตน์</Typography>
                 <Typography>Thirakorn Maneerat</Typography>
-                <Typography>กรรมการ</Typography>
+                <Typography>{f("member111111")}</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className={classes.Griditem6}>
                 <img alt="logo" src="/12.png" className={classes.df2} />
                 <Typography>ผศ.พญ. กุศลาภร์ ชัยอุดมสม</Typography>
                 <Typography>Kusalaporn Chaiudomsom</Typography>
-                <Typography>กรรมการ</Typography>
+                <Typography>{f("member111111")}</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
                 <img alt="logo" src="/6.png" className={classes.df3} />
                 <Typography>จิตรา โซ่เมืองแซะ</Typography>
                 <Typography>Jittra Shomuangshae</Typography>
-                <Typography>งานวิชาการและบริการ</Typography>
+                <Typography>{f("member1111111")}</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
                 <img alt="logo" src="/8.png" className={classes.df3} />
                 <Typography>จิราภรณ์ ต่างสมบัติ</Typography>
                 <Typography>Jiraporn Tangsombut</Typography>
-                <Typography>งานวิชาการและบริการ</Typography>
+                <Typography>{f("member1111111")}</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
                 <img alt="logo" src="/11.png" className={classes.df3} />
                 <Typography>วรรณภา เรืองจันทร์</Typography>
                 <Typography>Wannapa Ruengjan</Typography>
-                <Typography>งานวิชาการและบริการ</Typography>
+                <Typography>{f("member1111111")}</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
                 <img alt="logo" src="/5.png" className={classes.df3} />
                 <Typography>ธัญญรัตน์ จันทร์แสง</Typography>
                 <Typography>Thanyarat Chanseang</Typography>
-                <Typography>งานวิชาการและบริการ</Typography>
+                <Typography>{f("member1111111")}</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
                 <img alt="logo" src="/7.png" className={classes.df3} />
                 <Typography>นิษฐเนตร์ กาสีชา</Typography>
                 <Typography>Nitthanate Kasicha</Typography>
-                <Typography>งานการเงินและงบประมาณ</Typography>
+                <Typography>{f("member11111111")}</Typography>
               </Grid>
               <Grid item xs={6} sm={4} md={4} lg={4} xl={2} className={classes.Griditem7}>
                 <img alt="logo" src="/10.png" className={classes.df3} />
                 <Typography>ชนิดา ศรีมาพล</Typography>
                 <Typography>Chanida Srimapol</Typography>
-                <Typography>งานพัสดุและธุรการ</Typography>
+                <Typography>{f("member111111111")}</Typography>
               </Grid>
             </Grid>
           </Container>

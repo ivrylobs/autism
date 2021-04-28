@@ -7,6 +7,9 @@ import Container from "@material-ui/core/Container";
 import { Button, Grid, Paper } from "@material-ui/core";
 import Link from "../Link";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 
 const useStyle = makeStyles((theme) => ({
   WorkContainer: {
@@ -151,6 +154,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Home(props) {
   const classes = useStyle();
+  // Require for bi-language
+  const router = useRouter();
+  const { locale, locales, defaultLocale } = router;
+  const { formatMessage } = useIntl();
+  const f = (id) => formatMessage({ id });
+  // End of Requirement
 
   return (
     <React.Fragment>
@@ -161,7 +170,7 @@ export default function Home(props) {
               <Grid item xs={12} sm={6} md={5} lg={5} xl={5}>
                 <div>
                   <Typography variant="h2" className={classes.WorkTypo1}>
-                    งานของเรา
+                  {f("menuWork")}
                   </Typography>
 
                   <Typography variant="h5" className={classes.WorkTypo2}>
@@ -195,7 +204,7 @@ export default function Home(props) {
                     size="large"
                     className={classes.buttonMore}
                   >
-                    เพิ่มเติม
+                    {f("button")}
                   </Button>
                 </div>
               </Grid>
@@ -209,7 +218,7 @@ export default function Home(props) {
         />
                 </Paper>
                 <Typography variant="h5" className={classes.WorkTypo4}>
-                คิดได้คิดดี-แอปพลิเคชัน คัดกรองภาวะออทิซึมสเปกตรัมในเด็ก
+                {f("videoWork")}
                   </Typography>
               </Grid>
             </Grid>

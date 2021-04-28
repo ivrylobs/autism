@@ -21,6 +21,9 @@ import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 const useStyle = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -108,13 +111,7 @@ const useStyle = makeStyles((theme) => ({
   },
   aboutTypo3: {
     fontWeight: "bold",
-    fontSize: 44,
-    [theme.breakpoints.down("lg")]: {
-      fontSize: 32,
-    },
-    [theme.breakpoints.down("md")]: {
-      fontSize: 22,
-    },
+    fontSize: 20,
     [theme.breakpoints.down("sm")]: {
       fontSize: 16,
     },
@@ -342,7 +339,7 @@ const useStyle = makeStyles((theme) => ({
     paddingLeft: 60,
     marginTop: 75,
     [theme.breakpoints.down("lg")]: {
-      marginTop: 148,
+      marginTop: 123,
     },
     [theme.breakpoints.down("md")]: {
       marginTop: 0,
@@ -458,7 +455,7 @@ const useStyle = makeStyles((theme) => ({
     marginBottom: 50,
     [theme.breakpoints.down("lg")]: {
       marginTop: 49,
-      width: 320,
+      width: 435,
     },
     [theme.breakpoints.down("sm")]: {
       width: 240,
@@ -595,11 +592,12 @@ const useStyle = makeStyles((theme) => ({
     paddingTop: 20,
     [theme.breakpoints.down("lg")]: {
       textIndent: 55,
-      fontSize: 16,
+      fontSize: 12,
     },
     [theme.breakpoints.down("md")]: {
       textIndent: 66,
       paddingTop: 5,
+      fontSize: 16,
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: 20,
@@ -743,11 +741,18 @@ const useStyle = makeStyles((theme) => ({
   },
   nav: {
     paddingLeft: 0,
+    textAlign: "left"
   }
 }));
 
 export default function Aboutas() {
   const classes = useStyle();
+   // Require for bi-language
+   const router = useRouter();
+   const { locale, locales, defaultLocale } = router;
+   const { formatMessage } = useIntl();
+   const f = (id) => formatMessage({ id });
+   // End of Requirement
   const [anchorEl, setAnchorEl] = useState(null);
   const [openAbout, setOpenAbout] = useState(false);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -770,17 +775,17 @@ export default function Aboutas() {
 
   const aboutMenuOptions = [
     {
-      name: "ความเป็นมาและวัตถุประสงค์",
+      name: f("about"),
       link: "/about",
       selectedIndex: 0,
     },
     {
-      name: "ทำเนียบบุคลากร",
+      name: f("team"),
       link: "/team",
       selectedIndex: 1,
     },
     {
-      name: "หน่วยงานที่เกี่ยวข้อง",
+      name: f("related"),
       link: "/related",
       selectedIndex: 2,
     },
@@ -802,7 +807,7 @@ export default function Aboutas() {
               className={classes.BgContainer}
             >
               <Typography variant="h1" className={classes.aboutTypo1}>
-                เกี่ยวกับเรา
+              {f("menuAbout")}
               </Typography>
               <Typography variant="h4" className={classes.aboutTypo2}>
                 ABOUT US
@@ -827,7 +832,7 @@ export default function Aboutas() {
                   size="large"
                 >
                   <Typography variant="h3" className={classes.aboutTypo3}>
-                  ความเป็นมาและวัตถุประสงค์
+                  {f("about")}
                   </Typography>
                 </Button>
                 <Popper
@@ -876,16 +881,7 @@ export default function Aboutas() {
                   )}
                 </Popper>
               <Typography variant="h6" className={classes.aboutBox}>
-                สถาบันวิจัยและบริการด้านออทิซึม สำนักงานอธิการบดี
-                มหาวิทยาลัยขอนแก่น ได้รับอนุมัติขึ้นตามข้อสั่งการของนายกรัฐมนตรี
-                พลเอกประยุทธ์ จันทร์โอชา ณ วันที่ 21 มิถุนายน 2560
-                เป็นหน่วยงานสนับสนุนภารกิจและยุทธศาสตร์ของมหาวิทยาลัยขอนแก่น
-                ในการดูแลบุคคลออทิซึมให้สามารถช่วยเหลือตนเองและอยู่ร่วมกับสังคมอย่างมีความสุข
-                ตามยุทธศาสตร์ชาติ 20 ปี ยุทธศาสตร์ที่ 4
-                การสร้างโอกาสและความเสมอภาคทางสังคม
-                และแผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ ฉบับที่ 12 พ.ศ.2560-2564
-                การสร้างความเป็นธรรมและลดความเหลื่อมล้ำในสังคม
-                อีกทั้งนโยบายของรัฐบาลในการลดความเหลื่อมล้ำของสังคมและการสร้างโอกาสการเข้าถึงบริการของรัฐและการยกระดับคุณภาพบริการด้านสาธารณสุขและสุขภาพของประชาชน
+              {f("about1")}
               </Typography>
               <img className={classes.imgabout1} src="about2.jpg" />
             </Grid>
@@ -905,22 +901,7 @@ export default function Aboutas() {
                   variant="h6"
                   className={classes.aboutBox}
                 >
-                  เนื่องจากประเทศไทยมีกลุ่มบุคคลที่เป็นโรคความผิดปกติแต่กำเนิดของพัฒนาการทางสมอง
-                  หรือโรคออทิซึมสเปกตรัม (Autistic Spectrum Disorder)
-                  ซึ่งพบบ่อยในเด็กส่งผลต่อความบกพร่องต่อความบกพร่องทางสมอง 3
-                  ด้าน คือ ด้านสังคม ภาษา และพฤติกรรม ร่วมกับความผิดปกติอื่น ๆ
-                  เช่น มีปฏิสัมพันธ์ทางสังคม ไม่สบตา ไม่สนใจคู่สนทนา
-                  อ่านใจคนอื่นไม่ออก อยู่ในโลกของตนเอง ทำอะไรซ้ำ ๆ เป็นต้น
-                  ความรุนแรงจะมีความแตกต่างกันขึ้นอยู่กับพัฒนาการทางภาษา
-                  ระดับสติปัญญา และความบกพร่องต่าง ๆ จะมีความต่อเนื่องตลอดชีวิต
-                  การวินิจฉัยและการรักษาตั้งแต่ในวัยเด็กจะทำให้เด็กออทิซึมสเปกตรัม
-                  ได้มีโอกาสพัฒนาได้ดีกว่าการรักษาเมื่ออายุมากขึ้น
-                  การบำบัดรักษาโรคออทิซึมสเปกตรัมต้องดำเนินการอย่างถูกต้อง
-                  เหมาะสมและเข้มข้น โดยการผสมผสานวิธีการต่าง ๆ ทั้งทางการแพทย์
-                  การส่งเสริมพัฒนาการ การจัดรูปแบบการศึกษาที่เหมาะสม
-                  การส่งเสริมอาชีพและการมีงานทำ
-                  มีสวัสดิการสังคมและการดำเนินชีวิตในชุมชน ดังนั้น
-                  การบำบัดจึงต้องมีบุคลากรจากสหวิชาชีพ
+                 {f("about2")}
                 </Typography>
               </div>
               <Paper elevation={0} className={classes.PaddingVision}>
@@ -930,26 +911,19 @@ export default function Aboutas() {
                   variant="h5"
                   align="center"
                 >
-                  วิสัยทัศน์
+                  {f("vision")}
                 </Typography>
                 <Typography
                   className={classes.aboutVision1}
                   variant="h6"
                   align="center"
                 >
-                  “พัฒนาคุณภาพชีวิตและสุขภาพของบุคคลออทิซึมสเปกตรัมด้วยงานวิจัยด้านการแพทย์
-                  การศึกษา การสังคม และการกฎหมาย”
+                  {f("vision1")}
                 </Typography>
               </Paper>
               <Box className={classes.Box2}>
                 <Typography variant="h6" className={classes.aboutBox}>
-                  แต่ที่ผ่านมาพบปัญหาสำคัญคือ ประชาชนยังมีความเข้าใจเรื่อง
-                  โรคออทิซึมสเปกตรัมน้อย
-                  เป็นผลทำให้จำนวนผู้เข้าถึงบริการทางการแพทย์ การศึกษา
-                  และการช่วยเหลือทางสังคมมีน้อย โดยพบเพียงร้อยละ 15
-                  ของผู้ป่วยออทิซึม
-                  หรือตามรายงานการสำรวจจำนวนผู้ป่วยทางสุขภาพจิตของประเทศตามเขตสาธารณสุขรายจังหวัด
-                  ในปี 2555 มีผู้ป่วยออทิซึมที่เข้าถึงบริการเพียง 25,537 ราย
+                {f("about3")}
                 </Typography>
               </Box>
             </Grid>
@@ -964,12 +938,11 @@ export default function Aboutas() {
             >
               <Paper elevation={0} className={classes.PaddingVision2}>
                 <Typography variant="h3" className={classes.aboutTypo4}>
-                  ร่วมเป็นส่วนหนึ่งกับเรา
+                {f("join")}
                 </Typography>
                 <br></br>
                 <Typography variant="h5" className={classes.aboutTypo5}>
-                  "พัฒนางานวิจัยและบริการที่มีคุณภาพแก่กลุ่มบุคคลออทิซึม
-                  และบุคคลต่าง ๆ ที่เกี่ยวข้อง"
+                {f("join1")}
                 </Typography>
                 <Button
                   component={Link}
@@ -981,7 +954,7 @@ export default function Aboutas() {
                     <img className={classes.imageIcon} src="facebook-red.svg" />
                   </IconButton>
                   <Typography variant="h5" className={classes.aboutTypo6}>
-                    สถาบันวิจัยและบริการด้านออทิซึม
+                  {f("rsia")}
                   </Typography>
                 </Button>
               </Paper>
@@ -1002,29 +975,18 @@ export default function Aboutas() {
                   variant="h5"
                   align="center"
                 >
-                  พันธกิจ
+                  {f("mission")}
                 </Typography>
                 <Typography
                   className={classes.aboutVision4}
                   variant="h6"
                   align="center"
                 >
-                  “สถาบันวิจัยและบริการด้านออทิซึมจะปรับปรุงสุขภาพ
-                  และคุณภาพชีวิตของบุคคลออทิซึมสเปกตรัม ผ่านกระบวนการวิจัย
-                  กระบวนการวิชาการ กระบวนการให้บริการ
-                  และกระบวนการทางกฎหมายโดยผู้เชี่ยวชาญ
-                  และผู้มีส่วนเกี่ยวข้องอื่น ๆ
-                  รวมทั้งครอบครัวของบุคคลที่มีภาวะออทิซึมสเปกตรัม”
+                  {f("mission1")}
                 </Typography>
               </Paper>
               <Typography variant="h6" className={classes.aboutBox2}>
-                ดังนั้น จากเหตุผลและความจำเป็นดังกล่าว มหาวิทยาลัยขอนแก่น
-                จึงได้จัดตั้ง “สถาบันวิจัยและบริการด้านออทิซึม”
-                สำนักงานอธิการบดี มหาวิทยาลัยขอนแก่น ตั้งแต่วันที่ 7 มิถุนายน
-                2561 เพื่อรองรับการบริการบุคคลออทิซึมให้มีมาตรฐาน
-                และมีการพัฒนาบุคคลออทิซึมในทุกระดับ ทุกเพศทุกวัย
-                รวมไปถึงผู้ปกครอง ครู แพทย์ พยาบาล และบุคคลที่เกี่ยวข้องต่าง ๆ
-                พร้อมกับการดำเนินการวิจัยร่วมกับการบริการที่มีคุณภาพ
+              {f("about4")}
               </Typography>
             </Grid>
             <Grid
@@ -1051,48 +1013,42 @@ export default function Aboutas() {
               className={classes.Griditem5}
             >
               <Typography variant="h3" className={classes.aboutTypo7}>
-                วัตถุประสงค์การจัดตั้ง
+              {f("objectives")}
               </Typography>
               <Typography
                 align="left"
                 variant="h6"
                 className={classes.aboutBox3}
               >
-                1) เพื่อให้บริการแก่บุคคลออทิซึมให้ได้รับการบริการอย่างทั่วถึง
-                และครอบคลุมในทุกด้านให้สามารถอยู่ร่วมกับสังคมได้อย่างมีความสุข
+                {f("objectives1")}
               </Typography>
               <Typography
                 align="left"
                 variant="h6"
                 className={classes.aboutBox3}
               >
-                2)
-                เพื่อพัฒนาศักยภาพบุคลากรทางการแพทย์และที่เกี่ยวข้องในการดูแลบุคคลออทิซึมได้ตามความต้องการของประเทศ
+                {f("objectives2")}
               </Typography>
               <Typography
                 align="left"
                 variant="h6"
                 className={classes.aboutBox3}
               >
-                3) เพื่อวิจัยค้นหาสาเหตุของโรคออทิซึม วิธีป้องกัน
-                วิธีรักษาให้สามารถนำมาเป็นองค์ความรู้เพื่อการป้องกันการรักษาโรคออทิซึม
+                {f("objectives3")}
               </Typography>
               <Typography
                 align="left"
                 variant="h6"
                 className={classes.aboutBox3}
               >
-                4) เพื่อพัฒนาเครื่องมือคัดกรอง การวินิจฉัย
-                คู่มือการดูแลบุคคลออทิซึมที่ได้มาตรฐาน
-                สามารถนำไปใช้ได้อย่างแพร่หลายได้อย่างสะดวกสบาย
+                {f("objectives3")}
               </Typography>
               <Typography
                 align="left"
                 variant="h6"
                 className={classes.aboutBox3}
               >
-                5)
-                เพื่อส่งเสริมเครือข่ายความร่วมมือเพื่อให้บริการทางการแพทย์และการรักษาพยาบาลแก่บุคคลออทิซึม
+                {f("objectives4")}
               </Typography>
             </Grid>
           </Grid>
