@@ -6,6 +6,9 @@ import { Grid, Typography } from "@material-ui/core";
 import Header from "../src/components/Header";
 import Footer from "../src/components/Footer";
 
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
+
 const useStyle = makeStyles((theme) => ({
   Container: {
     height: "auto",
@@ -73,6 +76,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Donate(props) {
   const classes = useStyle();
+   // Require for bi-language
+   const router = useRouter();
+   const { locale, locales, defaultLocale } = router;
+   const { formatMessage } = useIntl();
+   const f = (id) => formatMessage({ id });
+   // End of Requirement
 
   return (
     <React.Fragment>
@@ -88,14 +97,12 @@ export default function Donate(props) {
             >
               <Grid item xs={12} className={classes.content}>
                 <Typography className={classes.adress} variant="h5">
-                  สถาบันวิจัยและบริการด้านออทิซึม อาคารวิจัยเพื่อพัฒนาสังคม
-                  (RSDI) มหาวิทยาลัยขอนแก่น เลขที่ 123 หมู่ที่ 16 ตำบลในเมือง
-                  อำเภอเมืองขอนแก่น จังหวัดขอนแก่น 40002
+                {f("address")}
                 </Typography>
               </Grid>
               <Grid item xs={12} className={classes.contentfooter}>
                 <Typography className={classes.phoneNumber} variant="h6">
-                  043-009-700 เบอร์ภายใน 50491, 50492
+                {f("phone")}
                 </Typography>
               </Grid>
             </Grid>
