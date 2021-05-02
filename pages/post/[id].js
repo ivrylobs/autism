@@ -204,6 +204,14 @@ const Post = ({ post, posts }) => {
                                 {...props}
                               />
                             ),
+                            p: ({ node, ...props }) => (
+                              <p
+                                style={{
+                                  fontSize: 18,
+                                }}
+                                {...props}
+                              />
+                            ),
                           }}
                           transformImageUri={(uri) => {
                             console.log(uri);
