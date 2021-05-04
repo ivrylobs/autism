@@ -236,7 +236,7 @@ export default function Blog({ posts }) {
                                     {postsData[0] ? (
                                         postsData.slice(0, 6).map((post) => (
                                             <Grid key={post.id} item sm={12} md={6} className={classes.NewsContainer}>
-                                                <Blog1 post={post} url={`/post/${post.id}`} />
+                                                <Blog1 post={post} url={`/${locale}/post/${post.id}`} />
                                             </Grid>
                                         ))
                                     ) : (
