@@ -7,11 +7,17 @@ import Blog1 from "../src/Blogcomponents/Blog1";
 import Update from "../src/Blogcomponents/NewsUpdate";
 import Fuse from "fuse.js";
 import SearchIcon from "@material-ui/icons/Search";
+import { Pagination } from "@material-ui/lab";
 
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        "& > *": {
+            marginTop: theme.spacing(2),
+        },
+    },
     BlogContainer: {
         height: "auto",
         backgroundColor: "#fff",
@@ -136,6 +142,9 @@ export default function Blog({ posts }) {
     const classes = useStyles();
     const [postsData, setPostsData] = React.useState(posts);
     const [searchText, setSearchText] = React.useState("text");
+    // const [page, setPage] = React.useState(0);
+    // const [countPost, setCountPost] = React.useState(6);
+    // const [pagePost, setPagePost] = React.useState([]);
 
     const keyPress = (e) => {
         if (e.key == "Enter") {
@@ -225,7 +234,7 @@ export default function Blog({ posts }) {
                             <Grid item sm={8} md={9}>
                                 <Grid container>
                                     {postsData[0] ? (
-                                        postsData.map((post) => (
+                                        postsData.slice(0, 6).map((post) => (
                                             <Grid key={post.id} item sm={12} md={6} className={classes.NewsContainer}>
                                                 <Blog1 post={post} url={`/post/${post.id}`} />
                                             </Grid>
@@ -239,9 +248,24 @@ export default function Blog({ posts }) {
                                 <Update posts={posts} />
                             </Grid>
                         </Grid>
+                        <Grid item xs={12}>
+                            <div className={classes.root}>
+                                <Pagination
+                                    size="large"
+                                    // onChange={(event, value) => {
+                                    //     const postCount = value * 6;
+                                    //     const changePage = value - 1 * 6;
+                                    //     setPage(changePage);
+                                    //     setCountPost(postCount);
+                                    //     console.log(displayPosts);
+                                    // }}
+                                    count={postsData[0] ? Math.ceil(postsData.length / 6) : 1}
+                                />
+                            </div>
+                        </Grid>
                     </Container>
                 </Grid>
-                <Footer></Footer>
+                <Footer />
             </main>
         </React.Fragment>
     );
