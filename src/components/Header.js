@@ -252,9 +252,9 @@ const useStyles = makeStyles((theme) => ({
         height: 45,
         color: "white",
         backgroundColor: "#F26705",
-        '&::after': {
-            backgroundColor: "#ED9B61"
-          },
+        "&::after": {
+            backgroundColor: "#ED9B61",
+        },
         [theme.breakpoints.down("sm")]: {
             height: 35,
             fontSize: 16,
@@ -357,7 +357,7 @@ export default function Header(props) {
             selectedWorkIndex: 1,
         },
         {
-            name:f("service"),
+            name: f("service"),
             link: "/works/service",
             activeIndex: 1,
             selectedWorkIndex: 2,
@@ -429,7 +429,7 @@ export default function Header(props) {
             selectedNavIndex: 0,
         },
         {
-            name:f("menuAbout"),
+            name: f("menuAbout"),
             link: "/about",
             activeIndex: 1,
             selectedNavIndex: 1,
@@ -458,7 +458,7 @@ export default function Header(props) {
                         </Button>
                         <div className={classes.navContainer}>
                             <Button component={Link} href="/" variant="text" className={classes.nav}>
-                               {f("menuIndex")}
+                                {f("menuIndex")}
                             </Button>
                             <Button
                                 variant="text"
@@ -548,7 +548,7 @@ export default function Header(props) {
                                 )}
                             </Popper>
                             <Button variant="text" href="/blog" className={classes.navNews}>
-                            {f("menuNews")}
+                                {f("menuNews")}
                             </Button>
                         </div>
                         <div className={classes.navContainer2}>
@@ -561,7 +561,10 @@ export default function Header(props) {
                                 className={classes.navMobile}
                                 endIcon={<ExpandMoreIcon />}
                             >
-                                <Typography className={classes.NavTypo}>เมนู</Typography>
+                                <Typography className={classes.NavTypo}>
+                                    {" "}
+                                    {locale === "th" ? "เมนู" : "Menu"}
+                                </Typography>
                             </Button>
 
                             <Popper open={openNav} anchorEl={anchorElNav} role={undefined} transition disablePortal>
@@ -598,7 +601,7 @@ export default function Header(props) {
                                 )}
                             </Popper>
                         </div>
-                       <Button
+                        <Button
                             variant="text"
                             className={classes.nav2}
                             startIcon={<LanguageIcon />}
@@ -626,12 +629,13 @@ export default function Header(props) {
                                                     <MenuItem
                                                         key={`${option}${i}`}
                                                         component={Link}
-                                                        href={option.link}
+                                                        href={
+                                                            option.link + window.location.pathname.split(/th|en/).pop()
+                                                        }
                                                         className={classes.LanguageMenuItem}
                                                         selected={i === selectedMenuIndex}
                                                         onClick={(event) => {
                                                             handleMenuItemClick(event, i);
-
                                                             handleCloseMenu();
                                                         }}
                                                     >
@@ -658,8 +662,14 @@ export default function Header(props) {
                         <IconButton classes={{ root: classes.iconRoot }}>
                             <img className={classes.imageIcon} src="/facebook-24px.svg" />
                         </IconButton>
-                        <Button component={Link} href="/donate" variant="contained" className={classes.button} endIcon={<ArrowRightIcon />}>
-                        {f("menuDonate")}
+                        <Button
+                            component={Link}
+                            href="/donate"
+                            variant="contained"
+                            className={classes.button}
+                            endIcon={<ArrowRightIcon />}
+                        >
+                            {f("menuDonate")}
                         </Button>
                     </Toolbar>
                 </AppBar>
