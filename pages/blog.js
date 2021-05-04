@@ -126,13 +126,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Blog({ posts }) {
-    const classes = useStyles();
     // Require for bi-language
     const router = useRouter();
     const { locale, locales, defaultLocale } = router;
     const { formatMessage } = useIntl();
     const f = (id) => formatMessage({ id });
     // End of Requirement
+
+    const classes = useStyles();
     const [postsData, setPostsData] = React.useState(posts);
     const [searchText, setSearchText] = React.useState("text");
 
@@ -171,7 +172,7 @@ export default function Blog({ posts }) {
     return (
         <React.Fragment>
             <main>
-                <Header></Header>
+                <Header />
                 <Grid container maxWidth="lg" className={classes.BlogContainer}>
                     <Container container className={classes.Container}>
                         <Grid item xs={12}>

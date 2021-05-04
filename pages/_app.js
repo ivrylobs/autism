@@ -9,6 +9,7 @@ import theme from "../src/components/Theme";
 import { IntlProvider } from "react-intl";
 import { useRouter } from "next/router";
 // import all locales through barrel file
+
 import * as locales from "../content/locale";
 
 export default function MyApp(props) {
