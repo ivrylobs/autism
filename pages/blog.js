@@ -16,12 +16,8 @@ const useStyles = makeStyles((theme) => ({
         height: "auto",
         backgroundColor: "#fff",
         paddingBottom: 45,
-        [theme.breakpoints.down("lg")]: {},
-        [theme.breakpoints.down("md")]: {},
-        [theme.breakpoints.down("sm")]: {},
-        [theme.breakpoints.down("xs")]: {},
     },
-    BlogContainer: {
+    Container: {
         textAlign: "center",
         [theme.breakpoints.down("xl")]: {
             maxWidth: 1720,
@@ -41,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         paddingTop: 54,
+        [theme.breakpoints.down("lg")]: {
+            fontSize: 60,
+        },
         [theme.breakpoints.down("md")]: {
             fontSize: 48,
         },
@@ -127,14 +126,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Blog({ posts }) {
+    const classes = useStyles();
     // Require for bi-language
     const router = useRouter();
     const { locale, locales, defaultLocale } = router;
     const { formatMessage } = useIntl();
     const f = (id) => formatMessage({ id });
     // End of Requirement
-
-    const classes = useStyles();
     const [postsData, setPostsData] = React.useState(posts);
     const [searchText, setSearchText] = React.useState("text");
 
@@ -173,12 +171,12 @@ export default function Blog({ posts }) {
     return (
         <React.Fragment>
             <main>
-                <Header />
-                <Container maxWidth="xl" className={classes.BlogContainer}>
-                    <Grid container spacing={2}>
+                <Header></Header>
+                <Grid container maxWidth="lg" className={classes.BlogContainer}>
+                    <Container container className={classes.Container}>
                         <Grid item xs={12}>
                             <Typography variant="h1" className={classes.title}>
-                                ข่าวสารและประชาสัมพันธ์
+                                {f("menuNews")}
                             </Typography>
                             <Typography variant="h4" className={classes.title2}>
                                 NEWS AND PUBLIC RELATIONS
@@ -202,7 +200,7 @@ export default function Blog({ posts }) {
                                         <Grid item xs={6}>
                                             <TextField
                                                 type="search"
-                                                placeholder="ค้นหาหัวข้อหลัก"
+                                                placeholder={f("find")}
                                                 variant="standard"
                                                 className={classes.title3}
                                                 onKeyPress={keyPress}
@@ -215,31 +213,33 @@ export default function Blog({ posts }) {
                                                 className={classes.buttonSearch}
                                                 onClick={onEnter}
                                             >
-                                                ค้นหา
+                                                {f("found")}
                                             </Button>
                                         </Grid>
                                     </Grid>
                                 </Paper>
                             </Grid>
                         </Grid>
-                        <Grid item sm={8} md={9}>
-                            <Grid container>
-                                {postsData[0] ? (
-                                    postsData.map((post) => (
-                                        <Grid key={post.id} item sm={12} md={6} className={classes.NewsContainer}>
-                                            <Blog1 post={post} url={`/post/${post.id}`} />
-                                        </Grid>
-                                    ))
-                                ) : (
-                                    <h1>ไม่พบข้อมูล</h1>
-                                )}
+                        <Grid container direction="row">
+                            <Grid item sm={8} md={9}>
+                                <Grid container>
+                                    {postsData[0] ? (
+                                        postsData.map((post) => (
+                                            <Grid key={post.id} item sm={12} md={6} className={classes.NewsContainer}>
+                                                <Blog1 post={post} url={`/post/${post.id}`} />
+                                            </Grid>
+                                        ))
+                                    ) : (
+                                        <h1>{f("nonfind")}</h1>
+                                    )}
+                                </Grid>
+                            </Grid>
+                            <Grid item sm={4} md={3} className={classes.PaperUpdate}>
+                                <Update posts={posts} />
                             </Grid>
                         </Grid>
-                        <Grid item sm={4} md={3} className={classes.PaperUpdate}>
-                            <Update posts={posts} />
-                        </Grid>
-                    </Grid>
-                </Container>
+                    </Container>
+                </Grid>
                 <Footer></Footer>
             </main>
         </React.Fragment>

@@ -11,7 +11,7 @@ import Footer from "../../src/components/Footer";
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
 
-import { Grid, Container, Typography, Avatar } from "@material-ui/core";
+import { Grid, Container, Typography } from "@material-ui/core";
 import Update from "../../src/Blogcomponents/NewsUpdate";
 
 const instance = axios.create({
@@ -54,20 +54,17 @@ const useStyle = makeStyles((theme) => ({
   Typography1: {
     textAlign: "left",
     paddingRight: 20,
-    fontSize: 32,
+    fontSize: 24,
 	[theme.breakpoints.down("lg")]: {
 		paddingRight: 20,
 	  },
     [theme.breakpoints.down("md")]: {
-      fontSize: 24,
 	  paddingRight: 20,
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: 24,
 	  paddingRight: 0
     },
     [theme.breakpoints.down("xs")]: {
-      fontSize: 24,
     },
   },
   Typography2: {
@@ -203,6 +200,15 @@ const Post = ({ post, posts }) => {
                               <img
                                 style={{
                                   width: "100%",
+                                }}
+                                {...props}
+                              />
+                            ),
+                            p: ({ node, ...props }) => (
+                              <p
+                                style={{
+                                  fontSize: 18,
+                                  textIndent: 35
                                 }}
                                 {...props}
                               />

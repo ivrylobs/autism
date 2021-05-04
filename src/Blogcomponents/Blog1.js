@@ -9,15 +9,12 @@ import { useIntl } from "react-intl";
 const useStyles = makeStyles((theme) => ({
   Blogpaper: {
     width: "100%",
-    height: 600,
-    "&:hover": {
-      border: "1px solid #3AC7FD",
-  },
+    height: 625,
     [theme.breakpoints.down("lg")]: {
-      height: 530,
+      height: 580,
     },
     [theme.breakpoints.down("md")]: {
-      height: 370,
+      height: 390,
     },
     [theme.breakpoints.down("sm")]: {
       height: 470,
