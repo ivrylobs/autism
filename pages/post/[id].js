@@ -198,7 +198,6 @@ const Post = ({ post, posts }) => {
                                                             <p
                                                                 style={{
                                                                     fontSize: 18,
-                                                                    textIndent: 35,
                                                                 }}
                                                                 {...props}
                                                             />
