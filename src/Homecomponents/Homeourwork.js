@@ -10,6 +10,7 @@ import Link from "../Link";
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
 
+import Fade from "react-reveal/Fade";
 
 const useStyle = makeStyles((theme) => ({
   WorkContainer: {
@@ -169,6 +170,7 @@ export default function Home(props) {
             <Grid container className={classes.CarditemAbotus}>
               <Grid item xs={12} sm={6} md={5} lg={5} xl={5}>
                 <div>
+                <Fade left>
                   <Typography variant="h2" className={classes.WorkTypo1}>
                   {f("menuWork")}
                   </Typography>
@@ -176,6 +178,7 @@ export default function Home(props) {
                   <Typography variant="h5" className={classes.WorkTypo2}>
                     OUR WORK
                   </Typography>
+                  </Fade>
                 </div>
                 <br></br>
                 <div>

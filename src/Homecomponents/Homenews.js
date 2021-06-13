@@ -9,6 +9,7 @@ import Link from "../Link";
 
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
+import Fade from "react-reveal/Fade";
 
 const useStyle = makeStyles((theme) => ({
 	NewsContainer: {
@@ -193,6 +194,7 @@ export default function Home({ posts }) {
 					<Container maxWidth="xl" className={classes.BlogContainer}>
 						<Grid container>
 							<Grid item xs={12} align="center">
+							<Fade left>
 								<Typography
 									variant="h2"
 									className={classes.NewsTypo1}
@@ -205,6 +207,7 @@ export default function Home({ posts }) {
 								>
 									NEWS AND PUBLIC RELATIONS
 								</Typography>
+								</Fade>
 							</Grid>
 							<Grid item xs={12}>
 								<Grid

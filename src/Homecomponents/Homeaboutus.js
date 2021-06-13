@@ -10,6 +10,8 @@ import Divider from "@material-ui/core/Divider";
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
 
+import Fade from "react-reveal/Fade";
+
 const useStyle = makeStyles((theme) => ({
   AboutContainer: {
     backgroundColor: "#fff",
@@ -256,6 +258,7 @@ export default function Home(props) {
                 className={classes.AboutMid}
               >
                 <div>
+                <Fade left>
                   <Typography variant="h2" className={classes.our}>
                   {f("menuAbout")}
                   </Typography>
@@ -263,10 +266,12 @@ export default function Home(props) {
                   <Typography variant="h5" className={classes.us}>
                     ABOUT US
                   </Typography>
+                  </Fade>
                   <Typography variant="h5" className={classes.info}>
                   {f("about")}
                   </Typography>
                   <Divider className={classes.Dividerlinear1} />
+               
                 </div>
                 <br></br>
 

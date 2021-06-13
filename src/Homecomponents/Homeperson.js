@@ -9,6 +9,7 @@ import Link from "../Link";
 
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
+import Fade from "react-reveal/Fade";
 
 
 const useStyle = makeStyles((theme) => ({
@@ -167,14 +168,16 @@ export default function Home(props) {
             <Grid container>
               <Grid item xs={12} align="center">
                 <div>
+                <Fade left>
                   <Typography variant="h2" className={classes.TeamTypo1}>
                   {f("team")}
                   </Typography>
-                </div>
-                <div>
+                
+                
                   <Typography variant="h5" className={classes.TeamTypo2}>
                     DIRECTOR AND PERSONNEL
                   </Typography>
+                  </Fade>
                 </div>
               </Grid>
             </Grid>

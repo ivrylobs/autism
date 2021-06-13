@@ -234,6 +234,8 @@ const useStyle = makeStyles((theme) => ({
         '&:focus': {
           backgroundColor: "#3AC7FD"
         },
+        position:'fixed',
+        bottom: 0
     }
 }));
 
