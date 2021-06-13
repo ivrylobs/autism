@@ -9,6 +9,9 @@ import { Grid } from "@material-ui/core";
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
 
+import Fade from "react-reveal/Fade";
+
+
 
 const useStyle = makeStyles((theme) => ({
   HomeContainer: {
@@ -19,7 +22,6 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("lg")]: {
       height: 840,
       paddingTop: 48,
-      
     },
     [theme.breakpoints.down("md")]: {
       height: 640,
@@ -28,7 +30,6 @@ const useStyle = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       paddingTop: 0,
       height: 370,
-     
     },
     [theme.breakpoints.down("xs")]: {
       height: 200,
@@ -53,7 +54,6 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   Typography1: {
-   
     color: "black",
     [theme.breakpoints.down("lg")]: {
       fontSize: 60,
@@ -121,7 +121,7 @@ const useStyle = makeStyles((theme) => ({
       margin: 10,
       padding: 5,
     },
-  }
+  },
 }));
 
 export default function Home(props) {
@@ -141,17 +141,20 @@ export default function Home(props) {
             <Grid container className={classes.Fontent}>
               <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <div className={classes.bgBox}>
-                <Typography variant="h1" className={classes.Typography1}>
-                {f("rsia")}
-                </Typography>
-                <Typography variant="h4" className={classes.Typography2}>
-                {f("rsiakku")}
-                </Typography>
+                  <Fade left>
+                    <Typography variant="h1" className={classes.Typography1}>
+                      {f("rsia")}
+                    </Typography>
+                    <Typography variant="h4" className={classes.Typography2}>
+                      {f("rsiakku")}
+                    </Typography>
+                  </Fade>
                 </div>
               </Grid>
             </Grid>
           </Container>
         </Grid>
+        
       </main>
     </React.Fragment>
   );
