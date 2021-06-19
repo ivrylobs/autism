@@ -9,8 +9,8 @@ import Link from "../Link";
 
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
-import Fade from "react-reveal/Fade";
 
+import Rotate from 'react-reveal/Rotate';
 
 const useStyle = makeStyles((theme) => ({
   TeamContainer: {
@@ -168,7 +168,7 @@ export default function Home(props) {
             <Grid container>
               <Grid item xs={12} align="center">
                 <div>
-                <Fade left>
+                <Rotate bottom left>
                   <Typography variant="h2" className={classes.TeamTypo1}>
                   {f("team")}
                   </Typography>
@@ -177,7 +177,7 @@ export default function Home(props) {
                   <Typography variant="h5" className={classes.TeamTypo2}>
                     DIRECTOR AND PERSONNEL
                   </Typography>
-                  </Fade>
+                  </Rotate>
                 </div>
               </Grid>
             </Grid>

@@ -8,8 +8,8 @@ import { Grid } from "@material-ui/core";
 
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
-
-import Fade from "react-reveal/Fade";
+import Reveal from 'react-reveal/Reveal';
+import Flip from 'react-reveal/Flip';
 
 
 
@@ -141,14 +141,15 @@ export default function Home(props) {
             <Grid container className={classes.Fontent}>
               <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                 <div className={classes.bgBox}>
-                  <Fade left>
+                <Flip top cascade delay={500}>
                     <Typography variant="h1" className={classes.Typography1}>
                       {f("rsia")}
                     </Typography>
                     <Typography variant="h4" className={classes.Typography2}>
                       {f("rsiakku")}
                     </Typography>
-                  </Fade>
+                    </Flip>
+                
                 </div>
               </Grid>
             </Grid>

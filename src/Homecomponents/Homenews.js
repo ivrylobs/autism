@@ -9,7 +9,7 @@ import Link from "../Link";
 
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
-import Fade from "react-reveal/Fade";
+import Rotate from 'react-reveal/Rotate';
 
 const useStyle = makeStyles((theme) => ({
 	NewsContainer: {
@@ -194,7 +194,7 @@ export default function Home({ posts }) {
 					<Container maxWidth="xl" className={classes.BlogContainer}>
 						<Grid container>
 							<Grid item xs={12} align="center">
-							<Fade left>
+							<Rotate bottom left>
 								<Typography
 									variant="h2"
 									className={classes.NewsTypo1}
@@ -207,7 +207,7 @@ export default function Home({ posts }) {
 								>
 									NEWS AND PUBLIC RELATIONS
 								</Typography>
-								</Fade>
+								</Rotate>
 							</Grid>
 							<Grid item xs={12}>
 								<Grid
