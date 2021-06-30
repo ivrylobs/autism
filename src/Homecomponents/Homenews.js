@@ -9,7 +9,8 @@ import Link from "../Link";
 
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
-import Rotate from 'react-reveal/Rotate';
+import Rotate from "react-reveal/Rotate";
+import Carousel from "react-elastic-carousel";
 
 const useStyle = makeStyles((theme) => ({
 	NewsContainer: {
@@ -180,12 +181,12 @@ const useStyle = makeStyles((theme) => ({
 
 export default function Home({ posts }) {
 	const classes = useStyle();
-	 // Require for bi-language
-	 const router = useRouter();
-	 const { locale, locales, defaultLocale } = router;
-	 const { formatMessage } = useIntl();
-	 const f = (id) => formatMessage({ id });
-	 // End of Requirement
+	// Require for bi-language
+	const router = useRouter();
+	const { locale, locales, defaultLocale } = router;
+	const { formatMessage } = useIntl();
+	const f = (id) => formatMessage({ id });
+	// End of Requirement
 
 	return (
 		<React.Fragment>
@@ -194,57 +195,31 @@ export default function Home({ posts }) {
 					<Container maxWidth="xl" className={classes.BlogContainer}>
 						<Grid container>
 							<Grid item xs={12} align="center">
-							<Rotate bottom left>
-								<Typography
-									variant="h2"
-									className={classes.NewsTypo1}
-								>
-									{f("menuNews")}
-								</Typography>
-								<Typography
-									variant="h5"
-									className={classes.NewsTypo2}
-								>
-									NEWS AND PUBLIC RELATIONS
-								</Typography>
+								<Rotate bottom left>
+									<Typography variant="h2" className={classes.NewsTypo1}>
+										{f("menuNews")}
+									</Typography>
+									<Typography variant="h5" className={classes.NewsTypo2}>
+										NEWS AND PUBLIC RELATIONS
+									</Typography>
 								</Rotate>
 							</Grid>
-							<Grid item xs={12}>
-								<Grid
-									container
-									direction="row"
-									justify="center"
-									alignItems="center"
-								>
-									{posts
-										? posts.slice(0, 4).map((post) => (
-												<Grid
-													key={post.id}
-													item
-													sm={12}
-													md={6}
-													className={
-														classes.NewsContainer2
-													}
-												>
-													<Blog1
-														post={post}
-														url={`/post/${post.id}`}
-													/>
-												</Grid>
-										  ))
-										: "Loading Data"}
+							<Carousel>
+								<Grid item xs={12}>
+									<Grid container direction="row" justify="center" alignItems="center">
+										{posts
+											? posts.slice(0, 4).map((post) => (
+													<Grid key={post.id} item sm={12} md={3} className={classes.NewsContainer2}>
+														<Blog1 post={post} url={`/post/${post.id}`} />
+													</Grid>
+											  ))
+											: "Loading Data"}
+									</Grid>
 								</Grid>
-							</Grid>
+							</Carousel>
 							<Grid item xs={12} className={classes.alignButton}>
-								<Button
-									component={Link}
-									href="/blog"
-									variant="contained"
-									size="large"
-									className={classes.buttonMore}
-								>
-								 {f("button")}
+								<Button component={Link} href="/blog" variant="contained" size="large" className={classes.buttonMore}>
+									{f("button")}
 								</Button>
 							</Grid>
 						</Grid>
