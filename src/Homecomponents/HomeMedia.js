@@ -1,16 +1,15 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Blog1 from "../Blogcomponents/Blog1";
 
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import { Button, Grid } from "@material-ui/core";
-import Link from "../Link";
+import { Grid, Paper } from "@material-ui/core";
 
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
 import Rotate from "react-reveal/Rotate";
 import Carousel from "react-elastic-carousel";
+import ReactPlayer from "react-player/youtube";
 
 const useStyle = makeStyles((theme) => ({
 	NewsContainer: {
@@ -27,6 +26,20 @@ const useStyle = makeStyles((theme) => ({
 		},
 		[theme.breakpoints.down("xs")]: {
 			paddingBottom: 20,
+		},
+	},
+	paperVideo: {
+		width: "100%",
+		height: 498,
+		backgroundColor: "#F5F5F5",
+		[theme.breakpoints.down("md")]: {
+			height: 356,
+		},
+		[theme.breakpoints.down("sm")]: {
+			height: 339,
+		},
+		[theme.breakpoints.down("xs")]: {
+			height: 225,
 		},
 	},
 	BlogContainer: {
@@ -179,7 +192,7 @@ const useStyle = makeStyles((theme) => ({
 	},
 }));
 
-export default function Home({ posts }) {
+export default function HomeMedia() {
 	const classes = useStyle();
 	// Require for bi-language
 	const router = useRouter();
@@ -200,26 +213,20 @@ export default function Home({ posts }) {
 										{f("menuNews")}
 									</Typography>
 									<Typography variant="h5" className={classes.NewsTypo2}>
-										NEWS AND PUBLIC RELATIONS
+										Videos
 									</Typography>
 								</Rotate>
 							</Grid>
-
 							<Carousel itemsToShow={4}>
-								{posts
-									? posts.slice(0, 16).map((post) => (
-											<div key={post.id} className={classes.NewsContainer2}>
-												<Blog1 post={post} url={`/post/${post.id}`} />
-											</div>
-									  ))
-									: "Loading Data"}
+								<ReactPlayer url="https://www.youtube.com/watch?v=MCxLMYd4PrQ" width="100%" height="100%" />
+								<ReactPlayer url="https://www.youtube.com/watch?v=qookT5kdZWU" width="100%" height="100%" />
+								<ReactPlayer url="https://www.youtube.com/watch?v=KCN1xt29yB0" width="100%" height="100%" />
+								<ReactPlayer url="https://www.youtube.com/watch?v=RJtKuMXx868" width="100%" height="100%" />
+								<ReactPlayer url="https://www.youtube.com/watch?v=au8BzHV5P24" width="100%" height="100%" />
+								<ReactPlayer url="https://www.youtube.com/watch?v=b2OFwhCx0ew" width="100%" height="100%" />
+								<ReactPlayer url="https://www.youtube.com/watch?v=7hxRP5skmuw" width="100%" height="100%" />
+								<ReactPlayer url="https://www.youtube.com/watch?v=lIMJcka--E4" width="100%" height="100%" />
 							</Carousel>
-
-							<Grid item xs={12} className={classes.alignButton}>
-								<Button component={Link} href="/blog" variant="contained" size="large" className={classes.buttonMore}>
-									{f("button")}
-								</Button>
-							</Grid>
 						</Grid>
 					</Container>
 				</Grid>
