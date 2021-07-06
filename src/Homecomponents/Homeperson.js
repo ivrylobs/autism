@@ -116,24 +116,18 @@ const useStyle = makeStyles((theme) => ({
   buttonMore: {
     backgroundColor: "#F26705",
     color: "#fff",
-    width: 190,
     fontSize: 24,
     marginTop: "auto",
     '&:focus': {
       backgroundColor: "#ED9B61"
     },
     [theme.breakpoints.down("md")]: {
-      width: 150,
-      fontSize: 20,
+      fontSize: 18,
     },
     [theme.breakpoints.down("sm")]: {
-      width: 96,
-      height: 30,
       fontSize: 16,
     },
     [theme.breakpoints.down("xs")]: {
-      width: 80,
-      height: 25,
       fontSize: 10,
     },
   },

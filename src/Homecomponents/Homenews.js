@@ -154,14 +154,12 @@ const useStyle = makeStyles((theme) => ({
 			backgroundColor: "#ADE8FF",
 		},
 		[theme.breakpoints.down("md")]: {
-			fontSize: 20,
+			fontSize: 18,
 		},
 		[theme.breakpoints.down("sm")]: {
-			height: 30,
 			fontSize: 16,
 		},
 		[theme.breakpoints.down("xs")]: {
-			height: 25,
 			fontSize: 10,
 		},
 	},
