@@ -15,32 +15,7 @@ const useStyle = makeStyles((theme) => ({
 	NewsContainer: {
 		backgroundColor: "#fff",
 		height: "auto",
-		paddingBottom: 50,
-		paddingTop: 70,
-		[theme.breakpoints.down("md")]: {
-			paddingBottom: 40,
-		},
-		[theme.breakpoints.down("sm")]: {
-			paddingBottom: 30,
-			paddingTop: 45,
-		},
-		[theme.breakpoints.down("xs")]: {
-			paddingBottom: 20,
-		},
-	},
-	paperVideo: {
-		width: "100%",
-		height: 498,
-		backgroundColor: "#F5F5F5",
-		[theme.breakpoints.down("md")]: {
-			height: 356,
-		},
-		[theme.breakpoints.down("sm")]: {
-			height: 339,
-		},
-		[theme.breakpoints.down("xs")]: {
-			height: 225,
-		},
+		paddingBottom: 20,
 	},
 	BlogContainer: {
 		[theme.breakpoints.down("xl")]: {
@@ -59,14 +34,6 @@ const useStyle = makeStyles((theme) => ({
 			maxWidth: 599,
 		},
 	},
-	imagenew1: {
-		width: "100%",
-		height: "auto",
-	},
-	imagenew2: {
-		width: "100%",
-		height: "auto",
-	},
 	Griditemnew1: {
 		marginTop: 25,
 		padding: 15,
@@ -74,36 +41,6 @@ const useStyle = makeStyles((theme) => ({
 			marginTop: 10,
 			padding: 10,
 		},
-	},
-	Griditemnew2: {
-		marginTop: 25,
-		padding: 15,
-		[theme.breakpoints.down("sm")]: {
-			marginTop: 10,
-			padding: 10,
-		},
-	},
-	Griditemnew3: {
-		marginTop: 25,
-		padding: 15,
-		[theme.breakpoints.down("sm")]: {
-			marginTop: 10,
-			padding: 10,
-		},
-	},
-	Griditemnew4: {
-		marginTop: 25,
-		padding: 15,
-		[theme.breakpoints.down("sm")]: {
-			marginTop: 10,
-			padding: 10,
-		},
-	},
-	buttonnew: {
-		backgroundColor: "#ADE8FF",
-		marginLeft: 620,
-		marginTop: 20,
-		width: "100px",
 	},
 	NewsTypo2: {
 		fontFamily: "Raleway",
@@ -117,7 +54,7 @@ const useStyle = makeStyles((theme) => ({
 		},
 	},
 	NewsTypo1: {
-		color: "#3AC7FD",
+		color: "#B1BE12",
 		[theme.breakpoints.down("md")]: {
 			fontSize: 48,
 		},
@@ -190,6 +127,33 @@ const useStyle = makeStyles((theme) => ({
 			padding: 0,
 		},
 	},
+	player: {
+		margin: 2,
+		[theme.breakpoints.down("lg")]: {
+			margin: 3,
+		},
+	},
+	Carousel1: {
+		display: "contents",
+		[theme.breakpoints.down("sm")]: {
+			display: "none"
+		},
+	},
+	Carousel2: {
+		display: "none",
+		[theme.breakpoints.down("sm")]: {
+			display: "contents"
+		},
+		[theme.breakpoints.down("xs")]: {
+			display: "none"
+		},
+	},
+	Carousel3: {
+		display: "none",
+		[theme.breakpoints.down("xs")]: {
+			display: "contents"
+		},
+	},
 }));
 
 export default function HomeMedia() {
@@ -210,23 +174,97 @@ export default function HomeMedia() {
 							<Grid item xs={12} align="center">
 								<Rotate bottom left>
 									<Typography variant="h2" className={classes.NewsTypo1}>
-										{f("menuNews")}
+										{f("video")}
 									</Typography>
 									<Typography variant="h5" className={classes.NewsTypo2}>
-										Videos
+										VIDEOS
 									</Typography>
 								</Rotate>
 							</Grid>
+							<div className={classes.Carousel1}>
 							<Carousel itemsToShow={4}>
+								<div className={classes.player}>
 								<ReactPlayer url="https://www.youtube.com/watch?v=MCxLMYd4PrQ" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
 								<ReactPlayer url="https://www.youtube.com/watch?v=qookT5kdZWU" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
 								<ReactPlayer url="https://www.youtube.com/watch?v=KCN1xt29yB0" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
 								<ReactPlayer url="https://www.youtube.com/watch?v=RJtKuMXx868" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
 								<ReactPlayer url="https://www.youtube.com/watch?v=au8BzHV5P24" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
 								<ReactPlayer url="https://www.youtube.com/watch?v=b2OFwhCx0ew" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
 								<ReactPlayer url="https://www.youtube.com/watch?v=7hxRP5skmuw" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
 								<ReactPlayer url="https://www.youtube.com/watch?v=lIMJcka--E4" width="100%" height="100%" />
+								</div>
 							</Carousel>
+							</div>
+							<div className={classes.Carousel2}>
+							<Carousel itemsToShow={2}>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=MCxLMYd4PrQ" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=qookT5kdZWU" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=KCN1xt29yB0" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=RJtKuMXx868" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=au8BzHV5P24" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=b2OFwhCx0ew" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=7hxRP5skmuw" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=lIMJcka--E4" width="100%" height="100%" />
+								</div>
+							</Carousel>
+							</div>
+							<div className={classes.Carousel3}>
+							<Carousel itemsToShow={1}>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=MCxLMYd4PrQ" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=qookT5kdZWU" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=KCN1xt29yB0" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=RJtKuMXx868" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=au8BzHV5P24" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=b2OFwhCx0ew" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=7hxRP5skmuw" width="100%" height="100%" />
+								</div>
+								<div className={classes.player}>
+								<ReactPlayer url="https://www.youtube.com/watch?v=lIMJcka--E4" width="100%" height="100%" />
+								</div>
+							</Carousel>
+							</div>
 						</Grid>
 					</Container>
 				</Grid>

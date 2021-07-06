@@ -150,8 +150,8 @@ const useStyle = makeStyles((theme) => ({
 		backgroundColor: "#3AC7FD",
 		color: "#fff",
 		fontSize: 24,
-		marginTop: 40,
-		marginBottom: 30,
+		marginTop: 30,
+		marginBottom: 20,
 		"&:focus": {
 			backgroundColor: "#ADE8FF",
 		},
@@ -173,6 +173,27 @@ const useStyle = makeStyles((theme) => ({
 		[theme.breakpoints.down("xs")]: {
 			paddingBottom: 15,
 			padding: 0,
+		},
+	},
+	Carousel1: {
+		display: "contents",
+		[theme.breakpoints.down("sm")]: {
+			display: "none"
+		},
+	},
+	Carousel2: {
+		display: "none",
+		[theme.breakpoints.down("sm")]: {
+			display: "contents"
+		},
+		[theme.breakpoints.down("xs")]: {
+			display: "none"
+		},
+	},
+	Carousel3: {
+		display: "none",
+		[theme.breakpoints.down("xs")]: {
+			display: "contents"
 		},
 	},
 }));
@@ -202,8 +223,8 @@ export default function Home({ posts }) {
 									</Typography>
 								</Rotate>
 							</Grid>
-
-							<Carousel itemsToShow={4}>
+							<div className={classes.Carousel1}>
+							<Carousel itemsToShow={4} >
 								{posts
 									? posts.slice(0, 16).map((post) => (
 											<div key={post.id} className={classes.NewsContainer2}>
@@ -212,7 +233,29 @@ export default function Home({ posts }) {
 									  ))
 									: "Loading Data"}
 							</Carousel>
-
+							</div>
+							<div className={classes.Carousel2}>
+							<Carousel itemsToShow={2} >
+								{posts
+									? posts.slice(0, 12).map((post) => (
+											<div key={post.id} className={classes.NewsContainer2}>
+												<Blog1 post={post} url={`/post/${post.id}`} />
+											</div>
+									  ))
+									: "Loading Data"}
+							</Carousel>
+							</div>
+							<div className={classes.Carousel3}>
+							<Carousel itemsToShow={1} >
+								{posts
+									? posts.slice(0, 6).map((post) => (
+											<div key={post.id} className={classes.NewsContainer2}>
+												<Blog1 post={post} url={`/post/${post.id}`} />
+											</div>
+									  ))
+									: "Loading Data"}
+							</Carousel>
+							</div>
 							<Grid item xs={12} className={classes.alignButton}>
 								<Button component={Link} href="/blog" variant="contained" size="large" className={classes.buttonMore}>
 									{f("button")}

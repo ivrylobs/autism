@@ -129,7 +129,10 @@ const useStyle = makeStyles((theme) => ({
     mapgoogle: {
         marginTop: 20,
         width: "100%",
-        height: 250
+        height: 250,
+        [theme.breakpoints.down("xs")]: {
+            height: 190
+        },
     },
     iconfooter1: {
         color: "#B1BE12",
