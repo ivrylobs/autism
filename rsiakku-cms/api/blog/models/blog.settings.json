@@ -33,6 +33,16 @@
     },
     "title": {
       "type": "string"
+    },
+    "contentEn": {
+      "type": "richtext",
+      "required": true
+    },
+    "descriptionEn": {
+      "type": "string"
+    },
+    "titeEn": {
+      "type": "string"
     }
   }
 }
