@@ -24,6 +24,7 @@ export const en = {
         rsia: "Research And Service Institute For Autism Khon Kaen University",
         rsiakku: "สถาบันวิจัยและบริการด้านออทิซึม",
         button: "Read more",
+        video: "Video",
         footerInfo:
             "Research And Service Institute For Autism Khon Kaen University Approved by the Prime Minister's orders General Prayut Chan-o-cha, as of June 21, 2017, is the mission and strategy support agency of Khon Kaen University. In caring for people with autism to be able to help themselves and live happily with society According to the 20-year national strategy, strategy 4, creating opportunities and social equality And the 12th National Economic and Social Development Plan 2017-2021",
         contact: "Contact",

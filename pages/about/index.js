@@ -592,7 +592,7 @@ const useStyle = makeStyles((theme) => ({
     paddingTop: 20,
     [theme.breakpoints.down("lg")]: {
       textIndent: 55,
-      fontSize: 12,
+      fontSize: 16,
     },
     [theme.breakpoints.down("md")]: {
       textIndent: 66,
@@ -651,6 +651,51 @@ const useStyle = makeStyles((theme) => ({
       fontSize: 12,
       paddingLeft: 12,
       paddingRight: 18,
+    },
+  },
+  aboutBox4: {
+    textAlign: "center",
+    paddingTop: 15,
+    fontSize: 24,
+    [theme.breakpoints.down("lg")]: {
+      fontSize: 18,
+    },
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "left",
+      fontSize: 16,
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 12,
+    },
+  },
+  aboutBox5: {
+    textAlign: "center",
+    paddingTop: 5,
+    fontSize: 24,
+    [theme.breakpoints.down("lg")]: {
+      fontSize: 16,
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 14,
+      textAlign: "left"
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 12,
+    },
+  },
+  aboutBox6: {
+    textAlign: "center",
+    paddingTop: 10,
+    fontSize: 16,
+    [theme.breakpoints.down("lg")]: {
+      fontSize: 14,
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 12,
+      textAlign: "left"
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 10,
     },
   },
   imageIcon: {
@@ -1049,6 +1094,68 @@ export default function Aboutas() {
                 className={classes.aboutBox3}
               >
                 {f("objectives4")}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} >
+            <Typography
+                variant="h3"
+                className={classes.aboutBox4}
+              >
+                คณะกรรมการดำเนินงาน
+              </Typography>
+              <Typography
+                variant="h6"
+                className={classes.aboutBox5}
+              >
+                1. ศาสตราจารย์ขั้นสูง นพ.สุชาติ พหลภาคย์ ที่ปรึกษา
+              </Typography>
+              <Typography
+                variant="h6"
+                className={classes.aboutBox5}
+              >
+                2. ผู้อำนวยการสถาบันวิจัยและบริการด้านออทิซึม หัวหน้าคณะกรรมการ
+              </Typography>
+              <Typography
+                variant="h6"
+                className={classes.aboutBox5}
+              >
+               3. รองศาสตราจารย์ พญ.นิรมล พัจนสุนทร กรรมการ
+              </Typography>
+              <Typography
+                variant="h6"
+                className={classes.aboutBox5}
+              >
+                4. ผู้ช่วยศาสตราจารย์ พญ.กุศลาภรณ์ ชัยอุดมสม กรรมการ
+              </Typography>
+              <Typography
+                variant="h6"
+                className={classes.aboutBox5}
+              >
+                5. นายบุรี เสรีโยธิน กรรมการ
+              </Typography>
+              <Typography
+                variant="h6"
+                className={classes.aboutBox5}
+              >
+                6. ดร.ธิรากร มณีรัตน์ กรรมการ
+              </Typography>
+              <Typography
+                variant="h6"
+                className={classes.aboutBox5}
+              >
+               7. นางพรมณี หาญหัก กรรมการและเลขานุการ
+              </Typography>
+              <Typography
+                variant="h6"
+                className={classes.aboutBox5}
+              >
+                8. นางปริศนา อานจำปา ผู้ช่วยเลขานุการ
+              </Typography>
+              <Typography
+                variant="h6"
+                className={classes.aboutBox6}
+              >
+              (คำสั่งสถาบันวิจัยและบริการด้านออทิซึม ที่ ๐๐๑ / ๒๕๖๓)
               </Typography>
             </Grid>
           </Grid>

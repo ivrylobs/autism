@@ -10,6 +10,8 @@ import Divider from "@material-ui/core/Divider";
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
 
+import Fade from "react-reveal/Fade";
+
 const useStyle = makeStyles((theme) => ({
   AboutContainer: {
     backgroundColor: "#fff",
@@ -130,7 +132,7 @@ const useStyle = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("md")]: {
       
-      fontSize: 20,
+      fontSize: 18,
       marginTop: 0,
     },
     [theme.breakpoints.down("sm")]: {
@@ -256,6 +258,7 @@ export default function Home(props) {
                 className={classes.AboutMid}
               >
                 <div>
+                <Fade left>
                   <Typography variant="h2" className={classes.our}>
                   {f("menuAbout")}
                   </Typography>
@@ -263,28 +266,18 @@ export default function Home(props) {
                   <Typography variant="h5" className={classes.us}>
                     ABOUT US
                   </Typography>
+                  </Fade>
                   <Typography variant="h5" className={classes.info}>
                   {f("about")}
                   </Typography>
                   <Divider className={classes.Dividerlinear1} />
+               
                 </div>
                 <br></br>
 
                 <Typography className={classes.TypoSpace}>
                 {f("about1")}
-                </Typography>
-                    <div className={classes.alignButton}>
-                      <Button
-                        component={Link}
-                        href="/about"
-                        variant="contained"
-                        size="large"
-                        className={classes.buttonMore}
-                      >
-                       {f("button")}
-                      </Button>
-                    </div>
-                  
+                </Typography> 
               </Grid>
 
               <Grid item xs={12} sm={12} md={2} lg={3} >
@@ -323,6 +316,17 @@ export default function Home(props) {
                     <Typography className={classes.TypoSpace}>
                     {f("related1")}
                     </Typography>
+                    <div className={classes.alignButton}>
+                      <Button
+                        component={Link}
+                        href="/about"
+                        variant="contained"
+                        size="large"
+                        className={classes.buttonMore}
+                      >
+                       {f("button")}
+                      </Button>
+                    </div>
                   </Grid>
                 </Grid>
               </Grid>

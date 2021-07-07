@@ -7,7 +7,7 @@ import Link from "../../../src/Link";
 
 import MenuItem from "@material-ui/core/MenuItem";
 
-import { makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -19,6 +19,9 @@ import MenuList from "@material-ui/core/MenuList";
 
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
+
+import Carousel from "@brainhubeu/react-carousel";
+import "@brainhubeu/react-carousel/lib/style.css";
 
 const useStyle = makeStyles((theme) => ({
   WorkContainer: {
@@ -288,7 +291,7 @@ export default function Home(props) {
                 <Grid container>
                   <Grid item xs={12}>
                     <Typography variant="h1" className={classes.title}>
-                    {f("menuWork")}
+                      {f("menuWork")}
                     </Typography>
                     <Typography variant="h4" className={classes.title2}>
                       OUR WORK
@@ -305,15 +308,21 @@ export default function Home(props) {
                       size="large"
                     >
                       <Typography variant="h3" className={classes.workTypo3}>
-                      {f("service")}
+                        {f("service")}
                       </Typography>
                     </Button>
-                    <Typography variant="subtitle1" className={classes.workTypo4}>
-                    {f("service1")}
+                    <Typography
+                      variant="subtitle1"
+                      className={classes.workTypo4}
+                    >
+                      {f("service1")}
                     </Typography>
                     <br></br>
-                    <Typography variant="subtitle1" className={classes.workTypo4}>
-                    {f("service2")}
+                    <Typography
+                      variant="subtitle1"
+                      className={classes.workTypo4}
+                    >
+                      {f("service2")}
                     </Typography>
                     <Popper
                       open={openAbout}
@@ -368,6 +377,12 @@ export default function Home(props) {
                   alt="work2"
                   className={classes.multiImg}
                 />
+
+                {/* <Carousel plugins={['arrows']}>
+    <img src={"/ourwork1.png"} />
+    <img src={"/ourwork1.png"} />
+    <img src={"/ourwork1.png"} />
+  </Carousel> */}
               </Grid>
             </Grid>
           </Container>

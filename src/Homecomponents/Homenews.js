@@ -9,6 +9,8 @@ import Link from "../Link";
 
 import { useRouter } from "next/router";
 import { useIntl } from "react-intl";
+import Rotate from "react-reveal/Rotate";
+import Carousel from "react-elastic-carousel";
 
 const useStyle = makeStyles((theme) => ({
 	NewsContainer: {
@@ -148,20 +150,18 @@ const useStyle = makeStyles((theme) => ({
 		backgroundColor: "#3AC7FD",
 		color: "#fff",
 		fontSize: 24,
-		marginTop: 40,
-		marginBottom: 30,
+		marginTop: 30,
+		marginBottom: 20,
 		"&:focus": {
 			backgroundColor: "#ADE8FF",
 		},
 		[theme.breakpoints.down("md")]: {
-			fontSize: 20,
+			fontSize: 18,
 		},
 		[theme.breakpoints.down("sm")]: {
-			height: 30,
 			fontSize: 16,
 		},
 		[theme.breakpoints.down("xs")]: {
-			height: 25,
 			fontSize: 10,
 		},
 	},
@@ -175,16 +175,37 @@ const useStyle = makeStyles((theme) => ({
 			padding: 0,
 		},
 	},
+	Carousel1: {
+		display: "contents",
+		[theme.breakpoints.down("sm")]: {
+			display: "none"
+		},
+	},
+	Carousel2: {
+		display: "none",
+		[theme.breakpoints.down("sm")]: {
+			display: "contents"
+		},
+		[theme.breakpoints.down("xs")]: {
+			display: "none"
+		},
+	},
+	Carousel3: {
+		display: "none",
+		[theme.breakpoints.down("xs")]: {
+			display: "contents"
+		},
+	},
 }));
 
 export default function Home({ posts }) {
 	const classes = useStyle();
-	 // Require for bi-language
-	 const router = useRouter();
-	 const { locale, locales, defaultLocale } = router;
-	 const { formatMessage } = useIntl();
-	 const f = (id) => formatMessage({ id });
-	 // End of Requirement
+	// Require for bi-language
+	const router = useRouter();
+	const { locale, locales, defaultLocale } = router;
+	const { formatMessage } = useIntl();
+	const f = (id) => formatMessage({ id });
+	// End of Requirement
 
 	return (
 		<React.Fragment>
@@ -193,55 +214,51 @@ export default function Home({ posts }) {
 					<Container maxWidth="xl" className={classes.BlogContainer}>
 						<Grid container>
 							<Grid item xs={12} align="center">
-								<Typography
-									variant="h2"
-									className={classes.NewsTypo1}
-								>
-									{f("menuNews")}
-								</Typography>
-								<Typography
-									variant="h5"
-									className={classes.NewsTypo2}
-								>
-									NEWS AND PUBLIC RELATIONS
-								</Typography>
+								<Rotate bottom left>
+									<Typography variant="h2" className={classes.NewsTypo1}>
+										{f("menuNews")}
+									</Typography>
+									<Typography variant="h5" className={classes.NewsTypo2}>
+										NEWS AND PUBLIC RELATIONS
+									</Typography>
+								</Rotate>
 							</Grid>
-							<Grid item xs={12}>
-								<Grid
-									container
-									direction="row"
-									justify="center"
-									alignItems="center"
-								>
-									{posts
-										? posts.slice(0, 4).map((post) => (
-												<Grid
-													key={post.id}
-													item
-													sm={12}
-													md={6}
-													className={
-														classes.NewsContainer2
-													}
-												>
-													<Blog1
-														post={post}
-														url={`/post/${post.id}`}
-													/>
-												</Grid>
-										  ))
-										: "Loading Data"}
-								</Grid>
-							</Grid>
+							<div className={classes.Carousel1}>
+							<Carousel itemsToShow={4} >
+								{posts
+									? posts.slice(0, 16).map((post) => (
+											<div key={post.id} className={classes.NewsContainer2}>
+												<Blog1 post={post} url={`/post/${post.id}`} />
+											</div>
+									  ))
+									: "Loading Data"}
+							</Carousel>
+							</div>
+							<div className={classes.Carousel2}>
+							<Carousel itemsToShow={2} >
+								{posts
+									? posts.slice(0, 12).map((post) => (
+											<div key={post.id} className={classes.NewsContainer2}>
+												<Blog1 post={post} url={`/post/${post.id}`} />
+											</div>
+									  ))
+									: "Loading Data"}
+							</Carousel>
+							</div>
+							<div className={classes.Carousel3}>
+							<Carousel itemsToShow={1} >
+								{posts
+									? posts.slice(0, 6).map((post) => (
+											<div key={post.id} className={classes.NewsContainer2}>
+												<Blog1 post={post} url={`/post/${post.id}`} />
+											</div>
+									  ))
+									: "Loading Data"}
+							</Carousel>
+							</div>
 							<Grid item xs={12} className={classes.alignButton}>
-								<Button
-									component={Link}
-									href="/blog"
-									variant="contained"
-									size="large"
-									className={classes.buttonMore}
-								>
-								 {f("button")}
+								<Button component={Link} href="/blog" variant="contained" size="large" className={classes.buttonMore}>
+									{f("button")}
 								</Button>
 							</Grid>
 						</Grid>

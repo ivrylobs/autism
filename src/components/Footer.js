@@ -129,6 +129,10 @@ const useStyle = makeStyles((theme) => ({
     mapgoogle: {
         marginTop: 20,
         width: "100%",
+        height: 250,
+        [theme.breakpoints.down("xs")]: {
+            height: 190
+        },
     },
     iconfooter1: {
         color: "#B1BE12",
@@ -149,7 +153,7 @@ const useStyle = makeStyles((theme) => ({
     },
     imageIcon: {
         height: 55,
-        marginTop: 60,
+        marginTop: 25,
         [theme.breakpoints.down("xs")]: {
             height: 35,
         },
@@ -165,9 +169,9 @@ const useStyle = makeStyles((theme) => ({
         padding: 20,
     },
     CarditemAbotus: {
-        marginTop: 50,
+        marginTop: 10,
         [theme.breakpoints.down("sm")]: {
-            marginTop: 25,
+            marginTop: 15,
         },
         [theme.breakpoints.down("xs")]: {
             marginTop: 5,
@@ -177,8 +181,19 @@ const useStyle = makeStyles((theme) => ({
         textAlign: "center",
     },
     Typographyfacebookfooter: {
-        marginTop: 70,
+        marginTop: 40,
         display: "grid",
+        [theme.breakpoints.down("lg")]: {
+           
+            marginTop: 56
+        },
+        [theme.breakpoints.down("md")]: {
+           
+        },
+        [theme.breakpoints.down("sm")]: {
+           
+            marginTop: 55,
+        },
         [theme.breakpoints.down("sm")]: {
             marginTop: 55,
         },
@@ -186,9 +201,10 @@ const useStyle = makeStyles((theme) => ({
     },
 
     phoneNumber: {
-        marginTop: 50,
+        marginTop: 10,
         [theme.breakpoints.down("lg")]: {
             fontSize: 14,
+            marginTop: 54
         },
         [theme.breakpoints.down("md")]: {
             fontSize: 12,
@@ -234,6 +250,8 @@ const useStyle = makeStyles((theme) => ({
         '&:focus': {
           backgroundColor: "#3AC7FD"
         },
+        position:'fixed',
+        bottom: 0
     }
 }));
 
